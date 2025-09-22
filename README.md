@@ -1,5 +1,5 @@
 # ProjetGES7
-
+## Prochaine étape effectuer l'asservissement en courant
 ## Projet Asservissement Machine à Courant Continu
 
 Ce projet a pour objectif de réaliser l’asservissement en **vitesse** et en **courant** d’une machine à courant continu (MCC) avec charge.  
