@@ -1,1 +1,60 @@
-Introduction à ajouter ici.
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Dans le domaine de l'électronique de puissance et de l'automatique, la commande des machines électriques constitue un enjeu majeur pour de nombreuses applications industrielles. Parmi ces machines, la machine à courant continu (MCC) occupe une place particulière de par sa simplicité de commande et sa capacité à fournir des couples élevés à basse vitesse.
+
+Ce projet, réalisé dans le cadre du semestre 7 de la formation en Génie Électrique à l'INSA Strasbourg, porte sur l'étude et la réalisation de l'asservissement d'une machine à courant continu avec charge. L'objectif principal est de développer un système de contrôle permettant d'asservir précisément la vitesse et le courant de la machine tout en respectant les contraintes de performance imposées.
+
+\section{Contexte et problématique}
+
+L'asservissement des machines électriques nécessite une approche méthodique combinant la modélisation théorique, la simulation numérique et la validation expérimentale. Dans le cas particulier de la machine à courant continu, plusieurs défis doivent être relevés :
+
+\begin{itemize}
+    \item La modélisation précise du comportement dynamique de la machine et de sa charge
+    \item La conception de correcteurs adaptés pour les boucles de courant et de vitesse
+    \item La limitation des dépassements lors des régimes transitoires
+    \item L'optimisation des performances en régime permanent et dynamique
+\end{itemize}
+
+\section{Objectifs du projet}
+
+Ce projet vise à concevoir et valider un système d'asservissement complet pour une machine à courant continu. Les objectifs spécifiques sont les suivants :
+
+\begin{enumerate}
+    \item \textbf{Modélisation et simulation} : Développer un modèle mathématique précis de la machine à courant continu et de sa charge, puis l'implémenter dans les environnements MATLAB/Simulink et PSIM
+    
+    \item \textbf{Asservissement en courant} : Concevoir et régler une boucle de régulation de courant permettant de contrôler précisément le couple de la machine
+    
+    \item \textbf{Asservissement en vitesse} : Implémenter une boucle de régulation de vitesse en cascade avec la boucle de courant, utilisant soit un capteur tachymétrique soit un codeur incrémental
+    
+    \item \textbf{Respect des spécifications} : Garantir que les dépassements en vitesse et en courant restent dans la plage de 10 à 20\% lors des transitoires
+    
+    \item \textbf{Validation comparative} : Comparer les résultats obtenus entre les simulations MATLAB/Simulink et PSIM pour valider la cohérence des modèles
+\end{enumerate}
+
+\section{Approche méthodologique}
+
+La démarche adoptée suit une approche progressive et structurée :
+
+\begin{itemize}
+    \item \textbf{Phase 1} : Étude et modélisation de la machine seule
+    \item \textbf{Phase 2} : Intégration de la charge mécanique et validation du modèle complet
+    \item \textbf{Phase 3} : Conception et réglage de la boucle de courant
+    \item \textbf{Phase 4} : Conception et réglage de la boucle de vitesse
+    \item \textbf{Phase 5} : Optimisation globale et validation finale du système d'asservissement
+\end{itemize}
+
+Chaque phase fait l'objet d'une validation croisée entre les outils MATLAB/Simulink et PSIM, permettant de garantir la fiabilité des résultats et d'identifier d'éventuelles divergences de modélisation.
+
+\section{Structure du rapport}
+
+Ce rapport présente de manière détaillée l'ensemble des travaux réalisés. Il s'articule autour des axes suivants :
+\begin{itemize}
+    \item La modélisation théorique et numérique de la machine à courant continu
+    \item L'analyse comparative des outils de simulation
+    \item La conception des correcteurs et leur réglage
+    \item La validation expérimentale des performances obtenues
+    \item L'analyse critique des résultats et les perspectives d'amélioration
+\end{itemize}
+
+Les résultats obtenus démontrent la faisabilité d'un asservissement efficace de la machine à courant continu tout en respectant les spécifications imposées, ouvrant ainsi la voie à des applications industrielles concrètes.

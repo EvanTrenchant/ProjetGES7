@@ -12,7 +12,7 @@
     {\thechapter~-~}                % Format du numéro (X - )
     {0pt}                           % Séparation entre numéro et titre
     {}                              % Code avant le titre
-\titlespacing*{\chapter}{0pt}{-30pt}{20pt} % Ajustement des espaces
+\titlespacing*{\chapter}{0pt}{0pt}{20pt} % Ajustement des espaces (espace avant augmenté)
 
 % --- Configuration des en-têtes et pieds de page ---
 \pagestyle{fancy}
@@ -20,7 +20,7 @@
 
 % Configuration de l'en-tête
 \fancyhead[L]{\includegraphics[height=1cm]{images/logo_insa.jpg}}
-\fancyhead[C]{TRENCHANT, TROULLIER, VIRQUIN - Projet GE S7}
+\fancyhead[C]{TRENCHANT, TROULLIER, VIRQUIN}
 \fancyhead[R]{\ddmmyyyy\today}
 
 % Configuration du pied de page
@@ -49,7 +49,7 @@
   \fancyhf{} % Nettoie les champs
   % En-tête identique au style fancy
   \fancyhead[L]{\includegraphics[height=1cm]{images/logo_insa.jpg}}
-  \fancyhead[C]{TRENCHANT, TROULLIER, VIRQUIN - Projet GE S7}
+  \fancyhead[C]{TRENCHANT, TROULLIER, VIRQUIN}
   \fancyhead[R]{\ddmmyyyy\today}
   % Pied de page identique au style fancy
   \fancyfootoffset{0pt}
@@ -81,3 +81,17 @@
     \setcounter{page}{2}%
     \pagestyle{fancy}%
 }
+
+% --- Configuration des titres de sections et sous-sections ---
+% Chapitres et sections sans numérotation
+\newcommand{\chapternn}[1]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}}
+\newcommand{\sectionnn}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand{\subsectionnn}[1]{\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
+\newcommand{\subsubsectionnn}[1]{\subsubsection*{#1}\addcontentsline{toc}{subsubsection}{#1}}
+
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% Numérotation des sections
+\renewcommand\thesection{\arabic{section}.}
+\renewcommand\thesubsection{\thesection\arabic{subsection}.}
