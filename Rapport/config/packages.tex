@@ -6,8 +6,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-\renewcommand{\familydefault}{\sfdefault}  % Utilise Computer Modern Sans Serif
-\renewcommand{\sfdefault}{qag}  % Spécifie cmss comme police sans empattement
+% \renewcommand{\familydefault}{\sfdefault}  % Utilise Computer Modern Sans Serif (désactivé)
+% \renewcommand{\sfdefault}{qag}  % Spécifie cmss comme police sans empattement (désactivé)
 
 % --- Packages pour la mise en page et le contenu ---
 \usepackage{graphicx}               % Pour inclure des images
@@ -32,6 +32,11 @@
 \usepackage{titlesec}               % Pour personnaliser les titres de chapitres
 \usepackage{lastpage}               % Pour obtenir le nombre total de pages
 \usepackage{datetime}               % Pour le formatage des dates
+\usepackage{pgfgantt}           % Diagrammes de Gantt
+
+% Configuration des titres
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
 
 % --- Package CircuiTikz avec configuration spéciale ---
 \usepackage{tikz}                   % TikZ doit être chargé avant circuitikz
