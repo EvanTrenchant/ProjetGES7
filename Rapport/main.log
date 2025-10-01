@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  1 OCT 2025 15:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  1 OCT 2025 15:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/rudyv/Documents/COURS GE4/S7/ENPU 2/TP ENPU2 GE4 2025/Rapport/main.tex"
-(c:/Users/rudyv/Documents/COURS GE4/S7/ENPU 2/TP ENPU2 GE4 2025/Rapport/main.tex
+**"c:/Users/rudyv/Documents/COURS GE4/S7/ProjetGES7/Rapport/main.tex"
+(c:/Users/rudyv/Documents/COURS GE4/S7/ProjetGES7/Rapport/main.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
 (c:/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -822,7 +822,7 @@ Package caption Info: End \AtBeginDocument code.
 File: translations-basic-dictionary-french.trsl (french translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 12.
-<images/logo_insa.jpg, id=11, 651.43375pt x 182.6825pt>
+<images/logo_insa.jpg, id=7, 651.43375pt x 182.6825pt>
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 15.
@@ -851,7 +851,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
 
-<images/foot-logo.png, id=24, 66.576pt x 66.795pt>
+<images/foot-logo.png, id=16, 66.576pt x 66.795pt>
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 23.
@@ -879,24 +879,7 @@ Package pdftex.def Info: images/foot-logo.png  used on input line 27.
 (pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
 [3
 
-] (./contenu/circuit-example.tex)
-
-File: images/logo_insa.jpg Graphic file (type jpg)
-<use images/logo_insa.jpg>
-Package pdftex.def Info: images/logo_insa.jpg  used on input line 33.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
-File: images/foot-logo.png Graphic file (type png)
-<use images/foot-logo.png>
-Package pdftex.def Info: images/foot-logo.png  used on input line 33.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[4{c:/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}] 
+] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./main.aux)
  ***********
@@ -904,21 +887,21 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 573483FE8D1B7FB5293825D8F64A720B;139.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 51032 strings out of 467797
- 1222958 string characters out of 5435982
- 1850102 words of memory out of 5000000
- 79124 multiletter control sequences out of 15000+600000
- 658941 words of font info for 76 fonts, out of 8000000 for 9000
+ 50230 strings out of 467797
+ 1200224 string characters out of 5435982
+ 1830989 words of memory out of 5000000
+ 78331 multiletter control sequences out of 15000+600000
+ 653281 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,18n,104p,1141b,1094s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagb.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagr.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagri.pfb>
-Output written on main.pdf (4 pages, 779038 bytes).
+ 103i,18n,104p,1127b,1094s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagb.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagr.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagri.pfb>
+Output written on main.pdf (3 pages, 743894 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 44 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

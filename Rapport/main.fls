@@ -1,8 +1,8 @@
-PWD c:/Users/rudyv/Documents/COURS GE4/S7/ENPU 2/TP ENPU2 GE4 2025/Rapport
+PWD c:/Users/rudyv/Documents/COURS GE4/S7/ProjetGES7/Rapport
 INPUT c:/texlive/2025/texmf.cnf
 INPUT c:/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT c:/Users/rudyv/Documents/COURS GE4/S7/ENPU 2/TP ENPU2 GE4 2025/Rapport/main.tex
+INPUT c:/Users/rudyv/Documents/COURS GE4/S7/ProjetGES7/Rapport/main.tex
 OUTPUT main.log
 INPUT c:/texlive/2025/texmf-dist/tex/latex/base/report.cls
 INPUT c:/texlive/2025/texmf-dist/tex/latex/base/report.cls
@@ -342,10 +342,10 @@ INPUT ./main.out
 INPUT ./main.out
 INPUT main.out
 INPUT main.out
-OUTPUT main.pdf
 INPUT ./main.out
 INPUT ./main.out
 OUTPUT main.out
+OUTPUT main.pdf
 INPUT c:/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
 INPUT c:/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
 INPUT c:/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
@@ -377,18 +377,6 @@ INPUT c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qagr.tfm
 INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qagr.tfm
 INPUT c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -405,6 +393,18 @@ INPUT ./images/foot-logo.png
 INPUT ./images/foot-logo.png
 INPUT ./images/foot-logo.png
 INPUT ./images/foot-logo.png
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT ./main.toc
 INPUT ./main.toc
 INPUT main.toc
@@ -417,26 +417,9 @@ INPUT ./images/foot-logo.png
 INPUT ./images/foot-logo.png
 INPUT ./images/foot-logo.png
 INPUT ./images/foot-logo.png
-INPUT ./contenu/circuit-example.tex
-INPUT ./contenu/circuit-example.tex
-INPUT contenu/circuit-example.tex
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qagb.tfm
-INPUT c:/texlive/2025/texmf-dist/fonts/tfm/public/tex-gyre/ec-qagr-sc.tfm
-INPUT ./images/logo_insa.jpg
-INPUT ./images/logo_insa.jpg
-INPUT ./images/logo_insa.jpg
-INPUT ./images/logo_insa.jpg
-INPUT ./images/foot-logo.png
-INPUT ./images/foot-logo.png
-INPUT ./images/foot-logo.png
-INPUT ./images/foot-logo.png
-INPUT c:/texlive/2025/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec-sc.enc
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
-INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagb.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagr.pfb
 INPUT c:/texlive/2025/texmf-dist/fonts/type1/public/tex-gyre/qagri.pfb
