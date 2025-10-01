@@ -1,0 +1,106 @@
+% =====================================
+% CONFIGURATION DES PACKAGES ET COULEURS
+% =====================================
+
+% --- Encodage et langue ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\renewcommand{\familydefault}{\sfdefault}  % Utilise Computer Modern Sans Serif
+\renewcommand{\sfdefault}{qag}  % Spécifie cmss comme police sans empattement
+
+% --- Packages pour la mise en page et le contenu ---
+\usepackage{graphicx}               % Pour inclure des images
+\usepackage[a4paper, margin=2.5cm]{geometry} % Gestion des marges
+\usepackage{amsmath, amssymb}       % Outils mathématiques avancés
+\usepackage[
+    hidelinks,
+    pdftitle={DUBOIS\_VIRQUIN\_ENPU2\_Projet},
+    pdfauthor={Estéban DUBOIS, Rudy VIRQUIN},
+    pdfsubject={Projet ENPU 2 - Étude d'une cellule de commutation},
+    pdfkeywords={électronique de puissance, cellule de commutation, INSA Strasbourg, ENPU2},
+    pdfcreator={LaTeX},
+    pdfproducer={LaTeX}
+]{hyperref}    % Pour les liens cliquables et métadonnées PDF
+\usepackage{fancyhdr}               % Pour personnaliser les en-têtes et pieds de page
+\usepackage{xcolor}                 % Pour utiliser des couleurs
+\usepackage{tcolorbox}              % Pour créer des boîtes colorées
+\usepackage{float}                  % Pour mieux placer les figures
+\usepackage{caption}                % Pour personnaliser les légendes
+\usepackage{subcaption}             % Pour des sous-figures
+\usepackage{booktabs}               % Pour de jolis tableaux
+\usepackage{titlesec}               % Pour personnaliser les titres de chapitres
+\usepackage{lastpage}               % Pour obtenir le nombre total de pages
+\usepackage{datetime}               % Pour le formatage des dates
+
+% --- Package CircuiTikz avec configuration spéciale ---
+\usepackage{tikz}                   % TikZ doit être chargé avant circuitikz
+\usepackage[siunitx]{circuitikz} % Configuration pour les diagrammes électriques
+\usetikzlibrary{babel}
+
+% --- Définition des couleurs personnalisées ---
+\definecolor{INSAbleu}{RGB}{0, 70, 127}
+\definecolor{boxgray}{gray}{0.95}
+\definecolor{remindercolor}{RGB}{173, 216, 230}     % Bleu clair pour les rappels
+\definecolor{conclusioncolor}{RGB}{220, 53, 69}     % Rouge pour les conclusions
+\definecolor{conclusionbg}{RGB}{255, 240, 240}     % Fond rouge très clair
+\definecolor{BLANC}{RGB}{255, 255, 255}            % Couleur blanche pour le pied de page
+
+% --- Définition des modèles de boîtes colorées ---
+\newtcolorbox{reminderbox}[1][Rappel]{
+    colback=remindercolor!20,
+    colframe=remindercolor!80,
+    coltitle=white,
+    colbacktitle=remindercolor!80,
+    title=#1,
+    fonttitle=\bfseries,
+    rounded corners,
+    boxrule=1pt,
+    left=3mm,
+    right=3mm,
+    top=2mm,
+    bottom=2mm
+}
+
+\newtcolorbox{conclusionbox}[1][Conclusion]{
+    colback=conclusionbg,
+    colframe=conclusioncolor,
+    coltitle=white,
+    colbacktitle=conclusioncolor,
+    title=#1,
+    fonttitle=\bfseries,
+    rounded corners,
+    boxrule=1pt,
+    left=3mm,
+    right=3mm,
+    top=2mm,
+    bottom=2mm
+}
+
+\newtcolorbox{infobox}[1][Information]{
+    colback=INSAbleu!10,
+    colframe=INSAbleu,
+    coltitle=white,
+    colbacktitle=INSAbleu,
+    title=#1,
+    fonttitle=\bfseries,
+    rounded corners,
+    boxrule=1pt,
+    left=3mm,
+    right=3mm,
+    top=2mm,
+    bottom=2mm
+}
+
+\newtcolorbox{classicbox}[1][Information]{
+    colback=gray!10,
+    colframe=gray!50,
+    title=#1,
+    fonttitle=\bfseries,
+    rounded corners,
+    boxrule=1pt,
+    left=3mm,
+    right=3mm,
+    top=2mm,
+    bottom=2mm
+}
