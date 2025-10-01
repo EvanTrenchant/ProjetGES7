@@ -1,0 +1,83 @@
+% =====================================
+% CONFIGURATION DE LA MISE EN PAGE
+% =====================================
+
+% --- Format de date DD/MM/YYYY ---
+\newdateformat{ddmmyyyy}{\THEDAY/\THEMONTH/\THEYEAR}
+\ddmmyyyy
+
+% --- Personnalisation du format des chapitres ---
+\titleformat{\chapter}
+    {\normalfont\huge\bfseries}     % Format du titre
+    {\thechapter~-~}                % Format du numéro (X - )
+    {0pt}                           % Séparation entre numéro et titre
+    {}                              % Code avant le titre
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt} % Ajustement des espaces
+
+% --- Configuration des en-têtes et pieds de page ---
+\pagestyle{fancy}
+\fancyhf{} % Nettoie les champs
+
+% Configuration de l'en-tête
+\fancyhead[L]{\includegraphics[height=1cm]{images/logo_insa.jpg}}
+\fancyhead[C]{Estéban DUBOIS, Rudy VIRQUIN}
+\fancyhead[R]{\ddmmyyyy\today}
+
+% Configuration du pied de page
+\fancyfootoffset{0pt}
+\fancyfoot[L,C]{}
+\fancyfoot[R]{%
+  \begin{picture}(0,0)
+    \put(-10,-10){%
+      \includegraphics[scale=1]{images/foot-logo.png}%
+    }%
+    \put(22,2){%
+      \begin{minipage}{12mm}
+        \centering
+        \color{BLANC}{\thepage/\pageref*{LastPage}}%
+      \end{minipage}%
+    }%
+  \end{picture}%
+}
+
+% Configuration des lignes de séparation
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Configuration du style plain pour table des matières ---
+\fancypagestyle{plain}{%
+  \fancyhf{} % Nettoie les champs
+  % En-tête identique au style fancy
+  \fancyhead[L]{\includegraphics[height=1cm]{images/logo_insa.jpg}}
+  \fancyhead[C]{Estéban DUBOIS, Rudy VIRQUIN}
+  \fancyhead[R]{\ddmmyyyy\today}
+  % Pied de page identique au style fancy
+  \fancyfootoffset{0pt}
+  \fancyfoot[L,C]{}
+  \fancyfoot[R]{%
+    \begin{picture}(0,0)
+      \put(-10,-10){%
+        \includegraphics[scale=1]{images/foot-logo.png}%
+      }%
+      \put(22,2){%
+        \begin{minipage}{12mm}
+          \centering
+          \color{BLANC}{\thepage/\pageref*{LastPage}}%
+        \end{minipage}%
+      }%
+    \end{picture}%
+  }
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% --- Paramètres généraux de mise en page ---
+\setlength{\parindent}{0pt}  % Suppression de l'indentation automatique des paragraphes
+\setlength{\headsep}{1.5cm}  % Espacement entre l'en-tête et le contenu
+
+% --- Configuration de la numérotation des pages ---
+% Commande pour démarrer la numérotation à 2 (page de garde = page 1 non numérotée)
+\newcommand{\startpagenumbering}{%
+    \setcounter{page}{2}%
+    \pagestyle{fancy}%
+}

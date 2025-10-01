@@ -1,0 +1,33 @@
+\documentclass[12pt, a4paper]{report}
+
+% --- Inclusion des configurations ---
+\input{config/packages}        % Packages et couleurs
+\input{config/layout}          % Mise en page et styles
+\input{config/project-settings} % Variables du projet
+
+% =====================================
+% DOCUMENT PRINCIPAL
+% =====================================
+
+\begin{document}
+
+% --- Page de garde ---
+\maketitlepage
+
+% --- Démarrage de la numérotation à 2 (page de garde = page 1) ---
+\startpagenumbering
+
+% --- Introduction et objectifs ---
+\input{contenu/introduction.tex}
+
+\newpage
+
+% --- Sommaires ---
+\tableofcontents
+\newpage
+\input{contenu/circuit-example.tex}
+
+% --- Inclusion des chapitres/parties du rapport ---
+% Ajoutez ici vos chapitres avec \input{../contenu/chapitre.tex}
+
+\end{document}

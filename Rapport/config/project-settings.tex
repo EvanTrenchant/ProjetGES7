@@ -1,0 +1,64 @@
+% =====================================
+% VARIABLES SPÉCIFIQUES AU PROJET
+% =====================================
+
+% --- Commandes modulaires pour le rapport (À MODIFIER POUR CHAQUE PROJET) ---
+\newcommand{\tpnumero}{}
+\newcommand{\tptitre}{Étude d'une cellule de commutation}
+\newcommand{\tpauteurs}{
+    \begin{tabular}{c}
+        Estéban DUBOIS \\
+        Rudy VIRQUIN
+    \end{tabular}
+}
+\newcommand{\tpgroupe}{GE4}
+\newcommand{\tpprofesseur}{Caio Augusto Fonseca De Freitas}
+\newcommand{\tpdate}{\today} % Ou une date fixe: {30/09/2025}
+
+% --- Page de garde personnalisée ---
+\newcommand{\maketitlepage}{
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.5\textwidth]{images/logo_insa.jpg}\par\vspace{1cm}
+        {\Huge\bfseries Projet ENPU 2\par}
+        \vspace{1.5cm}
+        {\huge\bfseries \tptitre\par}
+        \vspace{2cm}
+        {\Large\itshape \tpauteurs\par}
+        {\Large\itshape Groupe 2 \tpgroupe\par}
+        \vspace{2cm}
+        {\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+	% Paths, nodes and wires:
+	\node[nigfete] at (8.98, 7.27){};
+	\draw (9.48, 6.5) to[empty diode, l_={$T$}] (9.48, 8.04);
+	\draw (9.48, 8.04) -| (8.98, 8.04);
+	\draw (9.48, 6.5) -- (8.98, 6.5);
+	\node[ieeestd buffer port](N1) at (7.152, 7){} node[anchor=south] at ([yshift=0.05cm]N1.north){$Driver$};
+	\draw (2, 10) to[american voltage source] (2, 6);
+	\draw (4, 10) to[capacitor] (4, 8);
+	\draw (6.275, 7) to[square voltage source] (4, 7);
+	\draw (4, 8) -- (4, 7);
+	\node[ground] at (4, 6){};
+	\draw (4, 7) -| (4, 6) -| (8.98, 6.5);
+	\draw (8, 8.667) to[empty diode] (8, 10);
+	\draw (9, 8.667) to[cute inductor, mirror, l_={$RL$}] (9, 10);
+	\draw (8.98, 8.04) -| (9, 8.667);
+	\draw (8, 8.667) -- (9, 8.667);
+	\draw (4, 6) -- (2, 6);
+	\draw (2, 10) -- (8, 10);
+	\draw (8, 10) -- (9, 10);
+	\node[circ] at (4, 10){};
+	\node[circ] at (4, 7){};
+	\node[circ] at (4, 6){};
+	\node[circ] at (9, 8.667){};
+	\node[circ] at (8, 10){};
+\end{tikzpicture}
+\end{figure}}
+        \vfill
+        {\large Professeur : \tpprofesseur\par}
+        \vspace{0.8cm}
+        {\large \tpdate\par}
+    \end{titlepage}
+}
