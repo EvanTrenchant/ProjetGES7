@@ -1,6 +1,4 @@
 \babel@toc {french}{}\relax 
 \contentsline {chapter}{Introduction}{2}{chapter*.1}%
-\contentsline {section}{\numberline {1.}Contexte et problématique}{2}{section.0.1}%
-\contentsline {section}{\numberline {2.}Objectifs du projet}{2}{section.0.2}%
-\contentsline {section}{\numberline {3.}Approche méthodologique}{2}{section.0.3}%
-\contentsline {section}{\numberline {4.}Structure du rapport}{3}{section.0.4}%
+\contentsline {chapter}{Planification du projet}{5}{chapter*.3}%
+\contentsline {section}{\numberline {1.}Diagramme de Gantt}{5}{section.0.1}%

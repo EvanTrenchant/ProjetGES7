@@ -33,6 +33,16 @@
 \usepackage{lastpage}               % Pour obtenir le nombre total de pages
 \usepackage{datetime}               % Pour le formatage des dates
 \usepackage{pgfgantt}           % Diagrammes de Gantt
+\usepackage{enumitem}               % Pour personnaliser les listes
+
+% --- Configuration des listes ---
+\setlist[itemize,1]{label=\textbullet}    % Premier niveau : bullet standard
+\setlist[itemize,2]{label=\textendash}    % Deuxième niveau : tiret
+\setlist[itemize,3]{label=$\ast$}         % Troisième niveau : astérisque
+\setlist[itemize,4]{label=$\cdot$}        % Quatrième niveau : point centré
+
+% Configuration de la table des matières (exclut les subsections)
+\setcounter{tocdepth}{1}  % Seuls les chapitres et sections apparaissent dans la TOC
 
 % Configuration des titres
 \titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
