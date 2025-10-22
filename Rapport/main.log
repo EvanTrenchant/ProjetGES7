@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.2)  22 OCT 2025 17:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.2)  22 OCT 2025 17:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1130,11 +1130,11 @@ File: images/foot-logo.png Graphic file (type png)
 Package pdftex.def Info: images/foot-logo.png  used on input line 66.
 (pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
 [11 <./images/boucle_de_courant/comparaison_reponse_indicielle_courant.png>]
-<images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png, id=130, 1477.77094pt x 642.14906pt>
+<images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png, id=130, 1277.52281pt x 565.36218pt>
 File: images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png Graphic file (type png)
 <use images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png>
 Package pdftex.def Info: images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png  used on input line 71.
-(pdftex.def)             Requested size: 455.24411pt x 197.81975pt.
+(pdftex.def)             Requested size: 455.24411pt x 201.46843pt.
 <images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png, id=131, 1016.29688pt x 681.29532pt>
 File: images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png Graphic file (type png)
 <use images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png>
@@ -1192,11 +1192,11 @@ Here is how much of TeX's memory you used:
  573299 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,19n,104p,1190b,1040s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on main.pdf (13 pages, 1241006 bytes).
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
+Output written on main.pdf (13 pages, 1257012 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
+ 218 PDF objects out of 1000 (max. 8388607)
+ 157 compressed objects within 2 object streams
  41 named destinations out of 1000 (max. 500000)
  119 words of extra memory for PDF output out of 10000 (max. 10000000)
 
