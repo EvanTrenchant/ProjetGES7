@@ -1,0 +1,81 @@
+\chapter*{Planification du projet}
+\addcontentsline{toc}{chapter}{Planification du projet}
+
+La réalisation de ce projet d'asservissement d'une machine à courant continu nécessite une planification rigoureuse pour garantir l'atteinte des objectifs dans les délais impartis. Cette section présente l'organisation temporelle du projet et le diagramme de Gantt détaillant les différentes phases de développement.
+
+\section{Diagramme de Gantt}
+
+Le diagramme de Gantt ci-dessous illustre la planification détaillée du projet sur 14 semaines, avec les dépendances entre les tâches et les jalons importants.
+
+\begin{figure}[H]
+    \centering
+    \begin{ganttchart}[
+        vgrid,
+        hgrid,
+        x unit=0.8cm,
+        y unit chart=0.7cm,
+        title height=1,
+        title label font=\footnotesize,
+        bar label font=\footnotesize,
+        group label font=\footnotesize,
+        milestone label font=\footnotesize,
+        bar height=0.6,
+        group height=0.6,
+        milestone height=0.6,
+        bar/.append style={fill=INSAbleu!70},
+        group/.append style={fill=INSAbleu!50},
+        milestone/.append style={fill=red!70, rounded corners=2pt},
+        progress label text={},
+        link/.style={->, thick}
+    ]{1}{14}
+        
+        % En-tête du diagramme
+        \gantttitle{Planning Projet GE S7 - Asservissement MCC}{14} \\
+        \gantttitle{Semaine}{14} \\
+        \gantttitlelist{1,...,14}{1} \\
+        
+        % Phase 1 : Modélisation de base
+        \ganttgroup{Phase 1 : Modélisation de base}{1}{3} \\
+        \ganttbar{Étude théorique MCC}{1}{2} \\
+        \ganttbar{Modélisation MATLAB}{2}{3} \\
+        \ganttbar{Modélisation PSIM}{2}{3} \\
+        \ganttmilestone{Validation modèle moteur seul}{3} \\
+        
+        % Phase 2 : Modélisation complète  
+        \ganttgroup{Phase 2 : Modélisation complète}{4}{6} \\
+        \ganttbar{Intégration charge mécanique}{4}{5} \\
+        \ganttbar{Validation croisée MATLAB/PSIM}{5}{6} \\
+        \ganttbar{Tests de robustesse}{6}{6} \\
+        \ganttmilestone{Modèle complet validé}{6} \\
+        
+        % Phase 3 : Boucle de courant
+        \ganttgroup{Phase 3 : Boucle de courant}{7}{9} \\
+        \ganttbar{Conception correcteur courant}{7}{8} \\
+        \ganttbar{Réglage et optimisation}{8}{9} \\
+        \ganttbar{Validation spécifications}{9}{9} \\
+        \ganttmilestone{Asservissement courant opérationnel}{9} \\
+        
+        % Phase 4 : Boucle de vitesse
+        \ganttgroup{Phase 4 : Boucle de vitesse}{10}{12} \\
+        \ganttbar{Conception correcteur vitesse}{10}{11} \\
+        \ganttbar{Intégration boucles imbriquées}{11}{12} \\
+        \ganttbar{Tests capteurs (tachy/codeur)}{11}{12} \\
+        \ganttbar{Validation performance globale}{12}{12} \\
+        \ganttmilestone{Système d'asservissement complet}{12} \\
+        
+        % Phase 5 : Finalisation
+        \ganttgroup{Phase 5 : Validation finale}{13}{14} \\
+        \ganttbar{Optimisation finale}{13}{13} \\
+        \ganttbar{Documentation et rapport}{13}{14} \\
+        \ganttbar{Préparation soutenance}{14}{14} \\
+        \ganttmilestone{Projet finalisé}{14} \\
+        
+        % Liens entre les tâches
+        \ganttlink{elem3}{elem5}
+        \ganttlink{elem7}{elem9}
+        \ganttlink{elem11}{elem13}
+        \ganttlink{elem16}{elem18}
+    \end{ganttchart}
+    \caption{Diagramme de Gantt du projet d'asservissement MCC}
+    \label{fig:gantt_projet}
+\end{figure}
