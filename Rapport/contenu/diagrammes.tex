@@ -1,0 +1,136 @@
+\chapter{Schémas blocs du système d'asservissement}
+
+\section{Schéma bloc de l'asservissement en vitesse et courant}
+
+
+\begin{figure}[H]
+    \centering
+    \incfig{diagramme}
+    \caption{Votre légende}
+    \label{fig:label_image}
+\end{figure}
+
+
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[auto, node distance=2cm,>=latex']
+        % Définition des styles
+        \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=3em]
+        \tikzstyle{sum} = [draw, circle, minimum size=6mm, node distance=1.5cm]
+        \tikzstyle{input} = [coordinate]
+        \tikzstyle{output} = [coordinate]
+        \tikzstyle{gain} = [draw, regular polygon, regular polygon sides=3, shape border rotate=-90, minimum size=0.5em, inner sep=1pt]
+        
+        % Nœuds - Entrée et premier sommateur
+        \node [input, name=input] (input) {};
+        \node [sum, right of=input] (sum1) {};
+        \node [sum, right of=sum1, node distance=1.2cm] (sum2) {};
+        
+        % Ajout des signes + et - dans les sommateurs
+        \draw (sum1.north east) -- (sum1.south west);
+        \draw (sum1.south east) -- (sum1.north west);
+        \node [above left, inner sep=6pt] at (sum1.center) {\tiny $+$};
+        \node [below right, inner sep=6pt] at (sum1.center) {\tiny $-$};
+        
+        \draw (sum2.north east) -- (sum2.south west);
+        \draw (sum2.south east) -- (sum2.north west);
+        \node [above left, inner sep=6pt] at (sum2.center) {\tiny $+$};
+        \node [below right, inner sep=6pt] at (sum2.center) {\tiny $-$};
+        
+        % Bloc correcteur de vitesse
+        \node [block, right of=sum2, node distance=2cm] (corrV) {$\dfrac{1}{R+Ls}$};
+        
+        % Gain Kphi
+        \node [gain, right of=corrV, node distance=1.8cm] (kphi) {$K_\phi$};
+        
+        % Troisième sommateur
+        \node [sum, right of=kphi, node distance=1.8cm] (sum3) {};
+        
+        % Ajout des signes + et - dans le troisième sommateur
+        \draw (sum3.north east) -- (sum3.south west);
+        \draw (sum3.south east) -- (sum3.north west);
+        \node [above left, inner sep=6pt] at (sum3.center) {\tiny $+$};
+        \node [below right, inner sep=6pt] at (sum3.center) {\tiny $-$};
+        
+        % Bloc intégrateur
+        \node [block, right of=sum3, node distance=2.5cm] (integ) {$\dfrac{1}{Js}$};
+        
+        % Point Omega pour dérivation
+        \node [coordinate, right of=integ, node distance=1.5cm] (omega) {};
+        
+        % Sortie
+        \node [output, right of=omega, node distance=1cm] (output) {};
+        
+        % Boucle de retour 1 : Bloc retour 2f - positionné sous sum3
+        \node [gain, shape border rotate=90, below of=integ, node distance=1.5cm] (gain2f) {$2f$};
+        
+        % Boucle de retour 2 : Bloc retour complexe Kphi² - positionné sous integ
+        \node [block, below of=gain2f, node distance=2.5cm, minimum width=6em] (retourA) {$\dfrac{K_\phi^2}{Ls+(R+R_{ch})}$};
+        
+        % Sommateur 4 : entre les retours 2f et Kphi² avant sum3
+        \node [sum, left of=sum3, node distance=1.5cm, yshift=-2.5cm] (sum4) {};
+        
+        % Ajout des signes + dans le sommateur 4
+        \draw (sum4.north east) -- (sum4.south west);
+        \draw (sum4.south east) -- (sum4.north west);
+        \node [above left, inner sep=6pt] at (sum4.center) {\tiny $+$};
+        \node [below right, inner sep=6pt] at (sum4.center) {\tiny $+$};
+        
+        % Boucle de retour 3 : Gain Kphi - positionné pour aller vers sum2
+        \node [gain, shape border rotate=90, below of=sum3, node distance=5.5cm] (kphiret) {$K_\phi$};
+        
+        % Connexions principales
+        \draw [->] (input) -- node[pos=0.1] {$6.4$} (sum1);
+        \draw [->] (sum1) -- (sum2);
+        \draw [->] (sum2) -- (corrV);
+        \draw [->] (corrV) -- (kphi);
+        \draw [->] (kphi) -- (sum3);
+        \draw [->] (sum3) -- (integ);
+        \draw [->] (integ) -- (omega);
+        \draw [->] (omega) -- node[above] {$\Omega$} (output);
+        
+        % Boucle de retour 1 : 2f part de Omega et va dans sum4
+        \draw [->] (omega) |- (gain2f);
+        \draw [->] (gain2f) -- (sum4);
+        
+        % Boucle de retour 2 : Kphi² part de Omega et va dans sum4
+        \draw [->] (omega) |- (retourA);
+        \draw [->] (retourA) -- (sum4);
+        
+        % Sortie de sum4 vers sum3
+        \draw [->] (sum4) -- (sum3);
+        
+        % Boucle de retour 3 : Kphi part de Omega et revient à sum2
+        \draw [->] (omega) |- (kphiret);
+        \draw [->] (kphiret) -| (sum2);
+        
+        % Labels pour les entrées de charge
+        \node [above of=sum3, node distance=1.2cm] (Lm) {$L_{C0}$};
+        \draw [->] (Lm) -- (sum3);
+        
+        % Annotation A = 2P + a
+        \node [below of=corrV, node distance=1.5cm] (eqA) {$A = 2P + a$};
+        
+    \end{tikzpicture}
+    \caption{Schéma bloc de l'asservissement en vitesse avec boucle de courant imbriquée}
+    \label{fig:schema_bloc_asservissement}
+\end{figure}
+
+\section{Description du schéma bloc}
+
+Le schéma représente un asservissement en cascade (vitesse et courant) d'une machine à courant continu. Les éléments principaux sont :
+
+\begin{itemize}
+    \item \textbf{$C_1$} : Consigne de vitesse
+    \item \textbf{$K_\phi$} : Constante de couple/fem de la machine
+    \item \textbf{$\dfrac{1}{R+Ls}$} : Fonction de transfert électrique (circuit d'induit)
+    \item \textbf{$\dfrac{1}{Js}$} : Fonction de transfert mécanique (inertie)
+    \item \textbf{$2P$} : Retour des pertes par frottements
+    \item \textbf{$L_M$} : Couple de charge externe
+    \item \textbf{$L_8$} : Perturbation sur le courant
+    \item \textbf{$\dfrac{K_\phi^2}{Ls+(R+R_{ch})}$} : Fonction de transfert de retour complexe (avec $A = 2P + a$)
+\end{itemize}
+
+Les boucles de régulation permettent de contrôler précisément la vitesse $\Omega$ et le courant d'induit $i_a$ de la machine.

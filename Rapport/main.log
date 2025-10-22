@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  3 OCT 2025 10:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.9.21)  22 OCT 2025 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -24,7 +24,7 @@ File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
-) (./config/packages.tex (c:/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
+) (./config/project-settings.tex) (./config/packages.tex (c:/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
@@ -798,7 +798,158 @@ Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
 \ar@cellbox=\box91
 ))) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-)) (./config/layout.tex) (./config/project-settings.tex)
+) (c:/texlive/2025/texmf-dist/tex/latex/svg/svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+ (c:/texlive/2025/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2025/09/09 v3.48 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
+ (c:/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2025/09/09 v3.48 KOMA-Script package (file load hooks)
+ (c:/texlive/2025/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2025/09/09 v3.48 KOMA-Script package (using LaTeX hooks)
+ (c:/texlive/2025/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2025/09/09 v3.48 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line 370.
+) (c:/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@svg@param@lastpage=\count429
+\svg@box=\box92
+\c@svg@param@currpage=\count430
+) (c:/texlive/2025/texmf-dist/tex/latex/transparent/transparent.sty
+Package: transparent 2025-06-23 v1.6 Transparency with color stacks
+ (c:/texlive/2025/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
+Package: transparent-nometadata 2025-06-23 v1.6 Transparency via pdfTeX's color stack (HO)
+ (c:/texlive/2025/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+))) (c:/texlive/2025/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+) (c:/texlive/2025/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+ (c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count431
+\calc@Bcount=\count432
+\calc@Adimen=\dimen347
+\calc@Bdimen=\dimen348
+\calc@Askip=\skip74
+\calc@Bskip=\skip75
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count433
+\calc@Cskip=\skip76
+) (c:/texlive/2025/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
+)) (c:/texlive/2025/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2025/07/23 v0.6g Insert pages of external PDF documents (AM)
+ (c:/texlive/2025/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen349
+\ESO@tempdimb=\dimen350
+)
+\AM@pagewidth=\dimen351
+\AM@pageheight=\dimen352
+\AM@fboxrule=\dimen353
+ (c:/texlive/2025/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2025/07/23 v0.6g Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count434
+\AM@pagebox=\box93
+\AM@global@opts=\toks51
+\AM@pagecnt=\count435
+\AM@toc@title=\toks52
+\AM@lof@heading=\toks53
+\c@AM@survey=\count436
+\AM@templatesizebox=\box94
+) (c:/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen354
+\TX@old@table=\dimen355
+\TX@old@col=\dimen356
+\TX@target=\dimen357
+\TX@delta=\dimen358
+\TX@cols=\count437
+\TX@ftn=\toks54
+) (c:/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplots.sty (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2025/08/14 v1.18.2 Data Visualization (1.18.2)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks55
+\t@pgfplots@tokb=\toks56
+\t@pgfplots@tokc=\toks57
+\pgfplots@tmpa=\dimen359
+\c@pgfplots@coordindex=\count438
+\c@pgfplots@scanlineindex=\count439
+ (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count440
+) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count441
+\t@pgfplotstable@a=\toks58
+) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count442
+ (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen360
+\pgfdecoratedremainingdistance=\dimen361
+\pgfdecoratedinputsegmentcompleteddistance=\dimen362
+\pgfdecoratedinputsegmentremainingdistance=\dimen363
+\pgf@decorate@distancetomove=\dimen364
+\pgf@decorate@repeatstate=\count443
+\pgfdecorationsegmentamplitude=\dimen365
+\pgfdecorationsegmentlength=\dimen366
+)
+\tikz@lib@dec@box=\box95
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count444
+\pgfplots@xmin@reg=\dimen367
+\pgfplots@xmax@reg=\dimen368
+\pgfplots@ymin@reg=\dimen369
+\pgfplots@ymax@reg=\dimen370
+\pgfplots@zmin@reg=\dimen371
+\pgfplots@zmax@reg=\dimen372
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodepartlowerbox=\box96
+\pgfnodeparttwobox=\box97
+\pgfnodepartthreebox=\box98
+\pgfnodepartfourbox=\box99
+\pgfnodeparttwentybox=\box100
+\pgfnodepartnineteenbox=\box101
+\pgfnodeparteighteenbox=\box102
+\pgfnodepartseventeenbox=\box103
+\pgfnodepartsixteenbox=\box104
+\pgfnodepartfifteenbox=\box105
+\pgfnodepartfourteenbox=\box106
+\pgfnodepartthirteenbox=\box107
+\pgfnodeparttwelvebox=\box108
+\pgfnodepartelevenbox=\box109
+\pgfnodeparttenbox=\box110
+\pgfnodepartninebox=\box111
+\pgfnodeparteightbox=\box112
+\pgfnodepartsevenbox=\box113
+\pgfnodepartsixbox=\box114
+\pgfnodepartfivebox=\box115
+)))) (./config/layout.tex)
 Package french3.ldf Info: Setting StandardItemizeEnv=true for
 (french3.ldf)             compatibility with enumitem package,
 (french3.ldf)             reported on input line 12.
@@ -807,10 +958,10 @@ Package french3.ldf Info: Setting StandardEnumerateEnv=true for
 (french3.ldf)             reported on input line 12.
  (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count429
+\l__color_backend_stack_int=\count445
 ) (./main.aux
 Package babel Info: 'french' activates 'french' shorthands.
-(babel)             Reported on input line 11.
+(babel)             Reported on input line 12.
 )
 \openout1 = `main.aux'.
 
@@ -847,19 +998,19 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 731.23584pt, 42.67912pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.1381pt
-* \headheight=12.0pt
-* \headsep=42.67912pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-54.36447pt
+* \headheight=34.0pt
+* \headsep=14.22636pt
 * \topskip=12.0pt
-* \footskip=30.0pt
+* \footskip=24.0pt
 * \marginparwidth=35.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
@@ -884,13 +1035,24 @@ Package caption Info: End \AtBeginDocument code.
 File: translations-basic-dictionary-french.trsl (french translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 12.
-<images/logo_insa.jpg, id=19, 651.43375pt x 182.6825pt>
+ (c:/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2025-06-23 v0.14 Display of landscape pages in PDF
+ (c:/texlive/2025/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2025-06-23 v0.14 Display of landscape pages in PDF (HO)
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+<images/logo_insa.jpg, id=31, 651.43375pt x 182.6825pt>
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 15.
-(pdftex.def)             Requested size: 227.62206pt x 63.8311pt.
+(pdftex.def)             Requested size: 241.84843pt x 67.82281pt.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
@@ -904,20 +1066,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
-Package pdftex.def Info: images/logo_insa.jpg  used on input line 42.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
-<images/foot-logo.png, id=29, 66.576pt x 66.795pt>
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 45.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
+<images/foot-logo.png, id=41, 66.576pt x 66.795pt>
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
-Package pdftex.def Info: images/foot-logo.png  used on input line 42.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+Package pdftex.def Info: images/foot-logo.png  used on input line 45.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [2
 
 {c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/foot-logo.png>])
@@ -925,18 +1080,11 @@ Package pdftex.def Info: images/foot-logo.png  used on input line 42.
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 23.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 23.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [3] (./main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -946,62 +1094,108 @@ Package pdftex.def Info: images/foot-logo.png  used on input line 23.
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 27.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 27.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [4
 
 ] (./contenu/planification.tex
-Overfull \hbox (31.64713pt too wide) in paragraph at lines 78--79
+Overfull \hbox (3.19437pt too wide) in paragraph at lines 78--79
  [][] 
  []
 
-)
+) (./contenu/diagrammes.tex
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
-Package pdftex.def Info: images/logo_insa.jpg  used on input line 31.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 1.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
-Package pdftex.def Info: images/foot-logo.png  used on input line 31.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+Package pdftex.def Info: images/foot-logo.png  used on input line 1.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [5
 
 ]
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
-Package pdftex.def Info: images/logo_insa.jpg  used on input line 34.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 1.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
-Package pdftex.def Info: images/foot-logo.png  used on input line 34.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[6] 
+Package pdftex.def Info: images/foot-logo.png  used on input line 1.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[6]
+Chapitre 1.
+(./figures/diagramme.pdf_tex
+<./figures/diagramme.pdf, id=82, page=1, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 1>
+Package pdftex.def Info: ./figures/diagramme.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=83, page=2, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 2>
+Package pdftex.def Info: ./figures/diagramme.pdf , page2 used on input line 59.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=84, page=3, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 3>
+Package pdftex.def Info: ./figures/diagramme.pdf , page3 used on input line 63.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=85, page=4, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 4>
+Package pdftex.def Info: ./figures/diagramme.pdf , page4 used on input line 66.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=86, page=5, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 5>
+Package pdftex.def Info: ./figures/diagramme.pdf , page5 used on input line 70.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+)
+
+File: images/logo_insa.jpg Graphic file (type jpg)
+<use images/logo_insa.jpg>
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 14.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
+File: images/foot-logo.png Graphic file (type png)
+<use images/foot-logo.png>
+Package pdftex.def Info: images/foot-logo.png  used on input line 14.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[7
+
+ <./figures/diagramme.pdf> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>])
+
+Package caption Warning: Unused \captionsetup[table] on input line 112.
+See the caption package documentation for explanation.
+
+
+
+File: images/logo_insa.jpg Graphic file (type jpg)
+<use images/logo_insa.jpg>
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 35.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
+File: images/foot-logo.png Graphic file (type png)
+<use images/foot-logo.png>
+Package pdftex.def Info: images/foot-logo.png  used on input line 35.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[8] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./main.aux)
  ***********
@@ -1009,21 +1203,21 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E2F650BCB85550F05689B7E60BE553AA;420.
+(rerunfilecheck)             Checksum: C575B4EF2AD44BC3E3548580636C46ED;1225.
  ) 
 Here is how much of TeX's memory you used:
- 53114 strings out of 467797
- 1271386 string characters out of 5435982
- 1930364 words of memory out of 5000000
- 81156 multiletter control sequences out of 15000+600000
- 642055 words of font info for 78 fonts, out of 8000000 for 9000
+ 66153 strings out of 467797
+ 1685289 string characters out of 5435982
+ 2486564 words of memory out of 5000000
+ 93942 multiletter control sequences out of 15000+600000
+ 643466 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,18n,104p,1180b,1173s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on main.pdf (6 pages, 799008 bytes).
+ 103i,18n,104p,1180b,1181s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
+Output written on main.pdf (8 pages, 869554 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 47 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 181 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

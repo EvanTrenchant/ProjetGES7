@@ -1,0 +1,74 @@
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[auto, node distance=2cm,>=latex']
+        % Définition des styles
+        \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=3em]
+        \tikzstyle{sum} = [draw, circle, node distance=1.5cm]
+        \tikzstyle{input} = [coordinate]
+        \tikzstyle{output} = [coordinate]
+        \tikzstyle{gain} = [draw, regular polygon, regular polygon sides=3, shape border rotate=0, minimum height=2.5em]
+        
+        % Nœuds - Entrée et premier sommateur
+        \node [input, name=input] (input) {};
+        \node [sum, right of=input] (sum1) {};
+        \node [sum, right of=sum1, node distance=1.5cm] (sum2) {};
+        
+        % Bloc correcteur de vitesse
+        \node [block, right of=sum2, node distance=2.5cm] (corrV) {$\dfrac{1}{R+Ls}$};
+        
+        % Gain Kphi
+        \node [gain, right of=corrV, node distance=2.5cm] (kphi) {$K_\phi$};
+        
+        % Troisième sommateur
+        \node [sum, right of=kphi, node distance=2.5cm] (sum3) {};
+        
+        % Bloc intégrateur
+        \node [block, right of=sum3, node distance=3cm] (integ) {$\dfrac{1}{Js}$};
+        
+        % Sortie
+        \node [output, right of=integ, node distance=2cm] (output) {};
+        
+        % Bloc retour 2P
+        \node [gain, below of=sum3, node distance=2cm] (gain2P) {$2P$};
+        
+        % Bloc retour complexe
+        \node [block, below of=integ, node distance=2cm, minimum width=6em] (retourA) {$\dfrac{K_\phi^2}{Ls+(R+R_u)}$};
+        
+        % Gain Kphi retour bas
+        \node [gain, below of=sum1, node distance=3cm] (kphiret) {$K_\phi$};
+        
+        % Connexions principales
+        \draw [->] (input) -- node[pos=0.1] {$C_1$} (sum1);
+        \draw [->] (sum1) -- (sum2);
+        \draw [->] (sum2) -- (corrV);
+        \draw [->] (corrV) -- (kphi);
+        \draw [->] (kphi) -- (sum3);
+        \draw [->] (sum3) -- node[name=ia, pos=0.5] {} node[pos=0.8] {$i_a$} (integ);
+        \draw [->] (integ) -- node[name=omega, pos=0.5] {} node[pos=0.8] {$\Omega$} (output);
+        
+        % Connexion retour 2P
+        \draw [->] (integ.east) -- ++(0.5,0) |- (gain2P.east);
+        \draw [->] (gain2P) -| (sum3);
+        
+        % Connexion retour A
+        \draw [->] (ia) |- (retourA);
+        \draw [->] (retourA) -| (sum2);
+        
+        % Connexion retour Kphi
+        \draw [->] (omega) |- (kphiret);
+        \draw [->] (kphiret) -| (sum1);
+        
+        % Labels pour les entrées de charge
+        \node [above of=sum3, node distance=1.2cm] (Lm) {$L_M$};
+        \draw [->] (Lm) -- (sum3);
+        
+        \node [above of=sum2, node distance=1.2cm] (L8) {$L_8$};
+        \draw [->] (L8) -- (sum2);
+        
+        % Annotation A = 2P + a
+        \node [below of=corrV, node distance=1.5cm] (eqA) {$A = 2P + a$};
+        
+    \end{tikzpicture}
+    \caption{Schéma bloc de l'asservissement en vitesse avec boucle de courant imbriquée}
+    \label{fig:schema_bloc_asservissement}
+\end{figure}
