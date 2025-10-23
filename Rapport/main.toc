@@ -1,7 +1,11 @@
 \babel@toc {french}{}\relax 
 \contentsline {chapter}{Introduction}{2}{chapter*.1}%
+\contentsline {section}{\numberline {1.}Structure du rapport}{3}{section.0.1}%
+\contentsline {section}{\numberline {2.}Cahier des charges}{3}{section.0.2}%
+\contentsline {subsection}{Asservissement en courant}{3}{section.0.2}%
+\contentsline {subsection}{Asservissement en vitesse}{3}{section.0.2}%
 \contentsline {chapter}{Planification du projet}{5}{chapter*.3}%
-\contentsline {section}{\numberline {1.}Diagramme de Gantt}{5}{section.0.1}%
+\contentsline {section}{\numberline {3.}Diagramme de Gantt}{5}{section.0.3}%
 \contentsline {chapter}{\numberline {1}Schémas blocs du système d'asservissement}{7}{chapter.1}%
 \contentsline {section}{\numberline {1.}Schéma bloc de l'asservissement en vitesse et courant}{7}{section.1.1}%
-\contentsline {section}{\numberline {2.}Description du schéma bloc}{8}{section.1.2}%
+\contentsline {section}{\numberline {2.}Simplification du schéma bloc}{8}{section.1.2}%
