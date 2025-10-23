@@ -109,14 +109,12 @@
 % global width here because \linewidth at package load time is the text width,
 % not the float width. Instead, ensure that at the start of every table float
 % we set the caption width to the current \linewidth (i.e. the table width).
-\captionsetup[table]{format=graybox,font=smallit,labelfont=bf}
+% Reduce the vertical gap between table and caption and force label on its own line
+% ONLY FOR TABLES (not figures)
+\captionsetup[table]{format=graybox,font=smallit,labelfont=bf,justification=raggedright,singlelinecheck=false,margin=0pt,labelsep=newline,skip=0pt}
 % When entering a table environment, set caption width to the current \linewidth
 % so the caption box will match the table's width.
 \AtBeginEnvironment{table}{\captionsetup{width=\linewidth}}
-% Reduce the vertical gap between table and caption and force label on its own line
-\setlength{\abovecaptionskip}{0pt}
-\setlength{\belowcaptionskip}{0pt}
-\captionsetup[table]{format=graybox,font=smallit,labelfont=bf,justification=raggedright,singlelinecheck=false,margin=0pt,labelsep=newline,skip=0pt}
 
 % Optional helper environment: tablebox
 % Usage: \begin{table}\begin{tablebox}{<width>} ... \end{tablebox}\end{table}
