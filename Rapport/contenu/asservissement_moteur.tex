@@ -89,3 +89,26 @@ Nous relevons un temps de réponse à 5\% de 7,6 ms et un dépassement de 18,5\%
 \subsubsection{Simulation sur PSIM}
 
 \subsubsection{Comparaison des résultats}
+
+\subsection{Asservissement en vitesse avec le codeur incrémental}
+Le cahier des charges impose la possibilité d'asservir la vitesse du moteur à l'aide d'un codeur incrémental.
+\subsubsection{Principe de fonctionnement du codeur incrémental}
+
+Le fonctionnement du codeur incrémental repose sur un disque rotatif équipé de fentes. Celui-ci est interposé entre une diode électroluminescente et un capteur photodiode. Lorsque le disque tourne, les fentes permettent à la lumière de passer à travers, générant ainsi des impulsions électriques dans le capteur. Le nombre d'impulsions générées par tour dépend de la résolution du codeur.
+\\\\
+Le codeur incrémentale fournit est composé de deux piste de fentes decalé d'un quart de période, ce qui permet de déterminer le sens de rotation du moteur en analysant la séquence des impulsions générées par les deux capteurs. 
+\\\\
+Pour mesurer la vitesse de rotation du moteur, il suffit de compter le nombre d'impulsions générées par le codeur sur une période de temps donnée. La vitesse angulaire peut être calculée en utilisant la formule suivante :
+\begin{equation}
+    \omega = \frac{N \cdot 2\pi}{P \cdot T}
+\end{equation}
+où :
+\begin{itemize}
+    \item $\omega$ est la vitesse angulaire en radians par seconde (rad/s)
+    \item $N$ est le nombre d'impulsions comptées
+    \item $P$ est le nombre d'impulsions par tour du codeur
+    \item $T$ est la période de temps pendant laquelle les impulsions sont comptées en secondes (s)
+    \item $2\pi$ est une constante pour convertir les tours en radians
+\end{itemize}
+
+Pour connaitre le sens de rotation, on analyse la séquence des impulsions des deux pistes. Si la piste A précède la piste B, le moteur tourne dans un sens. Si la piste B précède la piste A, le moteur tourne dans le sens inverse.
