@@ -11,16 +11,16 @@
     {\normalfont\huge\bfseries}     % Format du titre
     {\thechapter~-~}                % Format du numéro (X - )
     {0pt}                           % Séparation entre numéro et titre
-    {}                              % Code avant le titre
-\titlespacing*{\chapter}{0pt}{0pt}{20pt} % Ajustement des espaces (espace avant augmenté)
+  {}                              % Code avant le titre
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt} % Ajustement des espaces : pas d'espace négatif avant le chapitre
 
 % --- Configuration des en-têtes et pieds de page ---
 \pagestyle{fancy}
 \fancyhf{} % Nettoie les champs
 
 % Configuration de l'en-tête
-\fancyhead[L]{\includegraphics[height=1cm]{images/logo_insa.jpg}}
-\fancyhead[C]{TRENCHANT, TROULLIER, VIRQUIN}
+\fancyhead[L]{\includegraphics[height=0.8cm]{images/logo_insa.jpg}}
+\fancyhead[C]{\authorsInline}
 \fancyhead[R]{\ddmmyyyy\today}
 
 % Configuration du pied de page
@@ -28,44 +28,51 @@
 \fancyfoot[L,C]{}
 \fancyfoot[R]{%
   \begin{picture}(0,0)
-    \put(-10,-10){%
-      \includegraphics[scale=1]{images/foot-logo.png}%
-    }%
-    \put(22,2){%
-      \begin{minipage}{12mm}
-        \centering
-        \color{BLANC}{\thepage/\pageref*{LastPage}}%
-      \end{minipage}%
-    }%
-  \end{picture}%
+  % Réduction de l'image (scale passé de 1 à 0.8)
+  \put(-13,-10){%
+    \includegraphics[scale=0.8]{images/foot-logo.png}% 
+  }%
+  % Ajout de \footnotesize pour réduire le texte
+  \put(9.7,0){%
+    \begin{minipage}{12mm}
+      \centering
+      \color{BLANC}{\footnotesize\thepage/\pageref*{LastPage}}% 
+    \end{minipage}%
+  }%
+\end{picture}%
 }
 
 % Configuration des lignes de séparation
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% --- Configuration du style plain pour table des matières ---
+\addtolength{\topmargin}{-5pt}
+
+
+% --- Configuration du style plain pour table des matières et chapitres ---
 \fancypagestyle{plain}{%
   \fancyhf{} % Nettoie les champs
   % En-tête identique au style fancy
-  \fancyhead[L]{\includegraphics[height=1cm]{images/logo_insa.jpg}}
-  \fancyhead[C]{TRENCHANT, TROULLIER, VIRQUIN}
+  \fancyhead[L]{\includegraphics[height=0.8cm]{images/logo_insa.jpg}}
+  \fancyhead[C]{\authorsInline}
   \fancyhead[R]{\ddmmyyyy\today}
   % Pied de page identique au style fancy
   \fancyfootoffset{0pt}
   \fancyfoot[L,C]{}
   \fancyfoot[R]{%
     \begin{picture}(0,0)
-      \put(-10,-10){%
-        \includegraphics[scale=1]{images/foot-logo.png}%
-      }%
-      \put(22,2){%
-        \begin{minipage}{12mm}
-          \centering
-          \color{BLANC}{\thepage/\pageref*{LastPage}}%
-        \end{minipage}%
-      }%
-    \end{picture}%
+  % Réduction de l'image (scale passé de 1 à 0.8)
+  \put(-13,-10){%
+    \includegraphics[scale=0.8]{images/foot-logo.png}% 
+  }%
+  % Ajout de \footnotesize pour réduire le texte
+  \put(9.7,0){%
+    \begin{minipage}{12mm}
+      \centering
+      \color{BLANC}{\footnotesize\thepage/\pageref*{LastPage}}% 
+    \end{minipage}%
+  }%
+\end{picture}%
   }
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0pt}
@@ -73,7 +80,6 @@
 
 % --- Paramètres généraux de mise en page ---
 \setlength{\parindent}{0pt}  % Suppression de l'indentation automatique des paragraphes
-\setlength{\headsep}{1.5cm}  % Espacement entre l'en-tête et le contenu
 
 % --- Configuration de la numérotation des pages ---
 % Commande pour démarrer la numérotation à 2 (page de garde = page 1 non numérotée)
