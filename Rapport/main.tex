@@ -1,9 +1,9 @@
 \documentclass[12pt, a4paper]{report}
 
 % --- Inclusion des configurations ---
+\input{config/project-settings} % Variables du projet
 \input{config/packages}        % Packages et couleurs
 \input{config/layout}          % Mise en page et styles
-\input{config/project-settings} % Variables du projet
 
 % =====================================
 % DOCUMENT PRINCIPAL
@@ -31,6 +31,7 @@
 
 % --- Inclusion des chapitres/parties du rapport ---
 \input{contenu/planification.tex}
+\input{contenu/diagrammes.tex}
 
 % --- Modelisation et simulation du moteur et du hacheur ---
 \input{contenu/modelisation_simulation_moteur_hacheur.tex}

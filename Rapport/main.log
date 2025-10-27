@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.2)  26 OCT 2025 17:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.2)  26 OCT 2025 17:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -24,7 +24,7 @@ File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
-) (./config/packages.tex (c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+) (./config/project-settings.tex) (./config/packages.tex (c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
@@ -795,10 +795,166 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \ar@cellbox=\box90
 ))) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (./config/layout.tex) (./config/project-settings.tex) (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+) (c:/texlive/2024/texmf-dist/tex/latex/svg/svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+ (c:/texlive/2024/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2024/10/24 v3.43 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
+ (c:/texlive/2024/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2024/10/24 v3.43 KOMA-Script package (file load hooks)
+ (c:/texlive/2024/texmf-dist/tex/latex/koma-script/scrlfile-hook.sty
+Package: scrlfile-hook 2024/10/24 v3.43 KOMA-Script package (using LaTeX hooks)
+ (c:/texlive/2024/texmf-dist/tex/latex/koma-script/scrlogo.sty
+Package: scrlogo 2024/10/24 v3.43 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line 370.
+) (c:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@svg@param@lastpage=\count416
+\svg@box=\box91
+\c@svg@param@currpage=\count417
+) (c:/texlive/2024/texmf-dist/tex/latex/transparent/transparent.sty
+Package: transparent 2022-10-27 v1.5 Transparency with color stacks
+ (c:/texlive/2024/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
+Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)
+ (c:/texlive/2024/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+))) (c:/texlive/2024/texmf-dist/tex/latex/import/import.sty
+Package: import 2020/04/01  v 6.2
+) (c:/texlive/2024/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+ (c:/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count418
+\calc@Bcount=\count419
+\calc@Adimen=\dimen340
+\calc@Bdimen=\dimen341
+\calc@Askip=\skip69
+\calc@Bskip=\skip70
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count420
+\calc@Cskip=\skip71
+) (c:/texlive/2024/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
+)) (c:/texlive/2024/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2024/10/28 v0.6c Insert pages of external PDF documents (AM)
+ (c:/texlive/2024/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen342
+\ESO@tempdimb=\dimen343
+)
+\AM@pagewidth=\dimen344
+\AM@pageheight=\dimen345
+\AM@fboxrule=\dimen346
+ (c:/texlive/2024/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2024/10/28 v0.6c Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count421
+\AM@pagebox=\box92
+\AM@global@opts=\toks50
+\AM@pagecnt=\count422
+\AM@toc@title=\toks51
+\AM@lof@heading=\toks52
+\c@AM@survey=\count423
+\AM@templatesizebox=\box93
+) (c:/texlive/2024/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen347
+\TX@old@table=\dimen348
+\TX@old@col=\dimen349
+\TX@target=\dimen350
+\TX@delta=\dimen351
+\TX@cols=\count424
+\TX@ftn=\toks53
+) (c:/texlive/2024/texmf-dist/tex/latex/pgfplots/pgfplots.sty (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks54
+\t@pgfplots@tokb=\toks55
+\t@pgfplots@tokc=\toks56
+\pgfplots@tmpa=\dimen352
+\c@pgfplots@coordindex=\count425
+\c@pgfplots@scanlineindex=\count426
+ (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks57
+\t@pgf@tokb=\toks58
+\t@pgf@tokc=\toks59
+(c:/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count427
+) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count428
+\t@pgfplotstable@a=\toks60
+) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count429
+ (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen353
+\pgfdecoratedremainingdistance=\dimen354
+\pgfdecoratedinputsegmentcompleteddistance=\dimen355
+\pgfdecoratedinputsegmentremainingdistance=\dimen356
+\pgf@decorate@distancetomove=\dimen357
+\pgf@decorate@repeatstate=\count430
+\pgfdecorationsegmentamplitude=\dimen358
+\pgfdecorationsegmentlength=\dimen359
+)
+\tikz@lib@dec@box=\box94
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count431
+\pgfplots@xmin@reg=\dimen360
+\pgfplots@xmax@reg=\dimen361
+\pgfplots@ymin@reg=\dimen362
+\pgfplots@ymax@reg=\dimen363
+\pgfplots@zmin@reg=\dimen364
+\pgfplots@zmax@reg=\dimen365
+) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (c:/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (c:/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box95
+\pgfnodeparttwobox=\box96
+\pgfnodepartthreebox=\box97
+\pgfnodepartfourbox=\box98
+\pgfnodeparttwentybox=\box99
+\pgfnodepartnineteenbox=\box100
+\pgfnodeparteighteenbox=\box101
+\pgfnodepartseventeenbox=\box102
+\pgfnodepartsixteenbox=\box103
+\pgfnodepartfifteenbox=\box104
+\pgfnodepartfourteenbox=\box105
+\pgfnodepartthirteenbox=\box106
+\pgfnodeparttwelvebox=\box107
+\pgfnodepartelevenbox=\box108
+\pgfnodeparttenbox=\box109
+\pgfnodepartninebox=\box110
+\pgfnodeparteightbox=\box111
+\pgfnodepartsevenbox=\box112
+\pgfnodepartsixbox=\box113
+\pgfnodepartfivebox=\box114
+)))) (./config/layout.tex) (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count416
-\l__pdf_internal_box=\box91
+\l__color_backend_stack_int=\count432
+\l__pdf_internal_box=\box115
 ) (./main.aux)
 \openout1 = `main.aux'.
 
@@ -830,17 +986,17 @@ Package french.ldf Info: Setting StandardEnumerateEnv=true for
 LaTeX Info: Redefining \up on input line 12.
  (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count417
-\scratchdimen=\dimen340
-\scratchbox=\box92
-\nofMPsegments=\count418
-\nofMParguments=\count419
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count420
-\MPscratchDim=\dimen341
-\MPnumerator=\count421
-\makeMPintoPDFobject=\count422
-\everyMPtoPDFconversion=\toks51
+\scratchcounter=\count433
+\scratchdimen=\dimen366
+\scratchbox=\box116
+\nofMPsegments=\count434
+\nofMParguments=\count435
+\everyMPshowfont=\toks61
+\MPscratchCnt=\count436
+\MPscratchDim=\dimen367
+\MPnumerator=\count437
+\makeMPintoPDFobject=\count438
+\everyMPtoPDFconversion=\toks62
 ) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -855,19 +1011,19 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(71.13188pt, 731.23584pt, 42.67912pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.1381pt
-* \headheight=12.0pt
-* \headsep=42.67912pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-54.36447pt
+* \headheight=34.0pt
+* \headsep=14.22636pt
 * \topskip=12.0pt
-* \footskip=30.0pt
+* \footskip=24.0pt
 * \marginparwidth=35.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
@@ -892,13 +1048,24 @@ Package caption Info: End \AtBeginDocument code.
 File: translations-basic-dictionary-french.trsl (french translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 12.
-<images/logo_insa.jpg, id=35, 651.43375pt x 182.6825pt>
+ (c:/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+ (c:/texlive/2024/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PDF (HO)
+ (c:/texlive/2024/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+<images/logo_insa.jpg, id=47, 651.43375pt x 182.6825pt>
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 15.
-(pdftex.def)             Requested size: 227.62206pt x 63.8311pt.
+(pdftex.def)             Requested size: 241.84843pt x 67.82281pt.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
- (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
+(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
@@ -912,20 +1079,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
-Package pdftex.def Info: images/logo_insa.jpg  used on input line 42.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
-<images/foot-logo.png, id=45, 66.576pt x 66.795pt>
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 45.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
+<images/foot-logo.png, id=57, 66.576pt x 66.795pt>
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
-Package pdftex.def Info: images/foot-logo.png  used on input line 42.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+Package pdftex.def Info: images/foot-logo.png  used on input line 45.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [2
 
 {c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/foot-logo.png>])
@@ -933,18 +1093,11 @@ Package pdftex.def Info: images/foot-logo.png  used on input line 42.
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 23.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 23.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [3] (./main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -954,18 +1107,11 @@ Package pdftex.def Info: images/foot-logo.png  used on input line 23.
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 27.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 27.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [4
 
 ] (./contenu/cdc.tex) (./contenu/planification.tex
@@ -973,191 +1119,202 @@ Package pdftex.def Info: images/foot-logo.png  used on input line 27.
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 1.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 1.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
 [5]
-Overfull \hbox (31.64713pt too wide) in paragraph at lines 78--79
+Overfull \hbox (3.19437pt too wide) in paragraph at lines 78--79
  [][] 
  []
 
+) (./contenu/diagrammes.tex
+
+File: images/logo_insa.jpg Graphic file (type jpg)
+<use images/logo_insa.jpg>
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 1.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
+File: images/foot-logo.png Graphic file (type png)
+<use images/foot-logo.png>
+Package pdftex.def Info: images/foot-logo.png  used on input line 1.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[6
+
+]
+
+File: images/logo_insa.jpg Graphic file (type jpg)
+<use images/logo_insa.jpg>
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 1.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
+File: images/foot-logo.png Graphic file (type png)
+<use images/foot-logo.png>
+Package pdftex.def Info: images/foot-logo.png  used on input line 1.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[7]
+Chapitre 1.
+(./figures/diagramme.pdf_tex
+<./figures/diagramme.pdf, id=107, page=1, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 1>
+Package pdftex.def Info: ./figures/diagramme.pdf , page1 used on input line 56.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=108, page=2, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 2>
+Package pdftex.def Info: ./figures/diagramme.pdf , page2 used on input line 59.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=109, page=3, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 3>
+Package pdftex.def Info: ./figures/diagramme.pdf , page3 used on input line 63.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=110, page=4, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 4>
+Package pdftex.def Info: ./figures/diagramme.pdf , page4 used on input line 66.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
+<./figures/diagramme.pdf, id=111, page=5, 794.97pt x 614.295pt>
+File: ./figures/diagramme.pdf Graphic file (type pdf)
+<use ./figures/diagramme.pdf, page 5>
+Package pdftex.def Info: ./figures/diagramme.pdf , page5 used on input line 70.
+(pdftex.def)             Requested size: 483.69687pt x 373.77269pt.
 )
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
-Package pdftex.def Info: images/logo_insa.jpg  used on input line 34.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 14.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
-Package pdftex.def Info: images/foot-logo.png  used on input line 34.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[6
+Package pdftex.def Info: images/foot-logo.png  used on input line 14.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[8
 
-] (./contenu/modelisation_simulation_moteur_hacheur.tex) (./contenu/asservissement_moteur.tex
-<images/boucle_de_courant/Simulink_boucle_de_courant.png, id=84, 1427.3325pt x 590.95781pt>
+ <./figures/diagramme.pdf> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./figures/diagramme.pdf
+
+pdfTeX warning: pdflatex.exe (file ./figures/diagramme.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+Overfull \hbox (5.46259pt too wide) in paragraph at lines 138--139
+ [][] 
+ []
+
+) (./contenu/modelisation_simulation_moteur_hacheur.tex) (./contenu/asservissement_moteur.tex
+<images/boucle_de_courant/Simulink_boucle_de_courant.png, id=123, 1427.3325pt x 590.95781pt>
 File: images/boucle_de_courant/Simulink_boucle_de_courant.png Graphic file (type png)
 <use images/boucle_de_courant/Simulink_boucle_de_courant.png>
 Package pdftex.def Info: images/boucle_de_courant/Simulink_boucle_de_courant.png  used on input line 10.
-(pdftex.def)             Requested size: 455.24411pt x 188.47914pt.
+(pdftex.def)             Requested size: 483.69687pt x 200.26472pt.
 
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 14.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 14.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[7]
-<images/boucle_de_courant/Simulink_reponse_indicielle_courant.png, id=94, 888.31876pt x 630.10406pt>
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[9]
+<images/boucle_de_courant/Simulink_reponse_indicielle_courant.png, id=140, 888.31876pt x 630.10406pt>
 File: images/boucle_de_courant/Simulink_reponse_indicielle_courant.png Graphic file (type png)
 <use images/boucle_de_courant/Simulink_reponse_indicielle_courant.png>
 Package pdftex.def Info: images/boucle_de_courant/Simulink_reponse_indicielle_courant.png  used on input line 18.
-(pdftex.def)             Requested size: 455.24411pt x 322.916pt.
+(pdftex.def)             Requested size: 483.69687pt x 343.09705pt.
 
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 22.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 22.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[8 <./images/boucle_de_courant/Simulink_boucle_de_courant.png>]
-<images/boucle_de_courant/PSIM_boucle_de_courant.png, id=105, 1437.11906pt x 509.65407pt>
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[10 <./images/boucle_de_courant/Simulink_boucle_de_courant.png>]
+<images/boucle_de_courant/PSIM_boucle_de_courant.png, id=151, 1437.11906pt x 509.65407pt>
 File: images/boucle_de_courant/PSIM_boucle_de_courant.png Graphic file (type png)
 <use images/boucle_de_courant/PSIM_boucle_de_courant.png>
 Package pdftex.def Info: images/boucle_de_courant/PSIM_boucle_de_courant.png  used on input line 30.
-(pdftex.def)             Requested size: 455.24411pt x 161.44397pt.
-<images/boucle_de_courant/PSIM reponse indicielle courant BF.png, id=106, 1073.51062pt x 561.59813pt>
+(pdftex.def)             Requested size: 483.69687pt x 171.5381pt.
+<images/boucle_de_courant/PSIM reponse indicielle courant BF.png, id=152, 1073.51062pt x 561.59813pt>
 File: images/boucle_de_courant/PSIM reponse indicielle courant BF.png Graphic file (type png)
 <use images/boucle_de_courant/PSIM reponse indicielle courant BF.png>
 Package pdftex.def Info: images/boucle_de_courant/PSIM reponse indicielle courant BF.png  used on input line 37.
-(pdftex.def)             Requested size: 455.24411pt x 238.15761pt.
+(pdftex.def)             Requested size: 483.69687pt x 253.04245pt.
 
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 41.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 41.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[9 <./images/boucle_de_courant/Simulink_reponse_indicielle_courant.png> <./images/boucle_de_courant/PSIM_boucle_de_courant.png>]
-<images/boucle_de_courant/comparaison_reponse_indicielle_courant.png, id=115, 1050.92625pt x 764.10469pt>
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[11 <./images/boucle_de_courant/Simulink_reponse_indicielle_courant.png> <./images/boucle_de_courant/PSIM_boucle_de_courant.png>]
+<images/boucle_de_courant/comparaison_reponse_indicielle_courant.png, id=161, 1050.92625pt x 764.10469pt>
 File: images/boucle_de_courant/comparaison_reponse_indicielle_courant.png Graphic file (type png)
 <use images/boucle_de_courant/comparaison_reponse_indicielle_courant.png>
 Package pdftex.def Info: images/boucle_de_courant/comparaison_reponse_indicielle_courant.png  used on input line 49.
-(pdftex.def)             Requested size: 455.24411pt x 330.9954pt.
+(pdftex.def)             Requested size: 483.69687pt x 351.69063pt.
 
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 53.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 53.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[10 <./images/boucle_de_courant/PSIM reponse indicielle courant BF.png>]
-<images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png, id=122, 1927.2pt x 1054.6903pt>
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[12 <./images/boucle_de_courant/PSIM reponse indicielle courant BF.png>]
+<images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png, id=169, 1927.2pt x 1054.6903pt>
 File: images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png Graphic file (type png)
 <use images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png>
 Package pdftex.def Info: images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png  used on input line 62.
-(pdftex.def)             Requested size: 455.24411pt x 249.13971pt.
+(pdftex.def)             Requested size: 483.69687pt x 264.70189pt.
 
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 66.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 66.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[11 <./images/boucle_de_courant/comparaison_reponse_indicielle_courant.png>]
-<images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png, id=130, 1277.52281pt x 565.36218pt>
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[13 <./images/boucle_de_courant/comparaison_reponse_indicielle_courant.png>]
+<images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png, id=178, 1277.52281pt x 565.36218pt>
 File: images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png Graphic file (type png)
 <use images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png>
 Package pdftex.def Info: images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png  used on input line 71.
-(pdftex.def)             Requested size: 455.24411pt x 201.46843pt.
-<images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png, id=131, 1016.29688pt x 681.29532pt>
+(pdftex.def)             Requested size: 483.69687pt x 214.05482pt.
+<images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png, id=179, 1016.29688pt x 681.29532pt>
 File: images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png Graphic file (type png)
 <use images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png>
 Package pdftex.def Info: images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png  used on input line 83.
-(pdftex.def)             Requested size: 455.24411pt x 305.17664pt.
+(pdftex.def)             Requested size: 483.69687pt x 324.25278pt.
 
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 87.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 87.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[12 <./images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png> <./images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png>]
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[14 <./images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png> <./images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 97--102
 
  []
@@ -1172,36 +1329,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--102
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
 Package pdftex.def Info: images/logo_insa.jpg  used on input line 104.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
 Package pdftex.def Info: images/foot-logo.png  used on input line 104.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[13 <./images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png>])
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[15 <./images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png>])
+
+Package caption Warning: Unused \captionsetup[table] on input line 114.
+See the caption package documentation for explanation.
+
+
 
 File: images/logo_insa.jpg Graphic file (type jpg)
 <use images/logo_insa.jpg>
-Package pdftex.def Info: images/logo_insa.jpg  used on input line 42.
-(pdftex.def)             Requested size: 101.45824pt x 28.45274pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 32.80278pt, for example:
-(fancyhdr)                \setlength{\headheight}{32.80278pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-20.80278pt}.
-
+Package pdftex.def Info: images/logo_insa.jpg  used on input line 43.
+(pdftex.def)             Requested size: 81.16063pt x 22.76228pt.
 File: images/foot-logo.png Graphic file (type png)
 <use images/foot-logo.png>
-Package pdftex.def Info: images/foot-logo.png  used on input line 42.
-(pdftex.def)             Requested size: 66.57582pt x 66.79483pt.
-[14] 
+Package pdftex.def Info: images/foot-logo.png  used on input line 43.
+(pdftex.def)             Requested size: 53.26085pt x 53.43607pt.
+[16] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./main.aux)
  ***********
@@ -1209,21 +1357,21 @@ LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7F3BAC1A662B8AAACF463A94B946999D;1242.
+(rerunfilecheck)             Checksum: 066D1586D694EA7A02F4BEAABFFC98DF;2061.
  ) 
 Here is how much of TeX's memory you used:
- 52619 strings out of 473330
- 1254511 string characters out of 5723878
- 1885202 words of memory out of 5000000
- 75104 multiletter control sequences out of 15000+600000
- 573299 words of font info for 74 fonts, out of 8000000 for 9000
+ 65657 strings out of 473330
+ 1668168 string characters out of 5723878
+ 2432404 words of memory out of 5000000
+ 87886 multiletter control sequences out of 15000+600000
+ 577804 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,19n,104p,1190b,1040s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
-Output written on main.pdf (14 pages, 1269087 bytes).
+ 103i,19n,104p,1190b,1064s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1728.pfb>
+Output written on main.pdf (16 pages, 1346775 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 168 words of extra memory for PDF output out of 10000 (max. 10000000)
 

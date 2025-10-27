@@ -11,7 +11,17 @@
 
 % --- Packages pour la mise en page et le contenu ---
 \usepackage{graphicx}               % Pour inclure des images
-\usepackage[a4paper, margin=2.5cm]{geometry} % Gestion des marges
+\usepackage[a4paper]{geometry} % Gestion des marges
+% Configuration des marges ET des espaces pour l'en-tête/pied de page
+\geometry{
+  left=2cm,        % Marge gauche (augmentez pour "agrandir")
+  right=2cm,       % Marge droite (augmentez pour "agrandir")
+  top=2.5cm,         % Marge haute (augmentez pour "agrandir")
+  bottom=1.5cm,      % Marge basse (augmentez pour "agrandir")
+  headheight=34pt, % Indique à geometry la taille de votre en-tête fancyhdr
+  footskip=24pt,    % Indique à geometry l'espace pour votre pied de page
+  headsep=0.5cm
+}
 \usepackage{amsmath, amssymb}       % Outils mathématiques avancés
 \usepackage[
     hidelinks,
@@ -52,6 +62,88 @@
 \usepackage{tikz}                   % TikZ doit être chargé avant circuitikz
 \usepackage[siunitx]{circuitikz} % Configuration pour les diagrammes électriques
 \usetikzlibrary{babel}
+
+% --- Package pour inclure des images SVG ---
+\usepackage{svg}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth} % Définit la largeur (ici, largeur de la colonne)
+  \import{./figures/}{#1.pdf_tex} % Importe le fichier .pdf_tex depuis le dossier 'figures'
+}
+
+% --- Style personnalisé pour les légendes des tableaux ---
+% On veut : petite taille, largeur limitée à la largeur de la table,
+% possibilité de plusieurs lignes et fond gris clair.
+\DeclareCaptionFont{smallit}{\tiny}
+% Define a caption format that places the caption text inside a colored box
+% whose width is the caption width (which will be set to the table width).
+% Draw a gray background with a black frame that matches the caption width.
+% We account for the frame thickness (\fboxrule) and padding (\fboxsep) so the outer
+% \fcolorbox total width equals the requested caption width (which is \linewidth inside
+% the caption context). The inner parbox width is therefore \linewidth - 2\fboxrule - 2\fboxsep.
+\DeclareCaptionFormat{graybox}{%
+        {%
+                % Use local settings for border thickness and padding. We'll use \arrayrulewidth
+                % as the default border width for consistency with table rules.
+                \setlength{\fboxrule}{\arrayrulewidth}%
+                \setlength{\fboxsep}{0.5pt}% small inner padding so the gray fills to the border
+                % Compute inner width; if \dimexpr is available this will evaluate safely here.
+                \begingroup
+                    \colorlet{captionframe}{black}% frame color
+                    \colorlet{captionbg}{boxgray}% background color
+                    \edef\innerwidth{\the\dimexpr\linewidth-2\fboxrule-2\fboxsep\relax}%
+                    \fcolorbox{captionframe}{captionbg}{% outer framed box (total width = \linewidth)
+                        \parbox{\innerwidth}{% inner box sized so outer frame equals \linewidth
+                            \hspace{0.15em}#1#2#3\hspace{0.15em}% small horizontal padding
+                        }% end parbox
+                    }% end fcolorbox
+                \endgroup
+        }%
+}
+% Apply the format to table captions: smaller font, the graybox format,
+% allow multi-line captions and left-aligned wrapping. We do NOT hardcode a
+% global width here because \linewidth at package load time is the text width,
+% not the float width. Instead, ensure that at the start of every table float
+% we set the caption width to the current \linewidth (i.e. the table width).
+% Reduce the vertical gap between table and caption and force label on its own line
+% ONLY FOR TABLES (not figures)
+\captionsetup[table]{format=graybox,font=smallit,labelfont=bf,justification=raggedright,singlelinecheck=false,margin=0pt,labelsep=newline,skip=0pt}
+% When entering a table environment, set caption width to the current \linewidth
+% so the caption box will match the table's width.
+\AtBeginEnvironment{table}{\captionsetup{width=\linewidth}}
+
+% Optional helper environment: tablebox
+% Usage: \begin{table}\begin{tablebox}{<width>} ... \end{tablebox}\end{table}
+% This wraps content in a minipage so that \linewidth inside equals <width>
+\newenvironment{tablebox}[1][\linewidth]{%
+    \begin{minipage}{#1}
+}{%
+    \end{minipage}
+}
+\usepackage{booktabs}               % Pour de jolis tableaux
+% Allow tables that stretch to a target width
+\usepackage{tabularx}
+\usepackage{array}
+% Right-aligned X column for tabularx
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\usepackage{titlesec}               % Pour personnaliser les titres de chapitres
+\usepackage{lastpage}               % Pour obtenir le nombre total de pages
+\usepackage{datetime}               % Pour le formatage des dates
+\usepackage{pgfplots}
+% Ensure pgfplots uses modern compatibility level to avoid backward-compatibility warnings
+\pgfplotsset{compat=1.18}
+
+% Package for placing content absolutely on the page background/foreground
+\usepackage{eso-pic}
+
+% --- Package CircuiTikz avec configuration spéciale ---
+\usepackage{tikz}                   % TikZ doit être chargé avant circuitikz
+\usepackage[siunitx]{circuitikz} % Configuration pour les diagrammes électriques
+\usetikzlibrary{babel, positioning, shapes, arrows, patterns} % Bibliothèques TikZ supplémentaires
 
 % --- Définition des couleurs personnalisées ---
 \definecolor{INSAbleu}{RGB}{0, 70, 127}
@@ -107,9 +199,11 @@
     bottom=2mm
 }
 
-\newtcolorbox{classicbox}[1][Information]{
+\newtcolorbox{classicbox}[1][]{
     colback=gray!10,
     colframe=gray!50,
+    coltitle=white,
+    colbacktitle=gray!50,
     title=#1,
     fonttitle=\bfseries,
     rounded corners,

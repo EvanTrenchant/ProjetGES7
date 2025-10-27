@@ -2,15 +2,28 @@
 % VARIABLES SPÉCIFIQUES AU PROJET
 % =====================================
 
-% --- Commandes modulaires pour le rapport (À MODIFIER POUR CHAQUE PROJET) ---
+\newcommand{\authorA}{TRENCHANT Evan}
+\newcommand{\authorB}{TROULLIER Laël}
+\newcommand{\authorC}{VIRQUIN Rudy}
+
+% Inline authors used for headers (comma-separated)
+\newcommand{\authorsInline}{\authorA, \authorB, \authorC}
+
+\newcommand{\documentTitle}{Projet GE S7}
+\newcommand{\documentSubtitle}{Asservissement d'une machine à courant continu}
+\newcommand{\documentSubject}{Électrotechnique - Module 3}
+
+% Backwards-compatible names used elsewhere in the project
 \newcommand{\tpnumero}{}
-\newcommand{\tptitre}{Projet GE S7}
-\newcommand{\tpauteurs}{
-    \begin{tabular}{c}
-        TRENCHANT Evan \\
-        TROULLIER Laël \\
-        VIRQUIN Rudy
-    \end{tabular}
+\newcommand{\tptitre}{\documentTitle}
+\newcommand{\tpsoustitre}{\documentSubtitle}
+\newcommand{\tpmatiere}{\documentSubject}
+\newcommand{\tpauteurs}{%
+	\begin{tabular}{c}
+		\authorA \\
+		\authorB \\
+        \authorC
+	\end{tabular}
 }
 \newcommand{\tpgroupe}{GE4}
 \newcommand{\tpprofesseur}{Damien Flieller}
@@ -23,7 +36,7 @@
         \includegraphics[width=0.5\textwidth]{images/logo_insa.jpg}\par\vspace{1cm}
         {\huge\bfseries \tptitre\par}
 		\vspace{0.5cm}
-		{\LARGE Asservissement d'une machine à courant continu\par}
+		{\LARGE \tpsoustitre\par}
         \vspace{2cm}
         {\Large\itshape \tpauteurs\par}
         {\Large\itshape \tpgroupe, groupe 2\par}
