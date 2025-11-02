@@ -10,3 +10,6 @@ Rapport/main.toc
 # PSIM simulation file
 Archives/2024-2025/05_Boucles_2310/boucle_vitesse.smv
 Rapport/main.log
+
+# Simulink generated files
+Modelisation/**/slprj/

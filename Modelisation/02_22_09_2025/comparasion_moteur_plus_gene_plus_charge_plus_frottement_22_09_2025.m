@@ -10015,10 +10015,28 @@ plot(temps_sim, courant_gene_psim, 'r');
 hold on; % il faut avoir lancé simulink avant
 plot(out.courant_gene, '*b');
 grid
-
+title('Courant de Générateur');
+xlabel('Temps (s)');
+ylabel('Courant (A)');
+legend('Psim', 'Simulink');
 
 figure(2);
 plot(temps_sim, vitesse_psim, 'r');
 hold on; % il faut avoir lancé simulink avant
 plot(out.vitesse_moteur, '*b');
 grid
+title('Vitesse du Moteur');
+xlabel('Temps (s)');
+ylabel('Vitesse (tr/min)');
+legend('Psim', 'Simulink');
+
+% Plot the current of the motor
+figure(3);
+plot(temps_sim, courant_moteur_psim, 'r');
+hold on; % il faut avoir lancé simulink avant
+plot(out.courant_moteur, '*b');
+grid
+title('Courant du Moteur');
+xlabel('Temps (s)');
+ylabel('Courant (A)');
+legend('Psim', 'Simulink');

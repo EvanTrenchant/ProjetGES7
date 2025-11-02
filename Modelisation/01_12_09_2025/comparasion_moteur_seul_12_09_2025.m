@@ -10008,3 +10008,5 @@ close all;
 plot(temps_sim, courant_psim, 'r');
 hold on; % il faut avoir lancé simulink avant
 plot(out.courant_moteur, '*b')
+title('Courant vs Temps');
+legend('Courant Psim', 'Courant Simulink');
