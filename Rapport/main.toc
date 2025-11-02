@@ -8,19 +8,19 @@
 \contentsline {section}{\numberline {3.}Diagramme de Gantt}{6}{section.0.3}%
 \contentsline {chapter}{\numberline {1}Schémas blocs du système d'asservissement}{8}{chapter.1}%
 \contentsline {section}{\numberline {1.}Schéma bloc de l'asservissement en vitesse et courant}{8}{section.1.1}%
-\contentsline {section}{\numberline {2.}Simplification du schéma bloc}{9}{section.1.2}%
-\contentsline {section}{\numberline {3.}Modélisation et simulation du moteur et du hacheur}{10}{section.1.3}%
-\contentsline {subsection}{\numberline {3.1.}Modélisation du moteur à courant continu à vide}{10}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {3.2.}Modélisation du moteur à courant continu avec charge}{10}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {3.3.}Modélisation du moteur avec charge et hacheur}{10}{subsection.1.3.3}%
-\contentsline {section}{\numberline {4.}Asservissement du moteur}{10}{section.1.4}%
-\contentsline {subsection}{\numberline {4.1.}Asservissement en courant du moteur}{10}{subsection.1.4.1}%
-\contentsline {subsubsection}{Modélisation sur Matlab/Simulink}{10}{subsection.1.4.1}%
-\contentsline {subsubsection}{Modélisation sur PSIM}{11}{figure.caption.9}%
-\contentsline {subsubsection}{Comparaison des résultats}{12}{figure.caption.11}%
-\contentsline {subsection}{\numberline {4.2.}Asservissement en vitesse du moteur}{13}{subsection.1.4.2}%
-\contentsline {subsubsection}{Simulation sur Matlab/Simulink}{13}{subsection.1.4.2}%
-\contentsline {subsubsection}{Simulation sur PSIM}{15}{figure.caption.15}%
-\contentsline {subsubsection}{Comparaison des résultats}{15}{figure.caption.15}%
-\contentsline {subsection}{\numberline {4.3.}Asservissement en vitesse avec le codeur incrémental}{15}{subsection.1.4.3}%
-\contentsline {subsubsection}{Principe de fonctionnement du codeur incrémental}{15}{subsection.1.4.3}%
+\contentsline {section}{\numberline {2.}Simplification du schéma bloc}{8}{section.1.2}%
+\contentsline {section}{\numberline {3.}Modélisation et simulation du moteur et du hacheur}{9}{section.1.3}%
+\contentsline {subsection}{\numberline {3.1.}Modélisation du moteur à courant continu à vide}{9}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {3.2.}Modélisation du moteur à courant continu avec charge}{9}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {3.3.}Modélisation du moteur avec charge et hacheur}{9}{subsection.1.3.3}%
+\contentsline {section}{\numberline {4.}Asservissement du moteur}{9}{section.1.4}%
+\contentsline {subsection}{\numberline {4.1.}Asservissement en courant du moteur}{9}{subsection.1.4.1}%
+\contentsline {subsubsection}{Modélisation sur Matlab/Simulink}{9}{subsection.1.4.1}%
+\contentsline {subsubsection}{Modélisation sur PSIM}{10}{figure.caption.8}%
+\contentsline {subsubsection}{Comparaison des résultats}{11}{figure.caption.10}%
+\contentsline {subsection}{\numberline {4.2.}Asservissement en vitesse du moteur}{12}{subsection.1.4.2}%
+\contentsline {subsubsection}{Simulation sur Matlab/Simulink}{12}{subsection.1.4.2}%
+\contentsline {subsubsection}{Simulation sur PSIM}{14}{figure.caption.14}%
+\contentsline {subsubsection}{Comparaison des résultats}{14}{figure.caption.14}%
+\contentsline {subsection}{\numberline {4.3.}Asservissement en vitesse avec le codeur incrémental}{14}{subsection.1.4.3}%
+\contentsline {subsubsection}{Principe de fonctionnement du codeur incrémental}{14}{subsection.1.4.3}%
