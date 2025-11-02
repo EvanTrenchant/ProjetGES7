@@ -1,6 +1,15 @@
 \section{Modélisation et simulation du moteur et du hacheur}
 
 \subsection{Modélisation du moteur à courant continu à vide}
+\[
+\begin{aligned}
+&\text{Moteur à courant continu à vide: Démarrage}\\
+&\left\{\begin{array}{l}
+U=R_i+L \frac{d i}{d t}+k \phi \Omega \\
+J \frac{d \Omega}{d t}=C_{e m}-C_n=k \phi_i
+\end{array}\right.
+\end{aligned}
+\]
 
 \textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 01\_12\_09\_2025}
 
@@ -9,3 +18,97 @@
 
 \subsection{Modélisation du moteur avec charge et hacheur}
 \textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 03\_01\_10\_2025}
+
+\subsubsection{Conversion vitesse-tension}
+
+Le moteur possède une force contre-électromotrice $E$ proportionnelle à sa vitesse de rotation. 
+Les données constructeur indiquent : $E=13{,}3 \mathrm{~V}$ pour $1000 \mathrm{~tr/min}$.
+
+En notant $N$ la vitesse en tr/min et $\Omega$ la vitesse en rad/s, on obtient les relations suivantes :
+
+\begin{equation*}
+\begin{aligned}
+& E=\frac{13,3}{1000} \cdot N \\
+& \Omega=\frac{\pi N}{30} \Rightarrow E=\underbrace{\frac{13,3}{1000} \cdot \frac{30}{\pi}}_{0,127} \cdot \Omega
+\end{aligned}
+\end{equation*}
+
+La constante de fcem est donc : $k_e = 0{,}127$ V/(rad/s).
+
+\subsubsection{Caractéristique du hacheur}
+
+Le hacheur utilisé possède une caractéristique de transfert non-linéaire avec une zone morte. 
+La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de commande $u_{\text{commande}}$ selon la relation suivante :
+
+\vspace{0.3cm}
+\noindent
+\begin{minipage}[t]{0.43\textwidth}
+\vspace{0pt} % pour aligner le haut
+\textbf{Relation tension de sortie :}
+
+\begin{equation*}
+\begin{aligned}
+\langle u_{AB} \rangle &= \frac{96}{15}\,(u_{\text{commande}} - 7{,}5) \\
+&= \frac{96}{15}\,u_{\text{commande}} - 48 \\
+&= 6{,}4\,u_{\text{commande}} - 48
+\end{aligned}
+\end{equation*}
+
+\vspace{0.3cm}
+\textbf{Caractéristiques principales :}
+\begin{itemize}
+    \item Zone morte : $0 \leq u_{\text{commande}} < 7{,}5$ V
+    \item Pente : $6{,}4$ V/V
+    \item Tension maximale : $48$ V à $15$ V de commande
+    \item Point de fonctionnement intermédiaire (en rouge) : $(11{,}25\text{ V} ; 24\text{ V})$
+\end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{0pt} % même astuce ici
+\centering
+\begin{tikzpicture}[>=stealth, scale=0.65, xscale=0.5, yscale=0.1]
+    % Axes
+    \draw[thick,->] (0,-55) -- (0,55) node[above] {$\langle u_{AB}\rangle$ (V)};
+    \draw[thick,->] (-1,0) -- (17,0) node[right] {$u_{\text{commande}}$ (V)};
+    
+    % Graduation sur l'axe y
+    \draw[thick] (-0.2,48) -- (0.2,48) node[left=0.3cm] {$48$};
+    \draw[thick] (-0.2,-48) -- (0.2,-48) node[left=0.3cm] {$-48$};
+    \draw[thick] (-0.2,24) -- (0.2,24) node[left=0.3cm] {$24$};
+    \draw[thick] (-0.2,0) -- (0.2,0) node[left=0.3cm] {$0$};
+    
+    % Graduation sur l'axe x
+    \draw[thick] (7.5,-1) -- (7.5,1) node[below=0.5cm] {$7{,}5$};
+    \draw[thick] (15,-1) -- (15,1) node[below=0.5cm] {$15$};
+    \draw[thick] (11.25,-1) -- (11.25,1) node[below=0.5cm] {$11{,}25$};
+    
+    % Zone morte
+    \draw[thick] (0,0) -- (7.5,0);
+    % Droite de montée
+    \draw[thick] (7.5,0) -- (15,48);
+    % Extension
+    \draw[thick] (15,48) -- (16,54.4);
+    % Extension de la droite vers la gauche jusqu'à -48V à x=0 
+    \draw[thick] (0,-48) -- (7.5,0);
+    
+    % Point intermédiaire rouge
+    \draw[red, dashed, thick] (11.25,0) -- (11.25,24);
+    \draw[red, dashed, thick] (0,24) -- (11.25,24);
+    \fill[red] (11.25,24) circle (3pt);
+    
+    % Point max
+    \draw[black, dashed, thick] (15,0) -- (15,48);
+    \draw[black, dashed, thick] (0,48) -- (15,48);
+    \fill[black] (15,48) circle (3pt);
+\end{tikzpicture}
+
+\captionof{figure}{Caractéristique de transfert du hacheur}
+\label{fig:caracteristique_commande}
+\end{minipage}
+
+
+\vspace{0.5cm}
+
+Cette caractéristique montre que le hacheur présente une zone morte pour les faibles tensions de commande (inférieures à $7{,}5$ V), puis un comportement linéaire avec un gain de $6{,}4$. La tension de sortie est limitée à $\pm 48$ V.
+

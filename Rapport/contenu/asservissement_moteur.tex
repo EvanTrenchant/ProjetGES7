@@ -4,10 +4,16 @@
 
 \subsubsection{Modélisation sur Matlab/Simulink}
 
+A l'aide du PID Tuner de Simulink, nous obtenons les valeurs suivantes pour le correcteur PI :
+\begin{itemize}
+    \item $K_p = 5,68752963603813$
+    \item $K_i = 52315,0706597655$
+\end{itemize}
+
 % image de l'asservissement en courant Simulink
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/boucle_de_courant/Simulink_boucle_de_courant.png}
+    \includegraphics[width=1\textwidth]{images/boucle_de_courant/Schéma asservissement courant Simulink.png}
     \caption{Schéma de l'asservissement en courant du moteur dans Simulink}
     \label{fig:asservissement_courant_simulink}
 \end{figure}
@@ -23,6 +29,14 @@
 On constate que la réponse indicielle de l'asservissement en courant du moteur dans Simulink présente un dépassement d'environ 19\% et un temps de réponse de 0,35 ms. Ce qui respecte les spécifications du cahier des charges qui exige un dépassement maximal de 20\% et un temps de réponse maximal de 10 fois la prériode de la MLI soit 0,45 ms.
 
 \subsubsection{Modélisation sur PSIM}
+
+Pour adapter le correcteur PI de Simulink à PSIM, il faut convertir les paramètres en utilisant les relations suivantes :
+
+Dans Simulink : 
+\[ G(s) = K_p + \dfrac{K_i}{s} = K_p \dfrac{s + \tfrac{K_i}{K_p}}{s} \]
+
+Dans PSIM : 
+\[ G(s) = k \dfrac{1 + sT}{sT} \Rightarrow k = K_p \text{ et } T = \dfrac{K_p}{K_i} \]
 
 % image de l'asservissement en courant PSIM
 \begin{figure}[H]
