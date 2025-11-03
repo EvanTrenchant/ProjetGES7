@@ -1,4 +1,82 @@
 \chapter{Cahier des charges}
+
+\section{Notations des variables pour le projet}
+
+Le tableau suivant récapitule l'ensemble des notations utilisées dans ce projet, ainsi que les valeurs et unités correspondantes pour notre moteur à courant continu.
+
+\begin{table}[H]
+\centering
+\caption{Notations des variables pour le projet}
+\label{tab:notations}
+\begin{tabular}{|c|p{5.5cm}|c|c|}
+\hline
+\textbf{Notations} & \textbf{Nom} & \textbf{Valeurs} & \textbf{Unités} \\
+\hline
+\multicolumn{4}{|c|}{\textbf{Paramètres nominaux}} \\
+\hline
+$M_0$ & couple en rotation lente & 0,54 & N.m \\
+\hline
+$I_0$ & courant permanent rotation lente & 4,5 & A \\
+\hline
+$U$ & tension d'alimentation de définition & 49 & V \\
+\hline
+$N$ & vitesse de définition & 3000 & tr/min \\
+\hline
+\multicolumn{4}{|c|}{\textbf{Paramètres maximaux}} \\
+\hline
+$U_{max}$ & tension maximale & 65 & V \\
+\hline
+$N_{max}$ & vitesse maximale & 4800 & tr/min \\
+\hline
+$I_{max}$ & courant impulsionnel & 13 & A \\
+\hline
+\multicolumn{4}{|c|}{\textbf{Constantes électromécaniques}} \\
+\hline
+$K_e$ & constante de fem (à 25°C) & 13,3 & V/(1000 tr/min) \\
+\hline
+$K_\Phi$ & constante de couple électromagnétique & 0,127 & N.m/A \\
+\hline
+\multicolumn{4}{|c|}{\textbf{Paramètres de frottement}} \\
+\hline
+$T_f$ & couple de frottement sec & 2,4 & N.cm \\
+\hline
+$K_d$ & coefficient de viscosité & 0,53 & N.cm/(1000 tr/min) \\
+\hline
+\multicolumn{4}{|c|}{\textbf{Paramètres électriques}} \\
+\hline
+$R$ & résistance du bobinage (à 25°C) & 1,52 & $\Omega$ \\
+\hline
+$L$ & inductance du bobinage & 2,2 & mH \\
+\hline
+$R_{ch}$ & résistance de charge & 10 & $\Omega$ \\
+\hline
+\multicolumn{4}{|c|}{\textbf{Paramètres mécaniques}} \\
+\hline
+$J$ & inertie du rotor & $8{,}3 \cdot 10^{-5}$ & kg.m$^2$ \\
+\hline
+$M$ & masse du moteur & 1,34 & kg \\
+\hline
+$T_{th}$ & constante de temps thermique & 7 & min \\
+\hline
+\multicolumn{4}{|c|}{\textbf{Variables dynamiques}} \\
+\hline
+$\Omega$ & vitesse de rotation & & rad/s \\
+\hline
+$C_m$ & couple électromagnétique & & N.m \\
+\hline
+$C_r$ & couple résistant total & & N.m \\
+\hline
+$i$ & courant d'induit & & A \\
+\hline
+$u$ & tension d'alimentation & & V \\
+\hline
+$e$ & force contre-électromotrice & & V \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Spécifications du système}
+
 Le cahier des charges du projet est défini comme suit :
 \section*{Asservissement en courant}
 \begin{itemize}

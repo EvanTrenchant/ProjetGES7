@@ -66,19 +66,72 @@ Dans l'environnement Simulink, notre démarche consiste à traduire le système 
     \caption{Schéma Simulink du moteur à courant continu à vide}
     \label{fig:schema_moteur_vide_simulink}
 \end{figure}
+\figref{Figure \ref{fig:schema_moteur_vide_simulink}}{Modelisation/01\_12\_09\_2025/moteur\_seul\_12\_09\_2025.slx}
 
+On remarque que le schéma Simulink présenté en Figure \ref{fig:schema_moteur_vide_simulink} intègre les équations de la MCC sans charge. Les simulations effectuées avec ce modèle permettent d'obtenir les réponses temporelles du courant et de la vitesse du moteur à vide, illustrées dans la Figure \ref{fig:reponse_moteur}.
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/moteur_a_vide/Données courant moteur à vide Simulink.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/moteur_a_vide/Données vitesse moteur à vide Simulink.png}
+    \end{minipage}
+    \caption{Courbes de réponse du moteur à courant continu}
+    \label{fig:reponse_moteur}
+\end{figure}
 
-\textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 01\_12\_09\_2025}
+\subsection{Simulation sur PSIM}
 
+Pour la simulation sur PSIM, nous adoptons une approche méthodologique complémentaire. L'utilisation de deux méthodes distinctes (Simulink et PSIM) constitue une validation croisée : si les résultats concordent, nous pourrons confirmer la validité de nos modélisations.
 
+Contrairement à Simulink qui nécessite la construction du modèle à partir des équations différentielles, PSIM propose une approche plus directe basée sur l'utilisation de composants prédéfinis. Le logiciel met à disposition une bibliothèque de machines à courant continu standards qu'il suffit de paramétrer avec les caractéristiques de notre moteur réel. Cette méthodologie se rapproche davantage du fonctionnement physique du système et réduit significativement le nombre de calculs intermédiaires.
 
-\subsection{Modélisation du moteur à courant continu avec charge}
+Le principe de modélisation sous PSIM repose sur l'assemblage de composants dont on définit ensuite les propriétés. Par exemple, pour simuler notre moteur, nous plaçons simplement un bloc « moteur DC » dans l'environnement de travail, puis nous renseignons ses paramètres électriques et mécaniques.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/moteur_a_vide/Schéma moteur à vide Psim.png}
+    \caption{Modélisation du moteur à courant continu sur PSIM}
+    \label{fig:schema_moteur_psim}
+\end{figure}
+\figref{Figure \ref{fig:schema_moteur_psim}}{Modelisation/01\_12\_09\_2025/moteur\_seul\_12\_09\_2025.psimsch}
+
+\subsection{Comparaison des résultats}
+Nous comparons les résultats avec un programme \textit{MATLAB}. Pour cela, nous avons besoin de
+récupérer les valeurs de notre modélisation sous forme de tableau : $X = \begin{bmatrix} t & i(t) & \omega(t) \end{bmatrix}$.
+
+\vspace{0.5cm}
+On retrouve bien les valeurs attendues, notamment en vitesse où on a la relation suivante à l'état stable :
+\begin{equation*}
+\omega = \frac{U}{K_\Phi} = \frac{48}{0{,}127} = 377{,}95 \text{ rad/s} \quad \text{ou} \quad \omega = \frac{U}{K_e} = \frac{48}{13,3} = 3609 \text{ tr/min}
+\end{equation*}
+
+Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_vide} montrent une excellente concordance entre les résultats obtenus avec Simulink et PSIM, validant ainsi notre modélisation du moteur à courant continu à vide. Nous pouvons donc passer aux simulations suivantes : le moteur avec des pertes et sa charge.
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/moteur_a_vide/Comparaison courant induit moteur à vide.png}
+    
+    \vspace{0.5cm}
+    
+    \includegraphics[width=0.85\textwidth]{images/moteur_a_vide/Comparaison vitesse moteur à vide.png}
+    \caption{Comparaison des résultats Simulink et PSIM pour le moteur à vide}
+    \label{fig:comparaison_resultats_moteur_vide}
+\end{figure}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_vide}}{Modelisation/01\_12\_09\_2025/comparasion\_moteur\_seul\_12\_09\_2025.m}
+
+\section{Modélisation du moteur à courant continu avec charge}
 \textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 02\_22\_09\_2025}
 
-\subsection{Modélisation du moteur avec charge et hacheur}
+\section{Modélisation du moteur avec charge et hacheur}
 \textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 03\_01\_10\_2025}
 
-\subsubsection{Conversion vitesse-tension}
+\subsection{Conversion vitesse-tension}
 
 Le moteur possède une force contre-électromotrice $E$ proportionnelle à sa vitesse de rotation. 
 Les données constructeur indiquent : $E=13{,}3 \mathrm{~V}$ pour $1000 \mathrm{~tr/min}$.
@@ -92,9 +145,9 @@ En notant $N$ la vitesse en tr/min et $\Omega$ la vitesse en rad/s, on obtient l
 \end{aligned}
 \end{equation*}
 
-La constante de fcem est donc : $k_e = 0{,}127$ V/(rad/s).
+La constante de fcem est donc : $K_\Phi = 0{,}127$ V/(rad/s).
 
-\subsubsection{Caractéristique du hacheur}
+\subsection{Caractéristique du hacheur}
 
 Le hacheur utilisé possède une caractéristique de transfert non-linéaire avec une zone morte. 
 La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de commande $u_{\text{commande}}$ selon la relation suivante :

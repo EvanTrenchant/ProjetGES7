@@ -213,3 +213,13 @@
     top=2mm,
     bottom=2mm
 }
+
+% --- Commande pour référencer les fichiers de simulation dans le pied de page ---
+% Variable pour stocker les références de la page courante
+\newcommand{\figfooter}{}
+% Commande pour ajouter une référence
+\newcommand{\figref}[2]{%
+    \gdef\figfooter{\textnormal{$\blacktriangleright$ \textbf{#1:} \texttt{#2}}}%
+}
+% Commande pour réinitialiser les références (appelée automatiquement)
+\newcommand{\clearfigfooter}{\gdef\figfooter{}}
