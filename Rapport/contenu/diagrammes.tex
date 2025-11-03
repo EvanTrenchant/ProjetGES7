@@ -1,5 +1,6 @@
-\section{Schéma bloc de l'asservissement en vitesse et courant}
+\section{Simplification du schéma bloc}
 
+A ce stade de l'analyse, nous disposons du schéma bloc complet de notre système, avant asservissement en vitesse. Comme illustré dans la Figure \ref{fig:schema_bloc_asservissement}, ce schéma est assez complexe en raison de la présence de plusieurs boucles de rétroaction imbriquées. Pour faciliter l'analyse et la conception des contrôleurs, il est nécessaire de simplifier ce schéma bloc en combinant les différents éléments.
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[auto, node distance=2cm,>=latex']
@@ -127,9 +128,7 @@
     \label{fig:schema_bloc_asservissement}
 \end{figure}
 
-\section{Simplification du schéma bloc}
-
-À partir du schéma bloc de l'asservissement en vitesse avec boucle de courant imbriquée (Figure \ref{fig:schema_bloc_asservissement}), nous pouvons simplifier le système en combinant les blocs et les boucles de rétroaction. Cette simplification permet d'obtenir une représentation plus concise du système, facilitant ainsi l'analyse et la conception des contrôleurs.
+Cette simplification permet d'obtenir une représentation plus concise du système, facilitant ainsi l'analyse et la conception des contrôleurs.
 
 \[
 \left\{

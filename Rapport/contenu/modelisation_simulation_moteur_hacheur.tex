@@ -54,6 +54,24 @@ E(s) = K_\Phi \cdot \Omega(s)
 \end{equation*}
 \end{tcolorbox}
 
+\subsubsection{Conversion vitesse-tension}
+
+Le moteur possède une force contre-électromotrice $E$ proportionnelle à sa vitesse de rotation. 
+Les données constructeur indiquent : $E=13{,}3 \mathrm{~V}$ pour $1000 \mathrm{~tr/min}$.
+
+En notant $N$ la vitesse en tr/min et $\Omega$ la vitesse en rad/s, on obtient les relations suivantes :
+
+\begin{equation*}
+\begin{aligned}
+& E=\frac{13,3}{1000} \cdot N \\
+& \Omega=\frac{\pi N}{30} \Rightarrow E=\underbrace{\frac{13,3}{1000} \cdot \frac{30}{\pi}}_{0,127} \cdot \Omega
+\end{aligned}
+\end{equation*}
+
+La constante de fcem est donc : $K_\Phi = 0{,}127$ V/(rad/s).
+
+\vspace{0.5cm}
+
 Une fois le modèle mathématique de la MCC défini à partir des équations présentées ci-dessus, nous pouvons procéder à sa simulation numérique. Cette simulation sera réalisée successivement sur deux environnements logiciels complémentaires : Simulink, qui permet une approche par schéma-blocs, et PSIM, orienté vers la simulation de circuits de puissance. La confrontation des résultats obtenus avec les deux outils permettra de valider notre modélisation théorique.
 
 \subsection{Simulation avec Simulink}
@@ -62,7 +80,7 @@ Dans l'environnement Simulink, notre démarche consiste à traduire le système 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/moteur_a_vide/Schéma moteur à vide Simulink.png}
+    \includegraphics[width=1\textwidth]{images/moteur_a_vide/Schéma moteur à vide Simulink.png}
     \caption{Schéma Simulink du moteur à courant continu à vide}
     \label{fig:schema_moteur_vide_simulink}
 \end{figure}
@@ -126,26 +144,128 @@ Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_vide} montrent un
 \figref{Figure \ref{fig:comparaison_resultats_moteur_vide}}{Modelisation/01\_12\_09\_2025/comparasion\_moteur\_seul\_12\_09\_2025.m}
 
 \section{Modélisation du moteur à courant continu avec charge}
-\textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 02\_22\_09\_2025}
 
-\section{Modélisation du moteur avec charge et hacheur}
-\textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 03\_01\_10\_2025}
+Dans cette partie, nous allons effectuer la même logique qu'avec le moteur à vide. Cette fois-ci le moteur a des pertes, appelées frottements, et le couple résistant du moteur est pris en compte.
 
-\subsection{Conversion vitesse-tension}
-
-Le moteur possède une force contre-électromotrice $E$ proportionnelle à sa vitesse de rotation. 
-Les données constructeur indiquent : $E=13{,}3 \mathrm{~V}$ pour $1000 \mathrm{~tr/min}$.
-
-En notant $N$ la vitesse en tr/min et $\Omega$ la vitesse en rad/s, on obtient les relations suivantes :
+On note :
 
 \begin{equation*}
-\begin{aligned}
-& E=\frac{13,3}{1000} \cdot N \\
-& \Omega=\frac{\pi N}{30} \Rightarrow E=\underbrace{\frac{13,3}{1000} \cdot \frac{30}{\pi}}_{0,127} \cdot \Omega
-\end{aligned}
+f = C_f \cdot \Omega = \frac{30}{\pi} \cdot \frac{1}{1000} \cdot 0{,}53 \cdot 10^{-2} = 5{,}06 \cdot 10^{-5} \, N.m/rad.s
 \end{equation*}
 
-La constante de fcem est donc : $K_\Phi = 0{,}127$ V/(rad/s).
+\begin{equation*}
+C_r = 2 \cdot C_0 = 0{,}024 \, N.m
+\end{equation*}
+
+\subsection{Équations de la MCC avec pertes}
+
+Les équations de notre système vont donc changer. En effet en ajoutant les frottements, le système devient :
+
+\begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Formules d'une MCC avec pertes]
+\begin{equation*}
+u(t) = R \cdot i(t) + L \frac{di(t)}{dt} + e(t)
+\end{equation*}
+
+\begin{equation*}
+C_m(t) = K_c \cdot i(t)
+\end{equation*}
+
+\begin{equation*}
+e(t) = K_e \cdot \omega(t)
+\end{equation*}
+
+\begin{equation*}
+J \frac{d\omega}{dt} = C_m(t) - f \cdot \omega(t) - C_r(t)
+\end{equation*}
+\end{tcolorbox}
+
+Ce qui donne dans le domaine de Laplace :
+
+\begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Équations dans le domaine de Laplace]
+\begin{equation*}
+I(s) = \frac{U(s) - K_\Phi \Omega}{R + Ls}
+\end{equation*}
+
+\begin{equation*}
+C_m(s) = K_\Phi \cdot I(s)
+\end{equation*}
+
+\begin{equation*}
+E(s) = K_\Phi \cdot \Omega(s)
+\end{equation*}
+
+\begin{equation*}
+\Omega(s) = \frac{C_m + C_r}{Js + f}
+\end{equation*}
+\end{tcolorbox}
+
+Une fois les équations trouvées, nous allons pouvoir déterminer le schéma bloc et effectuer les mesures.
+
+\subsection{Simulation Simulink}
+
+Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, puisque qu'on y ajoute le couple résistant $C_r$ et les frottements $f$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Moteur_Charge_Frottement/Schéma_Simulink_Moteur_Charge_Frottement.png}
+    \caption{Schéma Simulink du moteur à courant continu avec charge et frottements}
+    \label{fig:schema_moteur_charge_simulink}
+\end{figure}
+
+
+\subsection{Simulation sur PSIM}
+
+% TODO: Ajouter la figure du schéma PSIM avec charge
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{images/moteur_avec_charge/Schéma moteur avec charge Psim.png}
+%     \caption{Modélisation du moteur avec charge et frottements sur PSIM}
+%     \label{fig:schema_moteur_charge_psim}
+% \end{figure}
+% \figref{Figure \ref{fig:schema_moteur_charge_psim}}{Modelisation/02\_22\_09\_2025/moteur\_plus\_gene\_plus\_charge\_plus\_frottement\_22\_09\_2025.psimsch}
+
+\subsection{Comparaison des résultats}
+
+% TODO: Ajouter la comparaison des résultats
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.85\textwidth]{images/moteur_avec_charge/Comparaison courant moteur avec charge.png}
+%     
+%     \vspace{0.5cm}
+%     
+%     \includegraphics[width=0.85\textwidth]{images/moteur_avec_charge/Comparaison vitesse moteur avec charge.png}
+%     \caption{Comparaison des résultats Simulink et PSIM pour le moteur avec charge}
+%     \label{fig:comparaison_resultats_moteur_charge}
+% \end{figure}
+% \figref{Figure \ref{fig:comparaison_resultats_moteur_charge}}{Modelisation/02\_22\_09\_2025/comparasion\_moteur\_plus\_gene\_plus\_charge\_plus\_frottement\_22\_09\_2025.m}
+
+\section{Modélisation du moteur avec charge et hacheur}
+
+
+\textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 03\_01\_10\_2025}
+
+
+\subsection{Modélisation du hacheur}
+
+Le hacheur, ou convertisseur continu--continu, est un dispositif d'électronique de puissance qui permet de modifier la valeur moyenne d'une tension continue à l'aide d'interrupteurs commandés. Il est couramment utilisé pour piloter des charges électriques (ici une machine à courant continu) avec un bon rendement.
+
+Sur PSIM, le hacheur est modélisé par un pont en H composé de quatre transistors MOSFET pilotés en paires. Le schéma fonctionnel comporte le pont en H alimenté par une source continue (ici 48\,V), un générateur de signal triangulaire et un comparateur qui produit le signal PWM de commande.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Moteur_Hacheur/Schéma_PSIM_Moteur_Hacheur.png}
+    \caption{Modélisation du hacheur sur PSIM}
+    \label{fig:hacheur_psim}
+\end{figure}
+
+Le hacheur fournit une tension de sortie moyenne qui peut être positive ou négative (mode bipolaire). La valeur moyenne de la tension de sortie Vs dépend de trois grandeurs : la tension d'alimentation (ici 48\,V), la tension de commande continue (notée $V_{\text{commande}}$) et le rapport cyclique $\alpha$ du signal de commande (duty cycle) appliqué aux interrupteurs.
+
+La commutation des transistors s'effectue par paires (par exemple 1 et 4 d'une part, 2 et 3 d'autre part) de façon complémentaire afin de piloter le pont en H. Le rapport cyclique $\alpha$ correspond à la proportion de la période pendant laquelle l'interrupteur est fermé. Pour $\alpha=0$ la tension de sortie vaut $V_s=-48$\,V, pour $\alpha=1$ on obtient $V_s=+48$\,V, et pour des valeurs intermédiaires de $\alpha$ la tension de sortie varie de manière (approximativement) linéaire entre ces extrêmes. Ainsi, une augmentation de $\alpha$ entraîne une augmentation de $V_s$.
+
+La commande PWM est générée en comparant, au moyen d'un comparateur (ou d'un AOP configuré), une tension continue de référence $V_e = V_{\text{commande}}$ avec un signal triangulaire $V_{\text{triangle}}$ qui varie typiquement de 0 à 15\,V. Le comparateur produit alors le signal $V_{\text{pwm}}$ dont le rapport cyclique est proportionnel à $V_{\text{commande}}$. En sortie du comparateur, des suiveurs (buffers) sont placés pour assurer une adaptation d'impédance et piloter correctement les étages de commande des MOSFET.
+
+Ce modèle permet d'étudier le comportement statique et dynamique du hacheur (effet du filtrage, des commutations, des temps morts, etc.) et sert de base pour obtenir les courbes de comportement et les signaux de commande utilisés dans les simulations ultérieures.
+
 
 \subsection{Caractéristique du hacheur}
 
@@ -223,4 +343,5 @@ La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de co
 \vspace{0.5cm}
 
 Cette caractéristique montre que le hacheur présente une zone morte pour les faibles tensions de commande (inférieures à $7{,}5$ V), puis un comportement linéaire avec un gain de $6{,}4$. La tension de sortie est limitée à $\pm 48$ V.
+
 
