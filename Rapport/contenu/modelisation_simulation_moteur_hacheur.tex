@@ -1,19 +1,76 @@
 \chapter{Étude de la MCC et de son hacheur}
 
-\section{Modélisation et simulation du moteur et du hacheur}
+\section{Simulation et modélisation du moteur à vide}
 
-\subsection{Modélisation du moteur à courant continu à vide}
-\[
-\begin{aligned}
-&\text{Moteur à courant continu à vide: Démarrage}\\
-&\left\{\begin{array}{l}
-U=R_i+L \frac{d i}{d t}+k \phi \Omega \\
-J \frac{d \Omega}{d t}=C_{e m}-C_n=k \phi_i
-\end{array}\right.
-\end{aligned}
-\]
+\subsection{Équations de la MCC}
+
+La machine à courant continu (MCC) est un dispositif électromécanique capable de convertir l'énergie électrique en énergie mécanique, et inversement. Cette conversion bidirectionnelle s'effectue grâce au passage d'un courant continu dans son induit, générant ainsi un couple moteur qui entraîne l'arbre en rotation. En mode générateur, le principe est inversé : la rotation de l'arbre produit une force électromotrice aux bornes de la machine. La MCC constitue ainsi un élément clé dans de nombreux systèmes d'entraînement industriels et de conversion d'énergie.
+
+\subsubsection{Formules d'une MCC sans pertes et sans charge}
+
+Les équations régissant le comportement d'une machine à courant continu sans pertes et sans charge sont les suivantes :
+
+\begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Équations temporelles de la MCC]
+\begin{equation*}
+u(t) = R \cdot i(t) + L \frac{di(t)}{dt} + e(t)
+\end{equation*}
+
+\begin{equation*}
+C_m(t) = K_c \cdot i(t)
+\end{equation*}
+
+\begin{equation*}
+e(t) = K_e \cdot \omega(t)
+\end{equation*}
+
+\begin{equation*}
+J \frac{d\omega}{dt} = C_m(t)
+\end{equation*}
+
+\vspace{0.2cm}
+\centering
+On note ici : $K_c = K_e = K_\Phi$
+\end{tcolorbox}
+
+\subsubsection{Transformée de Laplace}
+
+Les équations précédentes peuvent être exprimées dans le domaine de Laplace, ce qui facilite l'analyse et la modélisation du système :
+
+\begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Équations dans le domaine de Laplace]
+\begin{equation*}
+I(s) = \frac{U(s) - K_\Phi \Omega}{R + Ls}
+\end{equation*}
+
+\begin{equation*}
+C_m(s) = K_\Phi \cdot I(s)
+\end{equation*}
+
+\begin{equation*}
+E(s) = K_\Phi \cdot \Omega(s)
+\end{equation*}
+
+\begin{equation*}
+\Omega(s) = \frac{K_\Phi \cdot I(s)}{Js}
+\end{equation*}
+\end{tcolorbox}
+
+Une fois le modèle mathématique de la MCC défini à partir des équations présentées ci-dessus, nous pouvons procéder à sa simulation numérique. Cette simulation sera réalisée successivement sur deux environnements logiciels complémentaires : Simulink, qui permet une approche par schéma-blocs, et PSIM, orienté vers la simulation de circuits de puissance. La confrontation des résultats obtenus avec les deux outils permettra de valider notre modélisation théorique.
+
+\subsection{Simulation avec Simulink}
+
+Dans l'environnement Simulink, notre démarche consiste à traduire le système d'équations différentielles sous forme d'un schéma-blocs interconnectés, où chaque bloc représente une opération mathématique élémentaire.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/moteur_a_vide/Schéma moteur à vide Simulink.png}
+    \caption{Schéma Simulink du moteur à courant continu à vide}
+    \label{fig:schema_moteur_vide_simulink}
+\end{figure}
+
 
 \textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 01\_12\_09\_2025}
+
+
 
 \subsection{Modélisation du moteur à courant continu avec charge}
 \textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 02\_22\_09\_2025}

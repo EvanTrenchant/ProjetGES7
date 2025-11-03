@@ -1,0 +1,12 @@
+{
+  "settings.cycle": [
+      {
+        "id": "toggleLatexInvert",
+        "values": [
+          { "latex-workshop.view.pdf.invert": 0 },
+          { "latex-workshop.view.pdf.invert": 1 }
+        ]
+      }
+    ],
+    "latex-workshop.view.pdf.invertMode.enabled": "never"
+}
