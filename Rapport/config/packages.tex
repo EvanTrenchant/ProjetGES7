@@ -147,6 +147,7 @@
 
 % --- Définition des couleurs personnalisées ---
 \definecolor{INSAbleu}{RGB}{0, 70, 127}
+\definecolor{INSArouge}{RGB}{229, 39, 19}
 \definecolor{boxgray}{gray}{0.95}
 \definecolor{remindercolor}{RGB}{96, 98, 103}     % Bleu clair pour les rappels
 \definecolor{conclusioncolor}{RGB}{255, 58, 24}    % Rouge pour les conclusions
@@ -219,7 +220,7 @@
 \newcommand{\figfooter}{}
 % Commande pour ajouter une référence
 \newcommand{\figref}[2]{%
-    \gdef\figfooter{\textnormal{$\blacktriangleright$ \textbf{#1:} \texttt{#2}}}%
+    \gdef\figfooter{\scriptsize{$\blacktriangleright$ \textbf{#1:} \texttt{#2}}}%
 }
 % Commande pour réinitialiser les références (appelée automatiquement)
 \newcommand{\clearfigfooter}{\gdef\figfooter{}}
