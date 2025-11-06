@@ -117,3 +117,94 @@ où :
 \end{itemize}
 
 Pour connaitre le sens de rotation, on analyse la séquence des impulsions des deux pistes. Si la piste A précède la piste B, le moteur tourne dans un sens. Si la piste B précède la piste A, le moteur tourne dans le sens inverse.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+        % Titre Rotation positive
+        \node[anchor=south west, font=\large\bfseries] at (0, 9) {Rotation positive (A précède B)};
+        
+        % Axe vertical pour A
+        \draw[->, thick, black] (0, 8) -- (0, 9);
+        \node[anchor=east] at (-0.3, 8.5) {\textbf{A}};
+        
+        % Axe vertical pour B
+        \draw[->, thick, black] (0, 6.5) -- (0, 7.5);
+        \node[anchor=east] at (-0.3, 7) {\textbf{B}};
+        
+        % Axe temps horizontal en bas
+        \draw[->, thick, black] (0, 6.5) -- (10, 6.5);
+        \node[anchor=west, font=\small] at (10.1, 6.5) {$t$};
+        % Graduations et labels - alignées avec les fronts
+        \draw[black] (0.5, 6.4) -- (0.5, 6.6);
+        \draw[black] (1.5, 6.4) -- (1.5, 6.6);
+        \draw[black] (2.5, 6.4) -- (2.5, 6.6);
+        \draw[black] (3.5, 6.4) -- (3.5, 6.6);
+        \draw[black] (4.5, 6.4) -- (4.5, 6.6);
+        \draw[black] (5.5, 6.4) -- (5.5, 6.6);
+        \draw[black] (6.5, 6.4) -- (6.5, 6.6);
+        \draw[black] (7.5, 6.4) -- (7.5, 6.6);
+        \draw[black] (8.5, 6.4) -- (8.5, 6.6);
+        
+        % Pointillés verticaux à chaque graduation
+        \draw[dotted, thin, black] (0.5, 6.5) -- (0.5, 9);
+        \draw[dotted, thin, black] (1.5, 6.5) -- (1.5, 9);
+        \draw[dotted, thin, black] (2.5, 6.5) -- (2.5, 9);
+        \draw[dotted, thin, black] (3.5, 6.5) -- (3.5, 9);
+        \draw[dotted, thin, black] (4.5, 6.5) -- (4.5, 9);
+        \draw[dotted, thin, black] (5.5, 6.5) -- (5.5, 9);
+        \draw[dotted, thin, black] (6.5, 6.5) -- (6.5, 9);
+        \draw[dotted, thin, black] (7.5, 6.5) -- (7.5, 9);
+        \draw[dotted, thin, black] (8.5, 6.5) -- (8.5, 9);
+        
+        % Piste A - commence à 0 (en rouge) - premier front à t=0.5
+        \draw[thick, red] (0, 8) -- (0.5, 8) -- (0.5, 8.7) -- (2.5, 8.7) -- (2.5, 8) -- (4.5, 8) -- (4.5, 8.7) -- (6.5, 8.7) -- (6.5, 8) -- (8.5, 8) -- (8.5, 8.7) -- (9, 8.7);
+        
+        % Piste B - commence à 0 (décalée de 1/4 de période, en rouge) - premier front à t=1.5
+        \draw[thick, red] (0, 6.5) -- (1.5, 6.5) -- (1.5, 7.2) -- (3.5, 7.2) -- (3.5, 6.5) -- (5.5, 6.5) -- (5.5, 7.2) -- (7.5, 7.2) -- (7.5, 6.5) -- (9, 6.5);
+        
+        % Titre Rotation négative
+        \node[anchor=south west, font=\large\bfseries] at (0, 5) {Rotation négative (B précède A)};
+        
+        % Axe vertical pour A
+        \draw[->, thick, black] (0, 4) -- (0, 5);
+        \node[anchor=east] at (-0.3, 4.5) {\textbf{A}};
+        
+        % Axe vertical pour B
+        \draw[->, thick, black] (0, 2.5) -- (0, 3.5);
+        \node[anchor=east] at (-0.3, 3) {\textbf{B}};
+        
+        % Axe temps horizontal en bas
+        \draw[->, thick, black] (0, 2.5) -- (10, 2.5);
+        \node[anchor=west, font=\small] at (10.1, 2.5) {$t$};
+        % Graduations et labels - alignées avec les fronts
+        \draw[black] (0.5, 2.4) -- (0.5, 2.6);
+        \draw[black] (1.5, 2.4) -- (1.5, 2.6);
+        \draw[black] (2.5, 2.4) -- (2.5, 2.6);
+        \draw[black] (3.5, 2.4) -- (3.5, 2.6);
+        \draw[black] (4.5, 2.4) -- (4.5, 2.6);
+        \draw[black] (5.5, 2.4) -- (5.5, 2.6);
+        \draw[black] (6.5, 2.4) -- (6.5, 2.6);
+        \draw[black] (7.5, 2.4) -- (7.5, 2.6);
+        \draw[black] (8.5, 2.4) -- (8.5, 2.6);
+        
+        % Pointillés verticaux à chaque graduation
+        \draw[dotted, thin, black] (0.5, 2.5) -- (0.5, 5);
+        \draw[dotted, thin, black] (1.5, 2.5) -- (1.5, 5);
+        \draw[dotted, thin, black] (2.5, 2.5) -- (2.5, 5);
+        \draw[dotted, thin, black] (3.5, 2.5) -- (3.5, 5);
+        \draw[dotted, thin, black] (4.5, 2.5) -- (4.5, 5);
+        \draw[dotted, thin, black] (5.5, 2.5) -- (5.5, 5);
+        \draw[dotted, thin, black] (6.5, 2.5) -- (6.5, 5);
+        \draw[dotted, thin, black] (7.5, 2.5) -- (7.5, 5);
+        \draw[dotted, thin, black] (8.5, 2.5) -- (8.5, 5);
+        
+        \draw[thick, red] (0, 4) -- (1.5, 4) -- (1.5, 4.7) -- (3.5, 4.7) -- (3.5, 4) -- (5.5, 4) -- (5.5, 4.7) -- (7.5, 4.7) -- (7.5, 4) -- (9, 4);
+        
+        % Piste B - commence à 0 (B précède A, en rouge)
+        \draw[thick, red] (0, 2.5) -- (0.5, 2.5) -- (0.5, 3.2) -- (2.5, 3.2) -- (2.5, 2.5) -- (4.5, 2.5) -- (4.5, 3.2) -- (6.5, 3.2) -- (6.5, 2.5) -- (8.5, 2.5) -- (8.5, 3.2) -- (9, 3.2);
+        
+    \end{tikzpicture}
+    \caption{Chronogrammes selon le sens de rotation avec le codeur incrémental}
+    \label{fig:chronogrammes_sens_rotation}
+\end{figure}
