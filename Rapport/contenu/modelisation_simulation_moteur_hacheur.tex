@@ -1,6 +1,6 @@
 \chapter{Étude de la MCC et de son hacheur}
 
-\section{Simulation et modélisation du moteur à vide}
+\section{Modélisation de la MCC à vide}
 
 \subsection{Équations de la MCC}
 
@@ -142,7 +142,7 @@ Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_vide} montrent un
 \end{figure}
 \figref{Figure \ref{fig:comparaison_resultats_moteur_vide}}{Modelisation/01\_12\_09\_2025/comparasion\_moteur\_seul\_12\_09\_2025.m}
 
-\section{Modélisation du moteur à courant continu avec charge}
+\section{Modélisation de la MCC avec charge}
 
 Dans cette partie, nous allons effectuer la même logique qu'avec le moteur à vide. Cette fois-ci le moteur a des pertes, appelées frottements, et le couple résistant du moteur est pris en compte.
 
@@ -234,7 +234,7 @@ Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, p
 
     \vspace{0.5cm}
 
-    \includegraphics[width=0.85\textwidth]{images/Moteur_Charge_Frottement/Graphe Comparaison Vitesse Moteur.png}
+    \includegraphics[width=0.85\textwidth]{images/Moteur_Charge_Frottement/Graphe Comparaison Vitesse.png}
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur avec charge}
     \label{fig:comparaison_resultats_moteur_charge}
 \end{figure}
@@ -242,11 +242,8 @@ Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, p
 
 \colorbox{yellow}{\textbf{TODO: Ajouter une observation ici}}
 
-\section{Modélisation du moteur avec charge et hacheur}
 
-
-\textcolor{red}{cf. Modélisation Simulink et PSIM du dossier 03\_01\_10\_2025}
-
+\section{Modélisation de la MCC avec charge et hacheur}
 
 \subsection{Modélisation du hacheur}
 
@@ -348,3 +345,27 @@ La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de co
 Cette caractéristique montre que le hacheur présente une zone morte pour les faibles tensions de commande (inférieures à $7{,}5$ V), puis un comportement linéaire avec un gain de $6{,}4$. La tension de sortie est limitée à $\pm 48$ V.
 
 
+\subsection{Simulation sur Simulink}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Moteur_Hacheur/Schéma_Simulink_Moteur_Hacheur.png}
+    \caption{Modélisation du moteur avec hacheur sur Simulink}
+    \label{fig:schema_moteur_hacheur_simulink}
+\end{figure}
+\figref{Figure \ref{fig:schema_moteur_hacheur_simulink}}{Modelisation/03\_29\_09\_2025/moteur\_hacheur\_29\_09\_2025.slx}
+
+\subsection{Comparaison des résultats}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/Moteur_Hacheur/Graphe Comparaison Courant Géné Hacheur.png}
+    \vspace{0.5cm}
+    \includegraphics[width=0.85\textwidth]{images/Moteur_Hacheur/Graphe Comparaison Courant Moteur Hacheur.png}
+    \vspace{0.5cm}
+    \includegraphics[width=0.85\textwidth]{images/Moteur_Hacheur/Graphe Comparaison Vitesse Hacheur.png}
+    \caption{Comparaison des résultats Simulink et PSIM pour le moteur avec hacheur}
+    \label{fig:comparaison_resultats_moteur_hacheur}
+\end{figure}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_hacheur}}{Modelisation/03\_29\_09\_2025/comparaison\_moteur\_hacheur\_29\_09\_2025.m}
+\colorbox{yellow}{\textbf{TODO: Ajouter une observation ici}}

@@ -1,6 +1,7 @@
 \section{Simplification du schéma bloc}
 
 A ce stade de l'analyse, nous disposons du schéma bloc complet de notre système, avant asservissement en vitesse. Comme illustré dans la Figure \ref{fig:schema_bloc_asservissement}, ce schéma est assez complexe en raison de la présence de plusieurs boucles de rétroaction imbriquées. Pour faciliter l'analyse et la conception des contrôleurs, il est nécessaire de simplifier ce schéma bloc en combinant les différents éléments.
+
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[auto, node distance=2cm,>=latex']
@@ -13,9 +14,10 @@ A ce stade de l'analyse, nous disposons du schéma bloc complet de notre systèm
         
         % Nœuds - Entrée et premier sommateur
         \node [input, name=input] (input) {};
-        \node [block, right of=input, node distance=1.5cm] (commande) {$6.4$};
+        \node [gain, right of=input, node distance=1.5cm] (commande) {$6.4$};
         \node [sum, right of=commande, node distance=1.5cm] (sum1) {};
         \node [sum, right of=sum1, node distance=1.2cm] (sum2) {};
+        \node [block, below of=sum1, node distance=1.5cm] (const48) {$48$};
         
         % Ajout des signes + et - dans les sommateurs
         \draw (sum1.north east) -- (sum1.south west);
@@ -83,6 +85,7 @@ A ce stade de l'analyse, nous disposons du schéma bloc complet de notre systèm
         % Connexions principales
         \draw [->] (input) -- node[above, pos=- 0.2] {$\delta u_{commande}$} (commande);
         \draw [->] (commande) -- (sum1);
+        \draw [->] (const48) -- (sum1);
         \draw [->] (sum1) -- (sum2);
         \draw [->] (sum2) -- (corrV);
         \draw [-] (corrV) -- (point_iM);
@@ -155,17 +158,26 @@ Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans 
         
         % Nœuds - Entrée et premier sommateur
         \node [input, name=input] (input) {};
-        \node [block, right of=input, node distance=1.5cm] (commande) {$6.4$};
+        \node [gain, right of=input, node distance=1.5cm] (commande) {$6.4$};
         \node [sum, right of=commande, node distance=1.5cm] (sum1) {};
+        \node [sum, right of=sum1, node distance=1.5cm] (sum2) {};
+        
+        % Bloc constante 48 sous le sommateur sum1
+        \node [block, below of=sum1, node distance=1.5cm] (const48) {$48$};
         
         % Ajout des signes + et - dans les sommateurs
         \draw (sum1.north east) -- (sum1.south west);
         \draw (sum1.south east) -- (sum1.north west);
         \node [above left, inner sep=6pt] at (sum1.center) {\tiny $+$};
         \node [below right, inner sep=6pt] at (sum1.center) {\tiny $-$};
-        
+
+        \draw (sum2.north east) -- (sum2.south west);
+        \draw (sum2.south east) -- (sum2.north west);
+        \node [above left, inner sep=6pt] at (sum2.center) {\tiny $+$};
+        \node [below right, inner sep=6pt] at (sum2.center) {\tiny $-$};
+
         % Bloc correcteur de vitesse
-        \node [block, right of=sum1, node distance=2cm] (corrV) {$\dfrac{1}{R+L\cdot s}$};
+        \node [block, right of=sum2, node distance=2cm] (corrV) {$\dfrac{1}{R+L\cdot s}$};
         
         % Point intermédiaire entre corrV et kphi (nœud noir)
         \node [circle, fill=black, inner sep=2pt, right of=corrV, node distance=1.6cm] (point_iM) {};
@@ -192,7 +204,9 @@ Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans 
         % Connexions principales
         \draw [->] (input) -- node[above, pos=- 0.2] {$\delta u_{commande}$} (commande);
         \draw [->] (commande) -- (sum1);
-        \draw [->] (sum1) -- (corrV);
+        \draw [->] (const48) -- (sum1);
+        \draw[->] (sum1) -- (sum2);
+        \draw [->] (sum2) -- (corrV);
         \draw [-] (corrV) -- (point_iM);
         \draw [->] (point_iM) -- (kphih);
 
@@ -204,7 +218,7 @@ Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans 
         
         % Boucle de retour 3 : Kphi part de Omega et revient à sum1
         \draw [->] (omega) |- (kphiret);
-        \draw [->] (kphiret) -| (sum1);
+        \draw [->] (kphiret) -| (sum2);
     \end{tikzpicture}
     \caption{Schéma bloc de l'asservissement en courant simplifié}
     \label{fig:schema_bloc_simplifie}
@@ -214,3 +228,5 @@ On peut alors écrire la fonction de transfert en boucle ouverte du système sim
 \[
 \delta_{i_{M}} (s) = \dfrac{\dfrac{1}{R+L\cdot s}}{1+\dfrac{\left(K_\phi\right)^2\cdot H}{R+L\cdot s}} \cdot \delta u_{commande} (s) = FTBO (s) \cdot \delta u_{commande} (s)
 \]
+
+Pour s'assurer que notre fonction de transfert est correcte, il faudrait la valider par des simulations numériques en comparant les résultats obtenus. Il serait alors possible de poursuivre l'analyse en utilisant cette fonction de transfert simplifiée pour concevoir et optimiser le contrôleur de l'asservissement en vitesse du moteur.

@@ -1,8 +1,8 @@
-\chapter{Étude de l'asservissement du moteur}
+\chapter{Étude de l'asservissement de la MCC}
 
-\section{Asservissement en courant du moteur}
+\section{Asservissement en courant}
 
-\subsection{Modélisation sur Matlab/Simulink}
+\subsection{Modélisation sur Simulink}
 
 A l'aide du PID Tuner de Simulink, nous obtenons les valeurs suivantes pour le correcteur PI :
 \begin{itemize}
@@ -18,7 +18,7 @@ A l'aide du PID Tuner de Simulink, nous obtenons les valeurs suivantes pour le c
     \label{fig:asservissement_courant_simulink}
 \end{figure}
 
-\subsubsection{Modélisation sur PSIM}
+\subsection{Modélisation sur PSIM}
 
 Pour adapter le correcteur PI de Simulink à PSIM, il faut convertir les paramètres en utilisant les relations suivantes :
 
@@ -36,7 +36,7 @@ Dans PSIM :
     \label{fig:asservissement_courant_psim}
 \end{figure}
 
-\subsubsection{Comparaison des résultats}
+\subsection{Comparaison des résultats}
 
 Dans cette section, nous allons comparer les résultats obtenus avec les deux outils de simulation, Simulink et PSIM.
 
@@ -51,10 +51,10 @@ Dans cette section, nous allons comparer les résultats obtenus avec les deux ou
 On constate que la réponse indicielle de l'asservissement en courant du moteur présente un dépassement d'environ 19\% et un temps de réponse de 0,35 ms. Ce qui respecte les spécifications du cahier des charges qui exige un dépassement maximal de 20\% et un temps de réponse maximal de 10 fois la prériode de la MLI soit 0,45 ms.
 
 
-\subsection{Asservissement en vitesse du moteur}
+\section{Asservissement en vitesse}
 
-\subsubsection{Simulation sur Matlab/Simulink}
-Nous commencons par la simulation de la vitesse du moteur en boucle ouverte sur Simulink. 
+\subsection{Simulation sur Simulink}
+Nous commençons par la simulation de la vitesse du moteur en boucle ouverte sur Simulink. 
 
 % réponse de l'asservissement en vitesse Simulink
 \begin{figure}[H]
@@ -86,20 +86,23 @@ A l'aide du PID Tuner de Simulink, nous obtenons les valeurs suivantes pour le c
 \end{figure}
 Nous relevons un temps de réponse à 5\% de 7,6 ms et un dépassement de 18,5\%, ce qui respecte les spécifications du cahier des charges.
 
-\subsubsection{Simulation sur PSIM}
+\subsection{Simulation sur PSIM}
 
 \textcolor{red}{J'arrive pas à avoir la même réponse en vitesse sur Psim et sur Simulink. Alors que Clément y est arrivé. J'ai essayé de rajouter les frottement sec sur Simulink ca change rien. En jouant sur le temps de réponse voulu ca change rien non plus car si je met un temps de réponse plus long j'ai un dépassement sur Simulink et pas de dépassement sur Psim. Et quand je met un temps de réponse plus court j'ai un plus gros dépassement sur Psim que sur Simulink.}
 
-\subsubsection{Comparaison des résultats}
+\subsection{Comparaison des résultats}
+
+Les deux courbes sont confondues, nous avons appliqué ici un facteur 0.99 sur les valeurs de vitesse issues de Simulink pour permettre de mieux visualiser les deux courbes.
 
 \subsection{Asservissement en vitesse avec le codeur incrémental}
 Le cahier des charges impose la possibilité d'asservir la vitesse du moteur à l'aide d'un codeur incrémental.
+
 \subsubsection{Principe de fonctionnement du codeur incrémental}
 
 Le fonctionnement du codeur incrémental repose sur un disque rotatif équipé de fentes. Celui-ci est interposé entre une diode électroluminescente et un capteur photodiode. Lorsque le disque tourne, les fentes permettent à la lumière de passer à travers, générant ainsi des impulsions électriques dans le capteur. Le nombre d'impulsions générées par tour dépend de la résolution du codeur.
-\\\\
-Le codeur incrémentale fournit est composé de deux piste de fentes decalé d'un quart de période, ce qui permet de déterminer le sens de rotation du moteur en analysant la séquence des impulsions générées par les deux capteurs. 
-\\\\
+\vspace{0.5cm}
+Le codeur incrémental fournit est composé de deux pistes de fentes décalées d'un quart de période, ce qui permet de déterminer le sens de rotation du moteur en analysant la séquence des impulsions générées par les deux capteurs.
+\subsubsection{Calcul de la vitesse et du sens de rotation}
 Pour mesurer la vitesse de rotation du moteur, il suffit de compter le nombre d'impulsions générées par le codeur sur une période de temps donnée. La vitesse angulaire peut être calculée en utilisant la formule suivante :
 \begin{equation}
     \omega = \frac{N \cdot 2\pi}{P \cdot T}
