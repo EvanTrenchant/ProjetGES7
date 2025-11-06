@@ -39,6 +39,7 @@
 \usepackage{caption}                % Pour personnaliser les légendes
 \usepackage{subcaption}             % Pour des sous-figures
 \usepackage{booktabs}               % Pour de jolis tableaux
+\usepackage{newfloat}               % Pour créer de nouveaux types de flottants
 \usepackage{titlesec}               % Pour personnaliser les titres de chapitres
 \usepackage{lastpage}               % Pour obtenir le nombre total de pages
 \usepackage{datetime}               % Pour le formatage des dates
@@ -115,6 +116,28 @@
 % When entering a table environment, set caption width to the current \linewidth
 % so the caption box will match the table's width.
 \AtBeginEnvironment{table}{\captionsetup{width=\linewidth}}
+
+% --- Nouvel environnement 'tableau' pour tableaux sans style spécial ---
+% Création d'un nouvel environnement flottant nommé 'tableau'
+\DeclareFloatingEnvironment[
+    fileext=lot,        % Utilise la même liste que les tables
+    listname={Liste des tableaux},
+    name=Tableau,
+    placement=tbp,      % Placement par défaut : top, bottom, page
+    within=none         % Numérotation continue dans tout le document
+]{tableau}
+
+% Configuration du caption pour l'environnement 'tableau' : style simple, sans boîte grise
+\captionsetup[tableau]{
+    format=plain,           % Format simple sans boîte
+    font=small,             % Taille de police normale (pas tiny)
+    labelfont=bf,           % Label en gras
+    justification=centering, % Centré
+    singlelinecheck=true,   % Permet le centrage automatique pour les légendes courtes
+    margin=0pt,
+    labelsep=colon,         % Séparateur standard "Tableau X:"
+    skip=10pt               % Espacement normal entre tableau et caption
+}
 
 % Optional helper environment: tablebox
 % Usage: \begin{table}\begin{tablebox}{<width>} ... \end{tablebox}\end{table}
