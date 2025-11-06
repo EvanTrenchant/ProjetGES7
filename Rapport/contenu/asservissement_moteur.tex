@@ -54,43 +54,61 @@ On constate que la réponse indicielle de l'asservissement en courant du moteur 
 \section{Asservissement en vitesse}
 
 \subsection{Simulation sur Simulink}
-Nous commençons par la simulation de la vitesse du moteur en boucle ouverte sur Simulink. 
+Nous commençons par la simulation de la vitesse du moteur en boucle ouverte sur Simulink. Nous réalisons le schéma suivant :
 
-% réponse de l'asservissement en vitesse Simulink
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/asserv_de_vitesse_tachy/Vitesse_tr5_BO.png}
+    \includegraphics[width=0.8\textwidth]{images/BO_Vitesse/Schéma_Simulink_BO_Vitesse.png}
+    \caption{Schéma de la simulation en boucle ouverte de la vitesse du moteur dans Simulink}
+    \label{fig:schéma_BO_vitesse_simulink}
+\end{figure}
+
+La simulation en boucle ouverte nous permet d'observer la réponse du système sans rétroaction. Pour cela, on attend d'être en régime permanent, pour lui appliquer en suite une consigne en échelon et observer la réponse du système.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/BO_Vitesse/Graphe_BO_Vitesse.png}
     \caption{Réponse de la vitesse du moteur en boucle ouverte dans Simulink}
     \label{fig:asservissement_vitesse_simulink}
 \end{figure}
-On releve un temps de réponse à 5\% en boucle ouverte pour la vitesse, sur Simulink : 37,8 ms
+
+On relève un temps de réponse à 5\% en boucle ouverte pour la vitesse, sur Simulink : 37,8 ms
 
 Nous cherchons ensuite à asservir la vitesse du moteur en boucle fermée avec un correcteur PI. Nous visons un temps de réponse à 5\% 3 fois plus rapide qu'en boucle ouverte soit 12,6 ms avec un dépassement maximal de 20\%.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/asserv_de_vitesse_tachy/Simulink_boucle_de_courant_vitesse.png}
+    \includegraphics[width=0.8\textwidth]{images/BF_Vitesse/Schéma_Simulink_BF_Vitesse.png}
     \caption{Schéma de l'asservissement en vitesse du moteur dans Simulink}
     \label{fig:asservissement_vitesse_simulink_schema}
 \end{figure}
+
 A l'aide du PID Tuner de Simulink, nous obtenons les valeurs suivantes pour le correcteur PI :
+
 \begin{itemize}
     \item $K_p = 37,3376029909659$
     \item $K_i = 14022,585396076$
 \end{itemize}
-% réponse de l'asservissement en vitesse Simulink
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{images/asserv_de_vitesse_tachy/Vitesse_tr5_BF.png}
-    \caption{Réponse de l'asservissement en vitesse du moteur dans Simulink}
-    \label{fig:reponse_asservissement_vitesse_simulink}
-\end{figure}
-Nous relevons un temps de réponse à 5\% de 7,6 ms et un dépassement de 18,5\%, ce qui respecte les spécifications du cahier des charges.
 
 \subsection{Simulation sur PSIM}
 
-\textcolor{red}{J'arrive pas à avoir la même réponse en vitesse sur Psim et sur Simulink. Alors que Clément y est arrivé. J'ai essayé de rajouter les frottement sec sur Simulink ca change rien. En jouant sur le temps de réponse voulu ca change rien non plus car si je met un temps de réponse plus long j'ai un dépassement sur Simulink et pas de dépassement sur Psim. Et quand je met un temps de réponse plus court j'ai un plus gros dépassement sur Psim que sur Simulink.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/BF_Vitesse/Schéma_PSIM_BF_Vitesse.png}
+    \caption{Schéma de l'asservissement en vitesse du moteur dans PSIM}
+    \label{fig:asservissement_vitesse_psim_schema}
+\end{figure}
+
+
 
 \subsection{Comparaison des résultats}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/BF_Vitesse/Graphe_Comparaison_BF_Vitesse.png}
+    \caption{Comparaison des réponses en vitesse entre Simulink et PSIM}
+    \label{fig:comparaison_reponses_vitesse}
+\end{figure}
+
 
 Les deux courbes sont confondues, nous avons appliqué ici un facteur 0.99 sur les valeurs de vitesse issues de Simulink pour permettre de mieux visualiser les deux courbes.
 
