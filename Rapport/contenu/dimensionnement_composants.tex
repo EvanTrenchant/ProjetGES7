@@ -1,0 +1,121 @@
+\chapter{Dimensionnement des asservissements}
+
+\section{Dimensionnement des correcteurs réels pour l'asservissement en courant}
+
+Après avoir validé la structure de contrôle avec des régulateurs PI idéaux en simulation, il est nécessaire de dimensionner les circuits électroniques réels permettant d'implémenter ces correcteurs. Cette étape consiste à traduire les fonctions de transfert théoriques en circuits à amplificateurs opérationnels (AOP).
+\subsection{Structure du correcteur PI}
+La structure du correcteur PI à implémenter est représentée à la figure \ref{fig:schema_pi_aop}.
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[european resistors, scale=1.1, transform shape]
+        % Premier étage - Correcteur H1(s)
+        % Résistance d'entrée R connectée à l'entrée - de l'AOP1
+        \draw (0,0) to[R, l=$R$, o-] (2,0);
+        
+        % Premier AOP (borne - en haut)
+        \draw (2,0) node[op amp, anchor=-](OA1){};
+        
+        % Résistance et condensateur EN SÉRIE dans la rétroaction
+        \draw (OA1.-) |- ++(0,1.2) coordinate(top1);
+        \draw (top1) to[R, l=$R$] ++(1.5,0) coordinate(midRC);
+        \draw (midRC) to[C, l=$C$] ++(1.5,0) coordinate(endRC);
+        \draw (endRC) |- (OA1.out);
+        
+        % Masse sur l'entrée +
+        \draw (OA1.+) -- ++(0,-0.4) node[ground]{};
+        
+        % Sortie du premier étage avec noeud Va aligné
+        \draw (OA1.out) to[short, -*] ++(0.63,0) coordinate(va);
+        \draw (va) node[below=2mm]{$V_a$};
+        
+        % Deuxième étage - Correcteur H2(s)
+        % Résistance R1 reliée sur la borne - de l'AOP2
+        \draw (va) to[R, l=$R1$] ++(2,0) coordinate(beforeAOP2);
+        
+        % Second AOP (borne - en haut)
+        \draw (beforeAOP2) node[op amp, anchor=-](OA2){};
+        
+        % Résistance R2 dans la rétroaction
+        \draw (OA2.-) |- ++(0,1.2) coordinate(top2);
+        \draw (top2) to[R, l=$R2$] ++(2.5,0) coordinate(top2end);
+        \draw (top2end) |- (OA2.out);
+        
+        % Masse sur l'entrée +
+        \draw (OA2.+) -- ++(0,-0.4) node[ground]{};
+        
+        % Sortie finale
+        \draw (OA2.out) to[short, -o] ++(0.8,0);
+        \draw (OA2.out) ++(0.8,0) node[right]{$V_s$};
+        
+        % Tension d'entrée
+        \draw (0,0) node[left]{$V_e$};
+        
+    \end{circuitikz}
+    \caption{Schéma d'un correcteur PI avec des amplificateurs opérationnels}
+    \label{fig:schema_pi_aop}
+\end{figure}
+
+\subsection{Calcul de la fonction de transfert globale}
+
+La fonction de transfert globale du système s'exprime comme suit :
+\begin{equation}
+    \frac{V_e(s)}{V_r(s)} = \frac{V_e(s)}{V_a(s)} \cdot \frac{V_a(s)}{V_r(s)} = H_1(s) \cdot H_2(s)
+\end{equation}
+
+Dans cette configuration, on suppose que les amplificateurs opérationnels sont idéaux, ce qui implique $\varepsilon = 0 \Longrightarrow V^+ = V^-$. Le dimensionnement des correcteurs s'effectue en séparant les deux fonctions de transfert.
+
+\subsection{Dimensionnement du correcteur $H_1(s)$}
+
+Pour le premier étage du correcteur, on introduit une résistance équivalente :
+\begin{equation}
+    R_{eq} = R + \frac{1}{sC}
+\end{equation}
+
+En appliquant le théorème de Millman au point A, on obtient :
+\begin{equation}
+    V^- = \frac{V_e \cdot R1 + V_a \cdot Z_{eq}}{R1 \cdot Z_{eq}}
+\end{equation}
+
+Puisque $V_a \cdot R = -V_e \cdot (R + \frac{1}{sC}) = -V_e \cdot \frac{s[RC] + 1}{sC}$, la fonction de transfert du premier étage s'écrit :
+\begin{equation}
+    \frac{V_a(s)}{V_e(s)} = \frac{RC + 1}{sC}
+\end{equation}
+
+\subsection{Dimensionnement du correcteur $H_2(s)$}
+
+Pour le second étage, on applique le théorème de Millman au point B :
+\begin{equation}
+    V^- = \frac{\frac{1}{R1} + \frac{1}{R2}}{\frac{1}{R1} + \frac{1}{R2}} \Longrightarrow \frac{V_r \cdot R1 + V_a \cdot R2}{R1 + R2}
+\end{equation}
+
+La fonction de transfert du second étage s'exprime alors par :
+\begin{equation}
+    H_2(s) = \frac{V_r}{V_a} = -\frac{R2}{R1}
+\end{equation}
+
+\subsection{Identification des paramètres}
+
+Par identification avec la structure PI souhaitée, on obtient les relations suivantes :
+\begin{align}
+    K_{posm} &= -\frac{R2}{R1} \\
+    \tau &= RC
+\end{align}
+
+\subsection{Choix des composants}
+
+Les valeurs des composants retenues pour l'implémentation physique sont les suivantes :
+
+\begin{center}
+\begin{tabular}{ll}
+    \toprule
+    Composant & Valeur \\
+    \midrule
+    $R = R_a = R1$ & $10\,\text{k}\Omega$ \\
+    $R2$ & $82\,\text{k}\Omega$ \\
+    $C$ & $58\,\text{nF}$ \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+Ces valeurs permettent d'obtenir les caractéristiques dynamiques du correcteur PI avec les performances souhaitées en termes de temps de réponse et de stabilité du système asservi.
