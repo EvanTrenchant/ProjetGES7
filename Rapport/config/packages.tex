@@ -242,8 +242,14 @@
 % Variable pour stocker les références de la page courante
 \newcommand{\figfooter}{}
 % Commande pour ajouter une référence
+\makeatletter
 \newcommand{\figref}[2]{%
-    \gdef\figfooter{\scriptsize{$\blacktriangleright$ \textbf{#1:} \texttt{#2}}}%
+    \ifx\figfooter\empty
+        \gdef\figfooter{\tiny{$\blacktriangleright$ \textbf{#1:} \texttt{#2}}}%
+    \else
+        \xdef\figfooter{\unexpanded\expandafter{\figfooter}\\[2pt]\noexpand\tiny{$\blacktriangleright$ \noexpand\textbf{#1:} \noexpand\texttt{#2}}}%
+    \fi
 }
+\makeatother
 % Commande pour réinitialiser les références (appelée automatiquement)
 \newcommand{\clearfigfooter}{\gdef\figfooter{}}

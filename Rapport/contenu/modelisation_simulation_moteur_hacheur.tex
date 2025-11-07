@@ -63,8 +63,8 @@ En notant $N$ la vitesse en tr/min et $\Omega$ la vitesse en rad/s, on obtient l
 
 \begin{equation*}
 \begin{aligned}
-& E=\frac{13,3}{1000} \cdot N \\
-& \Omega=\frac{\pi N}{30} \Rightarrow E=\underbrace{\frac{13,3}{1000} \cdot \frac{30}{\pi}}_{0,127} \cdot \Omega
+& E=\frac{13,3}{1\,000} \cdot N \\
+& \Omega=\frac{\pi N}{30} \Rightarrow E=\underbrace{\frac{13,3}{1\,000} \cdot \frac{30}{\pi}}_{0,127} \cdot \Omega
 \end{aligned}
 \end{equation*}
 
@@ -84,7 +84,7 @@ Dans l'environnement Simulink, notre démarche consiste à traduire le système 
     \caption{Schéma Simulink du moteur à courant continu à vide}
     \label{fig:schema_moteur_vide_simulink}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_vide_simulink}}{Modelisation/01\_12\_09\_2025/moteur\_seul\_12\_09\_2025.slx}
+\figref{Figure \ref{fig:schema_moteur_vide_simulink}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
 
 On remarque que le schéma Simulink présenté en Figure \ref{fig:schema_moteur_vide_simulink} intègre les équations de la MCC sans charge. Les simulations effectuées avec ce modèle permettent d'obtenir les réponses temporelles du courant et de la vitesse du moteur à vide, illustrées dans la Figure \ref{fig:reponse_moteur}.
 \begin{figure}[H]
@@ -116,7 +116,7 @@ Le principe de modélisation sous PSIM repose sur l'assemblage de composants don
     \caption{Modélisation du moteur à courant continu sur PSIM}
     \label{fig:schema_moteur_psim}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_psim}}{Modelisation/01\_12\_09\_2025/moteur\_seul\_12\_09\_2025.psimsch}
+\figref{Figure \ref{fig:schema_moteur_psim}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.psimsch}
 
 \subsection{Comparaison des résultats}
 Nous comparons les résultats avec un programme \textit{MATLAB}. Pour cela, nous avons besoin de
@@ -140,8 +140,9 @@ Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_vide} montrent un
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur à vide}
     \label{fig:comparaison_resultats_moteur_vide}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_resultats_moteur_vide}}{Modelisation/01\_12\_09\_2025/comparasion\_moteur\_seul\_12\_09\_2025.m}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_vide}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Comparaison\_Moteur\_Seul\_VALIDE\_12\_09\_2025.m}
 
+\newpage
 \section{Modélisation de la MCC avec charge}
 
 Dans cette partie, nous allons effectuer la même logique qu'avec le moteur à vide. Cette fois-ci le moteur a des pertes, appelées frottements, et le couple résistant du moteur est pris en compte.
@@ -149,7 +150,7 @@ Dans cette partie, nous allons effectuer la même logique qu'avec le moteur à v
 On note :
 
 \begin{equation*}
-f = C_f \cdot \Omega = \frac{30}{\pi} \cdot \frac{1}{1000} \cdot 0{,}53 \cdot 10^{-2} = 5{,}06 \cdot 10^{-5} \, N.m/rad.s
+f = C_f \cdot \Omega = \frac{30}{\pi} \cdot \frac{1}{1\,000} \cdot 0{,}53 \cdot 10^{-2} = 5{,}06 \cdot 10^{-5} \, N.m/rad.s
 \end{equation*}
 
 \begin{equation*}
@@ -200,6 +201,7 @@ E(s) = K_\Phi \cdot \Omega(s)
 
 Une fois les équations trouvées, nous allons pouvoir déterminer le schéma bloc et effectuer les mesures.
 
+\newpage
 \subsection{Simulation Simulink}
 
 Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, puisque qu'on y ajoute le couple résistant $C_r$ et les frottements $f$.
@@ -210,18 +212,21 @@ Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, p
     \caption{Schéma Simulink du moteur à courant continu avec charge et frottements}
     \label{fig:schema_moteur_charge_simulink}
 \end{figure}
-
+\figref{Figure \ref{fig:schema_moteur_charge_simulink}}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.slx}
 
 \subsection{Simulation sur PSIM}
 
+De manière analogue à la simulation du moteur à vide, nous utilisons PSIM pour valider le modèle Simulink incluant cette fois-ci la charge et les frottements. La démarche reste similaire : nous utilisons le bloc moteur à courant continu de PSIM, mais en y ajoutant les paramètres de couple résistant ($C_r$) et de frottement visqueux ($f$). Cette approche directe, basée sur des composants physiques, permet de vérifier la cohérence des résultats obtenus par la modélisation par équations dans Simulink.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/Moteur_Charge_Frottement/Schéma_PSIM_Moteur_Charge_Frottement.png}
+    \includegraphics[width=1\textwidth]{images/Moteur_Charge_Frottement/Schéma_PSIM_Moteur_Charge_Frottement.png}
     \caption{Modélisation du moteur avec charge et frottements sur PSIM}
     \label{fig:schema_moteur_charge_psim}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_charge_psim}}{Modelisation/02\_22\_09\_2025/moteur\_plus\_gene\_plus\_charge\_plus\_frottement\_22\_09\_2025.psimsch}
+\figref{Figure \ref{fig:schema_moteur_charge_psim}}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.psimsch}
 
+\newpage
 \subsection{Comparaison des résultats}
 
 \begin{figure}[H]
@@ -230,7 +235,7 @@ Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, p
     
     \vspace{0.5cm}
 
-    \includegraphics[width=0.85\textwidth]{images/Moteur_Charge_Frottement/Graphe Comparaison Courant Moteur.png}
+    \includegraphics[width=0.85\textwidth]{images/Moteur_Charge_Frottement/Graphe Comparaison Courant Géné.png}
 
     \vspace{0.5cm}
 
@@ -238,9 +243,9 @@ Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, p
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur avec charge}
     \label{fig:comparaison_resultats_moteur_charge}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_resultats_moteur_charge}}{Modelisation/02\_22\_09\_2025/comparasion\_moteur\_plus\_gene\_plus\_charge\_plus\_frottement\_22\_09\_2025.m}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_charge}}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Comparaison\_Courant\_Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.m}
 
-\colorbox{yellow}{\textbf{TODO: Ajouter une observation ici}}
+Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_charge} confirment la validité de notre modélisation avec charge et frottements. On observe une superposition quasi-parfaite des résultats Simulink (marqueurs) et PSIM (ligne continue) sur l'ensemble des grandeurs mesurées. La vitesse atteint un régime permanent à environ $3100$ tr/min, valeur inférieure à celle du moteur à vide ($3609$ tr/min) en raison de la présence de la charge de $10$ $\Omega$, du couple résistant $C_r$ et des frottements visqueux. Le courant d'induit présente un pic initial caractéristique du démarrage, puis se stabilise à une valeur permanente correspondant à l'équilibre entre le couple moteur et les couples résistifs. Cette concordance valide l'implémentation des pertes mécaniques dans les deux environnements de simulation.
 
 
 \section{Modélisation de la MCC avec charge et hacheur}
@@ -257,15 +262,13 @@ Sur PSIM, le hacheur est modélisé par un pont en H composé de quatre transist
     \caption{Modélisation du hacheur sur PSIM}
     \label{fig:hacheur_psim}
 \end{figure}
+\figref{Figure \ref{fig:hacheur_psim}}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.psimsch}
 
 Le hacheur fournit une tension de sortie moyenne qui peut être positive ou négative (mode bipolaire). La valeur moyenne de la tension de sortie Vs dépend de trois grandeurs : la tension d'alimentation (ici 48\,V), la tension de commande continue (notée $V_{\text{commande}}$) et le rapport cyclique $\alpha$ du signal de commande (duty cycle) appliqué aux interrupteurs.
 
 La commutation des transistors s'effectue par paires (par exemple 1 et 4 d'une part, 2 et 3 d'autre part) de façon complémentaire afin de piloter le pont en H. Le rapport cyclique $\alpha$ correspond à la proportion de la période pendant laquelle l'interrupteur est fermé. Pour $\alpha=0$ la tension de sortie vaut $V_s=-48$\,V, pour $\alpha=1$ on obtient $V_s=+48$\,V, et pour des valeurs intermédiaires de $\alpha$ la tension de sortie varie de manière (approximativement) linéaire entre ces extrêmes. Ainsi, une augmentation de $\alpha$ entraîne une augmentation de $V_s$.
 
 La commande PWM est générée en comparant, au moyen d'un comparateur (ou d'un AOP configuré), une tension continue de référence $V_e = V_{\text{commande}}$ avec un signal triangulaire $V_{\text{triangle}}$ qui varie typiquement de 0 à 15\,V. Le comparateur produit alors le signal $V_{\text{pwm}}$ dont le rapport cyclique est proportionnel à $V_{\text{commande}}$. En sortie du comparateur, des suiveurs (buffers) sont placés pour assurer une adaptation d'impédance et piloter correctement les étages de commande des MOSFET.
-
-Ce modèle permet d'étudier le comportement statique et dynamique du hacheur (effet du filtrage, des commutations, des temps morts, etc.) et sert de base pour obtenir les courbes de comportement et les signaux de commande utilisés dans les simulations ultérieures.
-
 
 \subsection{Caractéristique du hacheur}
 
@@ -335,15 +338,14 @@ La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de co
     \fill[black] (15,48) circle (3pt);
 \end{tikzpicture}
 
-\captionof{figure}{Caractéristique de transfert du hacheur}
+\captionof{figure}{\scriptsize{Caractéristique de transfert du hacheur}}
 \label{fig:caracteristique_commande}
 \end{minipage}
 
 
 \vspace{0.5cm}
 
-Cette caractéristique montre que le hacheur présente une zone morte pour les faibles tensions de commande (inférieures à $7{,}5$ V), puis un comportement linéaire avec un gain de $6{,}4$. La tension de sortie est limitée à $\pm 48$ V.
-
+Cette caractéristique montre que le hacheur présente une zone morte pour les faibles tensions de commande (inférieures à $7{,}5$ V), puis un comportement linéaire avec un gain de $6{,}4$. La tension de sortie est limitée à $\pm 48$ V. 
 
 \subsection{Simulation sur Simulink}
 
@@ -353,8 +355,9 @@ Cette caractéristique montre que le hacheur présente une zone morte pour les f
     \caption{Modélisation du moteur avec hacheur sur Simulink}
     \label{fig:schema_moteur_hacheur_simulink}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_hacheur_simulink}}{Modelisation/03\_29\_09\_2025/moteur\_hacheur\_29\_09\_2025.slx}
+\figref{Figure \ref{fig:schema_moteur_hacheur_simulink}}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.slx}
 
+\newpage
 \subsection{Comparaison des résultats}
 
 \begin{figure}[H]
@@ -367,5 +370,6 @@ Cette caractéristique montre que le hacheur présente une zone morte pour les f
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur avec hacheur}
     \label{fig:comparaison_resultats_moteur_hacheur}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_resultats_moteur_hacheur}}{Modelisation/03\_29\_09\_2025/comparaison\_moteur\_hacheur\_29\_09\_2025.m}
-\colorbox{yellow}{\textbf{TODO: Ajouter une observation ici}}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_hacheur}}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Comparaison\_Courant\_Moteur\_Hacheur\_VALIDE\_03\_11\_2025.m}
+
+Les résultats présentés dans la Figure \ref{fig:comparaison_resultats_moteur_hacheur} démontrent la cohérence entre les modélisations Simulink et PSIM du système complet moteur-hacheur. Les trois grandeurs observées (courant générateur, courant moteur et vitesse) montrent une excellente superposition des courbes issues des deux simulateurs. On constate notamment que l'introduction du hacheur impose une dynamique légèrement différente par rapport à l'alimentation directe, avec des ondulations caractéristiques de la modulation PWM. La vitesse converge vers une valeur de régime permanent proche de $3100$ tr/min, cohérente avec le point de fonctionnement imposé par la tension de commande du hacheur. Cette validation croisée confirme la justesse de notre modélisation du convertisseur statique et de son interaction avec la charge mécanique.
