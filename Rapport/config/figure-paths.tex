@@ -1,0 +1,46 @@
+% Configuration pour la gestion automatique des chemins de figures
+% Auteur: Assistant LaTeX
+% Date: 2025-11-08
+
+% Packages requis
+\usepackage{etoolbox}
+
+% Création d'une séquence pour stocker les labels des figures
+\newcommand{\figurepathlist}{}
+
+% Commande pour associer un chemin à une figure
+% Usage: \figpath{label}{chemin}
+% Exemple: \figpath{fig:mon_schema}{Modelisation/01_12_09_2025/schema.slx}
+\newcommand{\figpath}[2]{%
+    \expandafter\gdef\csname figpath@#1\endcsname{#2}%
+    \ifdefempty{\figurepathlist}{%
+        \gdef\figurepathlist{#1}%
+    }{%
+        \xappto\figurepathlist{,#1}%
+    }%
+}
+
+% Commande pour afficher le chemin d'une figure
+% Usage: \getfigpath{label}
+\newcommand{\getfigpath}[1]{%
+    \ifcsdef{figpath@#1}{%
+        \csuse{figpath@#1}%
+    }{%
+        \textit{Chemin non défini}%
+    }%
+}
+
+% Commande auxiliaire pour traiter chaque élément de la liste
+\newcommand{\processfigureitem}[1]{%
+    \item[] \textbf{Figure \ref{#1}:} \texttt{\getfigpath{#1}}
+    
+}
+
+% Commande pour imprimer toute la liste des figures avec leurs chemins
+\newcommand{\printfigurelist}{%
+    \ifdefempty{\figurepathlist}{%
+        \item[] \textit{Aucune figure avec chemin défini.}%
+    }{%
+        \expandafter\forcsvlist\expandafter\processfigureitem\expandafter{\figurepathlist}%
+    }%
+}

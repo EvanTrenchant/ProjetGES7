@@ -1,0 +1,56 @@
+% =====================================
+% DÉFINITION DES CHEMINS DES FIGURES
+% =====================================
+% 
+% Ce fichier centralise tous les chemins d'accès aux fichiers de simulation
+% correspondant aux figures du rapport.
+%
+% Usage: \figpath{label_de_la_figure}{chemin/vers/fichier}
+%
+% Exemple:
+% \figpath{fig:mon_schema}{Modelisation/01_12_09_2025/schema.slx}
+%
+% Les chemins seront automatiquement affichés dans la section
+% "Liste des figures et chemins d'accès"
+% =====================================
+
+% =====================================
+% CHAPITRE : MODÉLISATION ET SIMULATION
+% =====================================
+
+% --- Section : Moteur à vide ---
+\figpath{fig:schema_moteur_vide_simulink}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
+\figpath{fig:schema_moteur_psim}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.psimsch}
+\figpath{fig:comparaison_resultats_moteur_vide}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Comparaison\_Moteur\_Seul\_VALIDE\_12\_09\_2025.m}
+
+% --- Section : Moteur avec charge et frottements ---
+\figpath{fig:schema_moteur_charge_simulink}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.slx}
+\figpath{fig:schema_moteur_charge_psim}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.psimsch}
+\figpath{fig:comparaison_resultats_moteur_charge}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Comparaison\_Courant\_Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.m}
+
+% --- Section : Moteur avec hacheur ---
+\figpath{fig:hacheur_psim}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.psimsch}
+\figpath{fig:schema_moteur_hacheur_simulink}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.slx}
+\figpath{fig:comparaison_resultats_moteur_hacheur}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Comparaison\_Courant\_Moteur\_Hacheur\_VALIDE\_03\_11\_2025.m}
+
+% =====================================
+% CHAPITRE : ASSERVISSEMENT
+% =====================================
+
+% --- Section : Asservissement en courant ---
+\figpath{fig:asservissement_courant_simulink}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.slx}
+\figpath{fig:asservissement_courant_psim}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.psimsch}
+\figpath{fig:comparaison_reponse_indicielle_courant}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/Comparaison\_Asservissement\_Courant\_VALIDE\_06\_11\_2025.m}
+
+% --- Section : Asservissement en vitesse ---
+\figpath{fig:schéma_BO_vitesse_simulink}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
+\figpath{fig:asservissement_vitesse_simulink}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
+\figpath{fig:asservissement_vitesse_simulink_schema}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.slx}
+\figpath{fig:asservissement_vitesse_psim_schema}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.psimsch}
+\figpath{fig:comparaison_reponses_vitesse}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/Comparaison\_BF\_Vitesse/Comparaison\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.m}
+
+% =====================================
+% AJOUT DE NOUVELLES FIGURES
+% =====================================
+% Ajoutez vos autres figures ci-dessous en suivant le même format :
+% \figpath{fig:votre_label}{Chemin/vers/votre/fichier.ext}
