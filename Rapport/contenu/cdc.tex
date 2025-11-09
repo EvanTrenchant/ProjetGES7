@@ -6,8 +6,8 @@ Le tableau suivant récapitule l'ensemble des notations utilisées dans ce proje
 
 \begin{tableau}[H]
 \centering
-\caption{Notations des variables pour le projet}
 \label{tab:notations}
+\footnotesize
 \begin{tabular}{|c|p{5.5cm}|c|c|}
 \hline
 \textbf{Notations} & \textbf{Nom} & \textbf{Valeurs} & \textbf{Unités} \\
@@ -78,13 +78,14 @@ $e$ & force contre-électromotrice & & V \\
 \section{Spécifications du système}
 
 Le cahier des charges du projet est défini comme suit :
-\section*{Asservissement en courant}
+\subsection*{Asservissement en courant}
 \begin{itemize}
     \item Temps de réponse maximal de 10 fois la periode de la MLI soit 0,45 ms
     \item Depassement maximal de 20\%
 \end{itemize}
 
-\section*{Asservissement en vitesse}
+\subsection*{Asservissement en vitesse}
 \begin{itemize}
+    \item Temps de réponse à 5\% divisé par 3 par rapport à la boucle ouverte
     \item Depassement maximal de 20\%
 \end{itemize}

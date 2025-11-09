@@ -1,10 +1,32 @@
 \section{Simplification du schéma bloc}
 
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
 A ce stade de l'analyse, nous disposons du schéma bloc complet de notre système, avant asservissement en vitesse. Comme illustré dans la Figure \ref{fig:schema_bloc_asservissement}, ce schéma est assez complexe en raison de la présence de plusieurs boucles de rétroaction imbriquées. Pour faciliter l'analyse et la conception des contrôleurs, il est nécessaire de simplifier ce schéma bloc en combinant les différents éléments.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+Cette simplification permet d'obtenir une représentation plus concise du système, facilitant ainsi l'analyse et la conception des contrôleurs.
+\[
+\begin{aligned}
+\left\{
+\begin{array}{l}
+\varepsilon = e - \textcolor{blue}{B} \cdot \Omega - \textcolor{green!60!black}{C} \cdot \Omega \\
+s = \textcolor{red}{A} \cdot \varepsilon = \textcolor{red}{A} \cdot \left( e - (\textcolor{blue}{B} + \textcolor{green!60!black}{C}) \cdot s \right)
+\end{array}
+\right.
+\\[0.5em]
+\Longrightarrow \quad
+s = \frac{\textcolor{red}{A}\cdot e}{1+\textcolor{red}{A} \cdot \left( \textcolor{blue}{B} + \textcolor{green!60!black}{C}\right)} = H \cdot e
+\end{aligned}
+\]
+\end{minipage}
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    \begin{tikzpicture}[auto, node distance=2cm,>=latex', scale=0.65, transform shape]
         % Définition des styles
         \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=3em]
         \tikzstyle{sum} = [draw, circle, minimum size=6mm, node distance=1.5cm]
@@ -131,24 +153,11 @@ A ce stade de l'analyse, nous disposons du schéma bloc complet de notre systèm
     \label{fig:schema_bloc_asservissement}
 \end{figure}
 
-Cette simplification permet d'obtenir une représentation plus concise du système, facilitant ainsi l'analyse et la conception des contrôleurs.
-
-\[
-\left\{
-\begin{array}{l}
-\varepsilon = e - \textcolor{blue}{B} \cdot \Omega - \textcolor{green!60!black}{C} \cdot \Omega \\
-s = \textcolor{red}{A} \cdot \varepsilon = \textcolor{red}{A} \cdot \left( e - (\textcolor{blue}{B} + \textcolor{green!60!black}{C}) \cdot s \right)
-\end{array}
-\right.
-\quad \Longrightarrow \quad
-s = \frac{\textcolor{red}{A}\cdot e}{1+\textcolor{red}{A} \cdot \left( \textcolor{blue}{B} + \textcolor{green!60!black}{C}\right)} = H \cdot e
-\] 
-
 Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans la Figure \ref{fig:schema_bloc_simplifie}.
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    \begin{tikzpicture}[auto, node distance=2cm,>=latex', scale=0.65, transform shape]
         % Définition des styles
         \tikzstyle{block} = [draw, rectangle, minimum height=3em, minimum width=3em]
         \tikzstyle{sum} = [draw, circle, minimum size=6mm, node distance=1.5cm]

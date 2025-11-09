@@ -9,10 +9,12 @@ L'asservissement en courant du moteur constitue la boucle interne de notre syst�
 L'asservissement en courant doit appliquer la consigne déterminée par l'asservissement en vitesse. Pour cela, nous mettons en œuvre un correcteur Proportionnel-Intégral (PI). Le cahier des charges impose un temps de réponse égal à 10 fois la période de la modulation de largeur d'impulsion (MLI), soit \SI{0,45}{ms}, avec un dépassement maximal de \SI{20}{\percent}.
 
 À l'aide de l'outil PID Tuner de Simulink, nous obtenons les paramètres optimaux suivants pour le correcteur PI :
-\begin{itemize}
-    \item Gain proportionnel : $K_p = 5,053$
-    \item Gain intégral : $K_i = 36\,349,55$
-\end{itemize}
+\begin{tcolorbox}[colback=conclusioncolor!5!white, colframe=conclusioncolor!75!black, boxrule=0.5pt, arc=2mm]
+    \begin{itemize}
+        \item Gain proportionnel : $K_p = 0{,}084$
+        \item Gain intégral : $K_i = 254{,}3$
+    \end{itemize}
+\end{tcolorbox}
 
 Il est important de souligner que la notation du correcteur PI diffère entre Simulink et PSIM. Sur PSIM, la valeur du paramètre $\tau$ représente le rapport $\dfrac{K_p}{K_i}$, tandis que sur Simulink, les deux gains sont exprimés directement.
 
@@ -35,7 +37,6 @@ Dans Simulink :
 Dans PSIM : 
 \[ G(s) = k \dfrac{1 + sT}{sT} \Rightarrow k = K_p \text{ et } T = \dfrac{K_p}{K_i} \]
 
-\newpage
 % image de l'asservissement en courant PSIM
 \begin{figure}[H]
     \centering
@@ -122,11 +123,12 @@ Face aux limitations observées en boucle ouverte, nous mettons en œuvre un ass
 Le schéma présente l'architecture complète du système de régulation en cascade : la boucle externe d'asservissement en vitesse génère une consigne de courant qui est ensuite régulée par la boucle interne d'asservissement en courant. Cette structure en cascade permet de bénéficier d'une meilleure robustesse et d'une dynamique optimisée.
 
 À l'aide de l'outil PID Tuner de Simulink, nous déterminons les paramètres optimaux du correcteur PI permettant de satisfaire les spécifications temporelles imposées :
-
+\begin{tcolorbox}[colback=conclusioncolor!5!white, colframe=conclusioncolor!75!black, boxrule=0.5pt, arc=2mm]
 \begin{itemize}
     \item Gain proportionnel : $K_p = 6{,}68$
     \item Gain intégral : $K_i = 496{,}43$
 \end{itemize}
+\end{tcolorbox}
 
 Ces valeurs résultent d'un compromis entre rapidité et stabilité, garantissant une réponse dynamique tout en évitant les oscillations excessives qui pourraient endommager le système mécanique.
 
@@ -151,6 +153,7 @@ Le schéma PSIM intègre l'ensemble de la chaîne de régulation en cascade : l'
 
 La validation de notre approche de modélisation nécessite une comparaison rigoureuse entre les résultats obtenus sur Simulink et PSIM. Cette confrontation permet non seulement de vérifier la cohérence de nos modèles, mais également de confirmer que les performances visées sont effectivement atteintes dans les deux environnements de simulation.
 
+\newpage
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/BF_Vitesse/Graphe_Comparaison_BF_Vitesse.png}
@@ -185,9 +188,9 @@ Le codeur incrémental fourni est composé de deux pistes de fentes décalées d
 \subsection{Calcul de la vitesse et du sens de rotation}
 
 Pour mesurer la vitesse de rotation du moteur, il suffit de compter le nombre d'impulsions générées par le codeur sur une période de temps donnée. La vitesse angulaire peut être calculée en utilisant la formule suivante :
-\begin{equation}
+\begin{equation*}
     \omega = \frac{N \cdot 2\pi}{P \cdot T}
-\end{equation}
+\end{equation*}
 où :
 \begin{itemize}
     \item $\omega$ est la vitesse angulaire en radians par seconde (rad/s)
@@ -201,7 +204,7 @@ Pour connaitre le sens de rotation, on analyse la séquence des impulsions des d
 
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[scale=1.5]
+    \begin{tikzpicture}[scale=1.2]
         % Titre Rotation positive
         \node[anchor=south west, font=\large\bfseries] at (0, 9) {Rotation positive (A précède B)};
         
@@ -290,20 +293,50 @@ Pour connaitre le sens de rotation, on analyse la séquence des impulsions des d
     \label{fig:chronogrammes_sens_rotation}
 \end{figure}
 
-\subsection{Simulation avec correcteurs PI idéaux sur Simulink}
-
-Dans cette partie, nous implémentons l'asservissement en vitesse avec le codeur incrémental en utilisant des correcteurs PI idéaux (blocs PI de Simulink). Cette étape permet de valider le principe de fonctionnement du système avant de passer à l'implémentation avec des composants réels.
-
-[Espace pour schéma Simulink avec codeur incrémental]
-
 \subsection{Simulation avec correcteurs PI idéaux sur PSIM}
 
-De manière analogue à la simulation sur Simulink, nous implémentons le système complet sur PSIM. Cela permet une validation croisée des performances du système avec le codeur incrémental.
+A présent, nous implémentons l'asservissement en vitesse avec le codeur incrémental en utilisant des correcteurs PI idéaux (blocs PI de PSIM). Cette étape permet de valider le principe de fonctionnement du système avant de passer à l'implémentation avec des composants réels. Nous obtenons le schéma suivant pour la partie codeur incrémental :
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Schéma_PSIM_Codeur_Incrementale.png}
+    \caption{Schéma de la partie codeur incrémental dans PSIM}
+    \label{fig:schéma_codeur_incremental_psim}
+\end{figure}
+\figref{Figure \ref{fig:schéma_codeur_incremental_psim}}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
 
-[Espace pour schéma PSIM avec codeur incrémental]
+Le schéma complet de l'asservissement en vitesse avec codeur incrémental devient ainsi :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Schéma_PSIM_BF_Vitesse_Plus_Codeur_Incrementale.png}
+    \caption{Schéma de l'asservissement en vitesse avec codeur incrémental}
+    \label{fig:schéma_asservissement_vitesse_codeur_incremental}
+\end{figure}
+\figref{Figure \ref{fig:schéma_asservissement_vitesse_codeur_incremental}}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
 
 \subsection{Comparaison des résultats avec codeur incrémental}
 
-Nous comparons ici les résultats obtenus avec Simulink et PSIM pour l'asservissement en vitesse utilisant le codeur incrémental. Cette comparaison permet de valider la cohérence de nos modélisations et de vérifier que les performances sont conformes au cahier des charges.
+Nous comparons ici les résultats obtenus avec Simulink sans le codeur incrémental et PSIM avec l'asservissement en vitesse utilisant le codeur incrémental. Cette comparaison permet de valider la cohérence de nos modélisations et de vérifier que les performances sont conformes au cahier des charges.
 
-[Espace pour graphiques de comparaison]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Graphe_Comparaison_BF_Vitesse_Codeur_Incrementale.png}
+    \caption{Comparaison des résultats entre Simulink et PSIM avec codeur incrémental}
+    \label{fig:comparaison_simulink_psim}
+\end{figure}
+\figref{Figure \ref{fig:comparaison_simulink_psim}}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/Comparaison\_Vitesse\_Codeur\_Incremental\_VALIDE\_08\_11\_2025.m}
+
+La figure \ref{fig:comparaison_simulink_psim} présente une superposition des réponses en vitesse obtenues avec l'asservissement utilisant la dynamo tachymétrique sur Simulink et celui utilisant le codeur incrémental sur PSIM. Les deux courbes présentent une concordance satisfaisante, validant ainsi la cohérence entre les deux approches de mesure de vitesse.
+
+On observe toutefois une différence notable dans l'allure des signaux : la réponse avec la dynamo tachymétrique présente une courbe lisse, tandis que celle avec le codeur incrémental affiche des oscillations caractéristiques. Cette différence s'explique par la nature fondamentalement différente des deux capteurs :
+
+\begin{itemize}
+    \item \textbf{Dynamo tachymétrique} : capteur analogique générant une tension continue proportionnelle à la vitesse instantanée, produisant un signal de rétroaction lisse.
+    
+    \item \textbf{Codeur incrémental} : capteur numérique générant des impulsions discrètes. La vitesse est calculée en comptant les impulsions sur une fenêtre temporelle, introduisant une quantification qui crée un effet d'escalier entre deux impulsions successives.
+\end{itemize}
+
+Ces oscillations sont intrinsèques à la mesure numérique et leur amplitude dépend de la résolution du codeur (1000 impulsions/tour, soit \SI{0,36}{\degree}) et de la période d'échantillonnage.
+
+Malgré ces oscillations, les performances dynamiques moyennes restent conformes au cahier des charges : temps de réponse à \SI{5}{\percent} d'environ \SI{40}{ms}, dépassement inférieur à \SI{20}{\percent}, et absence d'erreur statique. Le codeur incrémental constitue donc une alternative viable à la dynamo tachymétrique, offrant une meilleure immunité au bruit et une précision accrue. Les oscillations peuvent être atténuées par filtrage numérique si nécessaire.

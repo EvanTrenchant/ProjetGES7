@@ -22,7 +22,7 @@ On choisit des résistances de $10k\Omega$ pour la réalisation pratique.
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
-\vspace{-60pt}
+\vspace{-80pt}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Choix_des_composants/Soustracteur.png}
@@ -159,25 +159,28 @@ La forme de Laplace standard (ou canonique) pour un correcteur PI est :
 \subsection{Identification des paramètres}
 
 Par identification directe avec la structure PI souhaitée, on obtient les relations suivantes :
+
+\begin{tcolorbox}[colback=conclusioncolor!5!white, colframe=conclusioncolor!75!black, boxrule=0.5pt, arc=2mm]
 \begin{align*}
-    K_{p} &= \frac{R_2}{R_1} \\
+    K_{p} &= \dfrac{R_2}{R_1} \\
     T_i &= RC
 \end{align*}
+\end{tcolorbox}
 
 
 \subsection{Choix des composants}
 
-Nous prenons alors les valeurs de nos correcteurs et tentons d'identifier les composants normalisés permettant d'arriver le plus proche possible de ces valeurs. On trouve alors :
+À partir des paramètres théoriques des correcteurs PI déterminés précédemment, nous procédons à l'identification des composants passifs normalisés (résistances et condensateurs) dont les valeurs commerciales permettent d'approcher au mieux les caractéristiques désirées. Les résultats de cette identification sont présentés ci-après :
 
 \vspace{0.5cm}
 
 \textbf{Correcteur PI pour l'asservissement en courant :}
 
-Les paramètres du correcteur sont : $K_p = 5{,}47$ et $T_i = K_p / K_i = 1 \times 10^{-4}$ s.
+Les paramètres du correcteur sont : $K_p = 5{,}053$ et $T_i = K_p / K_i = 1{,}39 \times 10^{-4}$ s.
 
 Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obtenons :
 \begin{equation*}
-    R \cdot C = 10 \times 10 \times 10^{-6} = 1 \times 10^{-4} \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{8{,}2 \times 10^3}{1{,}5 \times 10^3} = 5{,}47 \approx K_p
+    R \cdot C = 10 \times 10 \times 10^{-6} = 1 \times 10^{-4} \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{8{,}2 \times 10^3}{1{,}5 \times 10^3} = 5{,}467 \approx K_p
 \end{equation*}
 
 \begin{center}
@@ -193,17 +196,15 @@ Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obteno
 \end{tabular}
 \end{center}
 
-
-
 \vspace{0.5cm}
 
 \textbf{Correcteur PI pour l'asservissement en vitesse :}
 
-Les paramètres du correcteur sont : $K_p = 6{,}8$ et $T_i = K_p / K_i = 0{,}0128$ s.
+Les paramètres du correcteur sont : $K_p = 6{,}8$ et $T_i = K_p / K_i = 13{,}45$ ms.
 
 Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obtenons :
 \begin{equation*}
-    R \cdot C = 3{,}3 \times 10^3 \times 3{,}9 \times 10^{-6} = 0{,}0128 \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{6{,}8 \times 10^3}{1 \times 10^3} = 6{,}8 \approx K_p
+    R \cdot C = 3{,}3 \times 10^3 \times 3{,}9 \times 10^{-6} = 0{,}0129 \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{6{,}8 \times 10^3}{1 \times 10^3} = 6{,}8 \approx K_p
 \end{equation*}
 
 \begin{center}
@@ -219,57 +220,59 @@ Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obteno
 \end{tabular}
 \end{center}
 
-\vspace{0.5cm}
-
-Ces valeurs de composants normalisés permettent d'obtenir les caractéristiques dynamiques des correcteurs PI avec les performances souhaitées en termes de temps de réponse et de stabilité du système asservi.
-
-
-% Nous devons ensuite réaliser un limiteur pour la commande de la boucle de courant. Le montage a diodes suivant nous permet de réaliser ceci :
-% IMAGE MONTAGE LIMITEUR
-
-% Expliquer comme on choisit les tensions de référence (sommes de la tension au bout de la diode+ tension de conduction de la diode)
-
-% Enfin sur PSIM nous pouvons affecté le facteur 6/1000 au capteur de vitesse pour représenter la Dynamo tachymètrique réelle.  Nous rajoutons également un pont diviseur de tension en sortie du capteur pour diviser par deux c'est tension :
-% IMAGE PONT DIVISEUR DE TENSION
-
 \section{Dimensionnement des autres composants de la chaîne d'asservissement}
 
 Après avoir dimensionné les correcteurs PI et les soustracteurs, il est nécessaire de compléter la chaîne d'asservissement avec les autres éléments essentiels : le limiteur de tension (écrêteur) pour protéger le système, et les capteurs de vitesse (dynamo tachymétrique et codeur incrémental) qui nécessitent des circuits de conditionnement pour adapter leurs signaux.
 
 \subsection{Limiteur de tension (écrêteur)}
 
-Pour réaliser le limiteur de tension que nous avions mis en place en simulation, nous utilisons le montage suivant :
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{images/Choix_des_composants/Limiteur.png}
-    \caption{Montage limiteur de tension à diodes}
-    \label{fig:limiteur_tension}
-\end{figure}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+Pour réaliser le limiteur de tension que nous avions mis en place en simulation, nous utilisons un montage écrêteur à diodes et ponts diviseurs de tension.
 
 \subsubsection{Principe de fonctionnement}
 
 Si on étudie uniquement la partie supérieure de ce montage, on remarque qu'il se comporte comme un redresseur à simple alternance. En effet, si la tension d'entrée du signal dépasse la somme de la tension de conduction de la diode et de la tension en sortie du pont diviseur de tension, alors la diode conduit. Soit :
 \begin{equation*}
-V_e > V_{s+} = V_D + V_P = 0{,}6 + 15 \times \frac{18\text{k}}{1\text{k}+18\text{k}} = 14{,}8 \text{ V}
+\begin{aligned}
+V_e &> V_{s+} = V_D + V_P \\
+    &= 0{,}6 + 15 \times \frac{18\text{k}}{1\text{k}+18\text{k}} \\
+    &\approx 14{,}8\ \text{V}
+\end{aligned}
 \end{equation*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{-60pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Choix_des_composants/Limiteur.png}
+    \caption{\footnotesize{Montage limiteur de tension à diodes}}
+    \label{fig:limiteur_tension}
+\end{figure}
+\end{minipage}
+
+\vspace{0.5cm}
 
 Dans ces conditions, la diode conduit et limite la tension de sortie du montage à 14,8 V. C'est donc en changeant les valeurs des résistances du pont diviseur de tension que l'on obtient notre tension de seuil positive.
-
 La partie basse du montage effectue la même fonction mais en créant une limite basse que l'on fixe également avec le pont diviseur de tension. Dans notre cas, cette tension de seuil est de :
 \begin{equation*}
-V_{s-} = -0{,}6 + 15 \times \frac{1\text{k}}{1\text{k}+18\text{k}} = 0{,}18 \text{ V}
+V_{s-} = -0{,}6 + 15 \times \frac{1\text{k}}{1\text{k}+18\text{k}} \approx 0{,}19 \text{ V}
 \end{equation*}
 
 Pour respecter le limiteur que l'on avait mis en simulation qui limitait la tension entre 0,2 V et 14,8 V.
 
 L'amplificateur opérationnel en sortie du montage est simplement un suiveur qui joue le rôle d'adaptateur d'impédance.
+Le résultat final est donc un signal limité entre 0,2 V et 14,8 V comme le montre la figure ci-dessous.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Choix_des_composants/Courbe_Tension_De_Commande_Limité_a_Echelon.png}
+    \caption{visualisation de la tension de commande limitée sur PSIM}
+    \label{fig:courbe_tension_limitee}
+\end{figure}
 
-% Si on étudie uniquement la partie supérieur de ce montage, on remarque qu'il se comporte comme un redresseur à simple alternance. En effet si la tension d'entrée du signal dépasse la somme de la tension de conduction de la diode et de la tension en sortie du pont diviseur de tension, alors la diode conduit. Soit, V_e > V_{s+} = V_D + V_P = 0.6+15*\frac{18k}{1k+18k} = 14.8V. Dans ces conditions la diode conduit et limite la tension de sortie du montage à 14.8V. C'est donc en changeant les valeurs des résistance du pont diviseur de tension que l'on obtient notre tension de seuil positive.
-
-% La partie basse du montage effectue la même chose mais en créant une limite basse que l'on fixe également avec le pont diviseur de tension. Dans notre cas cette tension de seuil est de V_{s-} = -0.6 + 15*\frac{1k}{1k+18k} = 0.18V. Pour respecter le limiteur que l'on avait mis en simulation qui limitait la tension entre 0,2V et 14,8V.
-
-L'amplificateur opérationnel en sortie du montage est simplement un suiveur qui joue le rôle d'adaptateur d'impédance.
 
 \subsection{Capteur dynamo tachymétrique}
 
@@ -283,18 +286,64 @@ Le capteur dynamo tachymétrique utilisé possède une constante de conversion $
 
 Sur PSIM, nous modélisons le capteur en appliquant le facteur $6/1000$ à la vitesse mesurée pour représenter la dynamo tachymétrique réelle. Pour adapter la tension de sortie aux niveaux requis par le système, nous ajoutons un pont diviseur de tension qui divise par deux la tension de sortie.
 
-[Espace pour schéma du pont diviseur de tension]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Choix_des_composants/Tachy/Schéma_PSIM_Choix_Des_Composants_Tachy.png}
+    \caption{Schéma de modélisation du capteur tachymétrique sur PSIM}
+    \label{fig:schema_tachy}
+\end{figure}
+\figref{Figure \ref{fig:schema_tachy}}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Tachy/Choix\_composants\_Tachy\_VALIDE\_08\_11\_25.psimsch}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Choix_des_composants/Tachy/Coubre_Comparaison_Choix_des_Composants_Tachy_08_11_2025.png}
+    \caption{Comparaison entre Simulink et PSIM pour le capteur tachymétrique et les choix de composants}
+    \label{fig:comparaison_tachy}
+\end{figure}
+\figref{Figure \ref{fig:comparaison_tachy}}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Tachy/Comparaison\_Composants\_Tachy\_VALIDE\_08\_11\_2025.m}
+
+La figure \ref{fig:comparaison_tachy} illustre la comparaison entre les modélisations Simulink avec correcteurs PI idéaux et PSIM avec composants réels (résistances et condensateurs). On observe une excellente concordance entre les deux courbes, confirmant que les choix de composants permettent de reproduire les performances théoriques. Les performances dynamiques restent conformes aux spécifications, démontrant que le passage aux composants réels n'altère pas significativement le comportement de l'asservissement.
+
 
 \subsection{Codeur incrémental}
 
-Le codeur incrémental est un capteur numérique qui fournit des impulsions proportionnelles à la vitesse de rotation. Son implémentation dans un système d'asservissement analogique nécessite un circuit de traitement des signaux pour convertir les impulsions en une tension analogique exploitable.
-
 \subsubsection{Caractéristiques du codeur}
 
-[Espace pour les caractéristiques techniques du codeur : nombre d'impulsions par tour, résolution, etc.]
+Le codeur incrémental utilisé possède les caractéristiques suivantes :
+\begin{itemize}
+    \item Nombre d'impulsions par tour : 1000
+    \item Résolution : 0,36° par impulsion
+\end{itemize}
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Choix_des_composants/Codeur_Incrémental/Schéma_PSIM_Codeur_Incremental_Seul.png}
+    \caption{Schéma de modélisation du codeur incrémental sur PSIM}
+    \label{fig:schema_codeur_incremental}
+\end{figure}
+\figref{Figure \ref{fig:schema_codeur_incremental}}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Codeur/Choix\_Composants\_Codeur\_Incremental\_VALIDE\_08\_11\_25.psimsch}
 
 \subsubsection{Circuit de conversion impulsions/tension}
 
 Pour utiliser le codeur incrémental dans notre système d'asservissement analogique, il est nécessaire de convertir les impulsions numériques en une tension analogique proportionnelle à la vitesse. Cette conversion peut être réalisée par un circuit fréquence-tension (convertisseur F/V).
 
-[Espace pour schéma du circuit de conversion]
+
+Le schéma complet de l'asservissement en vitesse avec codeur incrémental devient ainsi :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Choix_des_composants/Codeur_Incrémental/Schéma_PSIM_Codeur_Incremental_Complet.png}
+    \caption{Schéma complet de l'asservissement en vitesse avec codeur incrémental}
+    \label{fig:schemame_asservissement_vitesse_codeur_incremental}
+\end{figure}
+\figref{Figure \ref{fig:schemame_asservissement_vitesse_codeur_incremental}}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Codeur/Choix\_Composants\_Codeur\_Incremental\_VALIDE\_08\_11\_25.psimsch}
+\newpage
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/Choix_des_composants/Codeur_Incrémental/Coubre_Comparaison_Choix_des_Composants_Codeur_Incremental_08_11_2025.png}
+    \caption{Comparaison entre Simulink et PSIM pour le codeur incrémental et les choix de composants}
+    \label{fig:comparaison_codeur_incremental}
+\end{figure}
+\figref{Figure \ref{fig:comparaison_codeur_incremental}}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Codeur/Comparaison\_Composants\_Codeur\_Incremental\_VALIDE\_08\_11\_25.m}
+
+La figure \ref{fig:comparaison_codeur_incremental} illustre la comparaison entre les modélisations Simulink avec correcteurs PI idéaux et PSIM avec composants réels (résistances et condensateurs). On observe une bonne concordance entre les deux courbes, confirmant que les choix de composants permettent de reproduire les performances théoriques. Les oscillations caractéristiques du codeur incrémental sont présentes sur la simulation PSIM, validant la cohérence de la modélisation du capteur numérique. Les performances dynamiques restent conformes aux spécifications, démontrant que le passage aux composants réels n'altère pas significativement le comportement de l'asservissement.

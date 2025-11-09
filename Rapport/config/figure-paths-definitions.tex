@@ -15,42 +15,64 @@
 % =====================================
 
 % =====================================
-% CHAPITRE : MODÉLISATION ET SIMULATION
+% CHAPITRE 1 : MODÉLISATION ET SIMULATION
 % =====================================
 
-% --- Section : Moteur à vide ---
+% --- Section 1.1 : Moteur à vide ---
 \figpath{fig:schema_moteur_vide_simulink}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
+\figpath{fig:reponse_moteur}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
 \figpath{fig:schema_moteur_psim}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.psimsch}
 \figpath{fig:comparaison_resultats_moteur_vide}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Comparaison\_Moteur\_Seul\_VALIDE\_12\_09\_2025.m}
 
-% --- Section : Moteur avec charge et frottements ---
+% --- Section 1.2 : Moteur avec charge et frottements ---
 \figpath{fig:schema_moteur_charge_simulink}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.slx}
 \figpath{fig:schema_moteur_charge_psim}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.psimsch}
 \figpath{fig:comparaison_resultats_moteur_charge}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Comparaison\_Courant\_Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.m}
 
-% --- Section : Moteur avec hacheur ---
+% --- Section 1.3 : Moteur avec hacheur ---
 \figpath{fig:hacheur_psim}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.psimsch}
 \figpath{fig:schema_moteur_hacheur_simulink}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.slx}
 \figpath{fig:comparaison_resultats_moteur_hacheur}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Comparaison\_Courant\_Moteur\_Hacheur\_VALIDE\_03\_11\_2025.m}
 
 % =====================================
-% CHAPITRE : ASSERVISSEMENT
+% CHAPITRE 2 : ASSERVISSEMENT
 % =====================================
 
-% --- Section : Asservissement en courant ---
+% --- Section 2.1 : Asservissement en courant ---
 \figpath{fig:asservissement_courant_simulink}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.slx}
 \figpath{fig:asservissement_courant_psim}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.psimsch}
 \figpath{fig:comparaison_reponse_indicielle_courant}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/Comparaison\_Asservissement\_Courant\_VALIDE\_06\_11\_2025.m}
 
-% --- Section : Asservissement en vitesse ---
+% --- Section 2.2 : Asservissement en vitesse avec dynamo tachymétrique ---
 \figpath{fig:schéma_BO_vitesse_simulink}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
 \figpath{fig:asservissement_vitesse_simulink}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
 \figpath{fig:asservissement_vitesse_simulink_schema}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.slx}
 \figpath{fig:asservissement_vitesse_psim_schema}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.psimsch}
 \figpath{fig:comparaison_reponses_vitesse}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/Comparaison\_BF\_Vitesse/Comparaison\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.m}
 
+% --- Section 2.3 : Asservissement en vitesse avec codeur incrémental ---
+\figpath{fig:schéma_codeur_incremental_psim}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
+\figpath{fig:schéma_asservissement_vitesse_codeur_incremental}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
+\figpath{fig:comparaison_simulink_psim}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/Comparaison\_Vitesse\_Codeur\_Incremental\_VALIDE\_08\_11\_2025.m}
+
 % =====================================
-% AJOUT DE NOUVELLES FIGURES
+% CHAPITRE 3 : DIMENSIONNEMENT DES COMPOSANTS
 % =====================================
-% Ajoutez vos autres figures ci-dessous en suivant le même format :
-% \figpath{fig:votre_label}{Chemin/vers/votre/fichier.ext}
+
+% --- Section 3.1 : Capteur dynamo tachymétrique ---
+\figpath{fig:schema_tachy}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Tachy/Choix\_composants\_Tachy\_VALIDE\_08\_11\_25.psimsch}
+\figpath{fig:comparaison_tachy}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Tachy/Comparaison\_Composants\_Tachy\_VALIDE\_08\_11\_2025.m}
+
+% --- Section 3.2 : Codeur incrémental ---
+\figpath{fig:schema_codeur_incremental}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Codeur/Choix\_Composants\_Codeur\_Incremental\_VALIDE\_08\_11\_25.psimsch}
+\figpath{fig:schemame_asservissement_vitesse_codeur_incremental}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Codeur/Choix\_Composants\_Codeur\_Incremental\_VALIDE\_08\_11\_25.psimsch}
+\figpath{fig:comparaison_codeur_incremental}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Codeur/Comparaison\_Composants\_Codeur\_Incremental\_VALIDE\_08\_11\_25.m}
+
+% =====================================
+% STATISTIQUES
+% =====================================
+% Total : 27 figures avec chemins définis
+% - Fichiers Simulink (.slx) : 9
+% - Fichiers PSIM (.psimsch) : 12
+% - Scripts MATLAB (.m) : 6
+% =====================================
