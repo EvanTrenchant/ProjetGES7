@@ -269,7 +269,7 @@ Le résultat final est donc un signal limité entre 0,2 V et 14,8 V comme le mon
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/Choix_des_composants/Courbe_Tension_De_Commande_Limité_a_Echelon.png}
-    \caption{visualisation de la tension de commande limitée sur PSIM}
+    \caption{Visualisation de la tension de commande limitée sur PSIM}
     \label{fig:courbe_tension_limitee}
 \end{figure}
 
@@ -302,19 +302,12 @@ Sur PSIM, nous modélisons le capteur en appliquant le facteur $6/1000$ à la vi
 \end{figure}
 \figref{Figure \ref{fig:comparaison_tachy}}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Tachy/Comparaison\_Composants\_Tachy\_VALIDE\_08\_11\_2025.m}
 
-La figure \ref{fig:comparaison_tachy} illustre la comparaison entre les modélisations Simulink avec correcteurs PI idéaux et PSIM avec composants réels (résistances et condensateurs). On observe une excellente concordance entre les deux courbes, confirmant que les choix de composants permettent de reproduire les performances théoriques. Les performances dynamiques restent conformes aux spécifications, démontrant que le passage aux composants réels n'altère pas significativement le comportement de l'asservissement.
+La figure \ref{fig:comparaison_tachy} illustre la comparaison entre les modélisations Simulink avec correcteurs PI idéaux et PSIM avec composants réels (résistances et condensateurs). On observe une excellente concordance entre les deux courbes, sachant que nous avons à nouveau appliqué un facteur $0{,}99$ aux données Simulink. Le graphe confirme que les choix de composants permettent de reproduire les performances théoriques. Les performances dynamiques restent conformes aux spécifications, démontrant que le passage aux composants réels n'altère pas significativement le comportement de l'asservissement.
 
-
+\newpage
 \subsection{Codeur incrémental}
 
-\subsubsection{Caractéristiques du codeur}
 
-Le codeur incrémental utilisé possède les caractéristiques suivantes :
-\begin{itemize}
-    \item Nombre d'impulsions par tour : 1000
-    \item Résolution : 0,36° par impulsion
-\end{itemize}
-\newpage
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/Choix_des_composants/Codeur_Incrémental/Schéma_PSIM_Codeur_Incremental_Seul.png}
@@ -323,12 +316,11 @@ Le codeur incrémental utilisé possède les caractéristiques suivantes :
 \end{figure}
 \figref{Figure \ref{fig:schema_codeur_incremental}}{Modélisation\_Intermédiaire\_VALIDE/06\_Choix\_Des\_Composants/Codeur/Choix\_Composants\_Codeur\_Incremental\_VALIDE\_08\_11\_25.psimsch}
 
+Le codeur simulé sous PSIM délivre une tension comprise entre $0$ et $1$ V, alors que le codeur réel fournit un signal de $0$ à $15$ V. Pour corriger cette différence d'échelle et obtenir une simulation représentative, un gain de 15 a été ajouté à l'entrée du bloc de calcul de la vitesse de rotation.
+
 \subsubsection{Circuit de conversion impulsions/tension}
 
-Pour utiliser le codeur incrémental dans notre système d'asservissement analogique, il est nécessaire de convertir les impulsions numériques en une tension analogique proportionnelle à la vitesse. Cette conversion peut être réalisée par un circuit fréquence-tension (convertisseur F/V).
-
-
-Le schéma complet de l'asservissement en vitesse avec codeur incrémental devient ainsi :
+Pour utiliser le codeur incrémental dans notre système d'asservissement analogique, il est nécessaire de convertir les impulsions numériques en une tension analogique proportionnelle à la vitesse. Cette conversion peut être réalisée par un circuit fréquence-tension (convertisseur F/V). Le schéma complet de l'asservissement en vitesse avec codeur incrémental devient ainsi :
 
 \begin{figure}[H]
     \centering

@@ -108,9 +108,10 @@ On remarque que le schéma Simulink présenté en Figure \ref{fig:schema_moteur_
 \subsection{Simulation sur PSIM}
 
 Pour la simulation sur PSIM, nous adoptons une approche méthodologique complémentaire. L'utilisation de deux méthodes distinctes (Simulink et PSIM) constitue une validation croisée : si les résultats concordent, nous pourrons confirmer la validité de nos modélisations.
-\vspace{0.5cm}
 Contrairement à Simulink qui nécessite la construction du modèle à partir des équations différentielles, PSIM propose une approche plus directe basée sur l'utilisation de composants prédéfinis. Le logiciel met à disposition une bibliothèque de machines à courant continu standards qu'il suffit de paramétrer avec les caractéristiques de notre moteur réel. Cette méthodologie se rapproche davantage du fonctionnement physique du système et réduit significativement le nombre de calculs intermédiaires.
+
 \vspace{0.5cm}
+
 Le principe de modélisation sous PSIM repose sur l'assemblage de composants dont on définit ensuite les propriétés. Par exemple, pour simuler notre moteur, nous plaçons simplement un bloc « moteur DC » dans l'environnement de travail, puis nous renseignons ses paramètres électriques et mécaniques.
 
 \begin{figure}[H]
