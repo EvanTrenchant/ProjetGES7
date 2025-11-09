@@ -64,13 +64,23 @@ La figure \ref{fig:comparaison_reponse_indicielle_courant} illustre la comparais
 On constate que la réponse indicielle de l'asservissement en courant du moteur présente un dépassement d'environ 19\% et un temps de réponse de 0,35 ms. Ce qui respecte les spécifications du cahier des charges qui exige un dépassement maximal de 20\% et un temps de réponse maximal de 10 fois la prériode de la MLI soit 0,45 ms.
 
 \newpage
-\section{Asservissement en vitesse}
+\section{Asservissement en vitesse avec dynamo tachymétrique}
 
 L'asservissement en vitesse constitue la boucle externe et la régulation principale de notre système de contrôle en cascade. Contrairement à l'asservissement en courant qui opère sur une grandeur électrique interne, l'asservissement en vitesse agit directement sur la grandeur mécanique d'intérêt pour l'application finale. C'est donc cet asservissement qui détermine les performances réelles du système vis-à-vis des exigences du cahier des charges.
 
 La régulation en vitesse permet de garantir que le moteur atteint et maintient la vitesse de rotation souhaitée, indépendamment des perturbations externes telles que les variations de charge ou les frottements. Elle assure également la rapidité de la réponse du système face aux changements de consigne, tout en limitant les dépassements pour éviter les sollicitations mécaniques excessives.
 
-Dans cette section, nous allons d'abord caractériser le comportement du système en boucle ouverte pour identifier ses limitations, puis nous concevrons un correcteur PI permettant d'améliorer significativement les performances dynamiques du moteur.
+Dans cette section, nous utilisons une dynamo tachymétrique comme capteur de vitesse. Ce capteur analogique fournit une tension proportionnelle à la vitesse de rotation, ce qui permet une mise en œuvre simple et une mesure continue de la vitesse.
+
+\subsection{Principe de fonctionnement de la dynamo tachymétrique}
+
+La dynamo tachymétrique est une petite génératrice à courant continu couplée mécaniquement au moteur. Elle génère une tension proportionnelle à sa vitesse de rotation selon la relation :
+\begin{equation*}
+    V_{\text{tachy}} = K_{\text{tachy}} \cdot \omega
+\end{equation*}
+où $K_{\text{tachy}}$ est la constante de la dynamo tachymétrique (en V/(rad/s)) et $\omega$ la vitesse angulaire du moteur.
+
+Cette caractéristique linéaire en fait un capteur particulièrement adapté pour les asservissements analogiques, car la tension de sortie peut être directement utilisée comme signal de rétroaction sans nécessiter de conversion numérique-analogique.
 
 \subsection{Caractérisation en boucle ouverte}
 
@@ -89,7 +99,6 @@ La simulation en boucle ouverte nous permet d'observer la réponse naturelle du 
 
 L'analyse de la réponse indicielle révèle un temps de réponse à \SI{5}{\percent} en boucle ouverte de \SI{124,1}{ms}. Cette valeur relativement élevée indique une dynamique lente qui ne serait pas acceptable pour de nombreuses applications industrielles nécessitant des temps de réaction rapides.
 
-\newpage
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/BO_Vitesse/Graphe_BO_Vitesse.png}
@@ -121,7 +130,6 @@ Le schéma présente l'architecture complète du système de régulation en casc
 
 Ces valeurs résultent d'un compromis entre rapidité et stabilité, garantissant une réponse dynamique tout en évitant les oscillations excessives qui pourraient endommager le système mécanique.
 
-\newpage
 \subsection{Validation sur PSIM}
 
 Après avoir conçu et validé le correcteur PI sur Simulink, nous procédons à l'implémentation du système complet sur PSIM. Cette étape est cruciale car PSIM offre une modélisation plus proche de la réalité physique, notamment en ce qui concerne les composants électroniques de puissance et leurs caractéristiques non-idéales.
@@ -160,15 +168,22 @@ L'analyse des performances révèle que l'asservissement en vitesse respecte ple
     \item Le régime permanent est atteint sans erreur statique grâce à l'action intégrale du correcteur PI
 \end{itemize}
 
-\subsection{Asservissement en vitesse avec le codeur incrémental}
-Le cahier des charges impose la possibilité d'asservir la vitesse du moteur à l'aide d'un codeur incrémental.
+\section{Asservissement en vitesse avec codeur incrémental}
 
-\subsubsection{Principe de fonctionnement du codeur incrémental}
+Le cahier des charges impose également la possibilité d'asservir la vitesse du moteur à l'aide d'un codeur incrémental. Contrairement à la dynamo tachymétrique qui fournit un signal analogique continu, le codeur incrémental est un capteur numérique qui génère des impulsions proportionnelles à la vitesse de rotation. Ce type de capteur offre une précision élevée et une meilleure immunité au bruit électromagnétique que les capteurs analogiques.
+
+Dans cette section, nous présentons d'abord le principe de fonctionnement du codeur incrémental, puis nous validons son utilisation dans l'asservissement en vitesse à travers des simulations avec des correcteurs PI idéaux sur Simulink et PSIM.
+
+\subsection{Principe de fonctionnement du codeur incrémental}
 
 Le fonctionnement du codeur incrémental repose sur un disque rotatif équipé de fentes. Celui-ci est interposé entre une diode électroluminescente et un capteur photodiode. Lorsque le disque tourne, les fentes permettent à la lumière de passer à travers, générant ainsi des impulsions électriques dans le capteur. Le nombre d'impulsions générées par tour dépend de la résolution du codeur.
+
 \vspace{0.5cm}
-Le codeur incrémental fournit est composé de deux pistes de fentes décalées d'un quart de période, ce qui permet de déterminer le sens de rotation du moteur en analysant la séquence des impulsions générées par les deux capteurs.
-\subsubsection{Calcul de la vitesse et du sens de rotation}
+
+Le codeur incrémental fourni est composé de deux pistes de fentes décalées d'un quart de période, ce qui permet de déterminer le sens de rotation du moteur en analysant la séquence des impulsions générées par les deux capteurs.
+
+\subsection{Calcul de la vitesse et du sens de rotation}
+
 Pour mesurer la vitesse de rotation du moteur, il suffit de compter le nombre d'impulsions générées par le codeur sur une période de temps donnée. La vitesse angulaire peut être calculée en utilisant la formule suivante :
 \begin{equation}
     \omega = \frac{N \cdot 2\pi}{P \cdot T}
@@ -274,3 +289,21 @@ Pour connaitre le sens de rotation, on analyse la séquence des impulsions des d
     \caption{Chronogrammes selon le sens de rotation avec le codeur incrémental}
     \label{fig:chronogrammes_sens_rotation}
 \end{figure}
+
+\subsection{Simulation avec correcteurs PI idéaux sur Simulink}
+
+Dans cette partie, nous implémentons l'asservissement en vitesse avec le codeur incrémental en utilisant des correcteurs PI idéaux (blocs PI de Simulink). Cette étape permet de valider le principe de fonctionnement du système avant de passer à l'implémentation avec des composants réels.
+
+[Espace pour schéma Simulink avec codeur incrémental]
+
+\subsection{Simulation avec correcteurs PI idéaux sur PSIM}
+
+De manière analogue à la simulation sur Simulink, nous implémentons le système complet sur PSIM. Cela permet une validation croisée des performances du système avec le codeur incrémental.
+
+[Espace pour schéma PSIM avec codeur incrémental]
+
+\subsection{Comparaison des résultats avec codeur incrémental}
+
+Nous comparons ici les résultats obtenus avec Simulink et PSIM pour l'asservissement en vitesse utilisant le codeur incrémental. Cette comparaison permet de valider la cohérence de nos modélisations et de vérifier que les performances sont conformes au cahier des charges.
+
+[Espace pour graphiques de comparaison]

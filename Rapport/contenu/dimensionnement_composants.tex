@@ -173,6 +173,32 @@ Nous prenons alors les valeurs de nos correcteurs et tentons d'identifier les co
 
 \textbf{Correcteur PI pour l'asservissement en courant :}
 
+Les paramètres du correcteur sont : $K_p = 5{,}47$ et $T_i = K_p / K_i = 1 \times 10^{-4}$ s.
+
+Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obtenons :
+\begin{equation*}
+    R \cdot C = 10 \times 10 \times 10^{-6} = 1 \times 10^{-4} \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{8{,}2 \times 10^3}{1{,}5 \times 10^3} = 5{,}47 \approx K_p
+\end{equation*}
+
+\begin{center}
+\begin{tabular}{ll}
+    \toprule
+    Composant & Valeur \\
+    \midrule
+    $R$ & $10\,\Omega$ \\
+    $C$ & $10\,\mu\text{F}$ \\
+    $R_1$ & $1{,}5\,\text{k}\Omega$ \\
+    $R_2$ & $8{,}2\,\text{k}\Omega$ \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+
+
+\vspace{0.5cm}
+
+\textbf{Correcteur PI pour l'asservissement en vitesse :}
+
 Les paramètres du correcteur sont : $K_p = 6{,}8$ et $T_i = K_p / K_i = 0{,}0128$ s.
 
 Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obtenons :
@@ -195,30 +221,6 @@ Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obteno
 
 \vspace{0.5cm}
 
-\textbf{Correcteur PI pour l'asservissement en vitesse :}
-
-Les paramètres du correcteur sont : $K_p = 5{,}47$ et $T_i = K_p / K_i = 1 \times 10^{-4}$ s.
-
-Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obtenons :
-\begin{equation*}
-    R \cdot C = 10 \times 10 \times 10^{-6} = 1 \times 10^{-4} \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{8{,}2 \times 10^3}{1{,}5 \times 10^3} = 5{,}47 \approx K_p
-\end{equation*}
-
-\begin{center}
-\begin{tabular}{ll}
-    \toprule
-    Composant & Valeur \\
-    \midrule
-    $R$ & $10\,\Omega$ \\
-    $C$ & $10\,\mu\text{F}$ \\
-    $R_1$ & $1{,}5\,\text{k}\Omega$ \\
-    $R_2$ & $8{,}2\,\text{k}\Omega$ \\
-    \bottomrule
-\end{tabular}
-\end{center}
-
-\vspace{0.5cm}
-
 Ces valeurs de composants normalisés permettent d'obtenir les caractéristiques dynamiques des correcteurs PI avec les performances souhaitées en termes de temps de réponse et de stabilité du système asservi.
 
 
@@ -229,3 +231,70 @@ Ces valeurs de composants normalisés permettent d'obtenir les caractéristiques
 
 % Enfin sur PSIM nous pouvons affecté le facteur 6/1000 au capteur de vitesse pour représenter la Dynamo tachymètrique réelle.  Nous rajoutons également un pont diviseur de tension en sortie du capteur pour diviser par deux c'est tension :
 % IMAGE PONT DIVISEUR DE TENSION
+
+\section{Dimensionnement des autres composants de la chaîne d'asservissement}
+
+Après avoir dimensionné les correcteurs PI et les soustracteurs, il est nécessaire de compléter la chaîne d'asservissement avec les autres éléments essentiels : le limiteur de tension (écrêteur) pour protéger le système, et les capteurs de vitesse (dynamo tachymétrique et codeur incrémental) qui nécessitent des circuits de conditionnement pour adapter leurs signaux.
+
+\subsection{Limiteur de tension (écrêteur)}
+
+Pour réaliser le limiteur de tension que nous avions mis en place en simulation, nous utilisons le montage suivant :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/Choix_des_composants/Limiteur.png}
+    \caption{Montage limiteur de tension à diodes}
+    \label{fig:limiteur_tension}
+\end{figure}
+
+\subsubsection{Principe de fonctionnement}
+
+Si on étudie uniquement la partie supérieure de ce montage, on remarque qu'il se comporte comme un redresseur à simple alternance. En effet, si la tension d'entrée du signal dépasse la somme de la tension de conduction de la diode et de la tension en sortie du pont diviseur de tension, alors la diode conduit. Soit :
+\begin{equation*}
+V_e > V_{s+} = V_D + V_P = 0{,}6 + 15 \times \frac{18\text{k}}{1\text{k}+18\text{k}} = 14{,}8 \text{ V}
+\end{equation*}
+
+Dans ces conditions, la diode conduit et limite la tension de sortie du montage à 14,8 V. C'est donc en changeant les valeurs des résistances du pont diviseur de tension que l'on obtient notre tension de seuil positive.
+
+La partie basse du montage effectue la même fonction mais en créant une limite basse que l'on fixe également avec le pont diviseur de tension. Dans notre cas, cette tension de seuil est de :
+\begin{equation*}
+V_{s-} = -0{,}6 + 15 \times \frac{1\text{k}}{1\text{k}+18\text{k}} = 0{,}18 \text{ V}
+\end{equation*}
+
+Pour respecter le limiteur que l'on avait mis en simulation qui limitait la tension entre 0,2 V et 14,8 V.
+
+L'amplificateur opérationnel en sortie du montage est simplement un suiveur qui joue le rôle d'adaptateur d'impédance.
+
+
+% Si on étudie uniquement la partie supérieur de ce montage, on remarque qu'il se comporte comme un redresseur à simple alternance. En effet si la tension d'entrée du signal dépasse la somme de la tension de conduction de la diode et de la tension en sortie du pont diviseur de tension, alors la diode conduit. Soit, V_e > V_{s+} = V_D + V_P = 0.6+15*\frac{18k}{1k+18k} = 14.8V. Dans ces conditions la diode conduit et limite la tension de sortie du montage à 14.8V. C'est donc en changeant les valeurs des résistance du pont diviseur de tension que l'on obtient notre tension de seuil positive.
+
+% La partie basse du montage effectue la même chose mais en créant une limite basse que l'on fixe également avec le pont diviseur de tension. Dans notre cas cette tension de seuil est de V_{s-} = -0.6 + 15*\frac{1k}{1k+18k} = 0.18V. Pour respecter le limiteur que l'on avait mis en simulation qui limitait la tension entre 0,2V et 14,8V.
+
+L'amplificateur opérationnel en sortie du montage est simplement un suiveur qui joue le rôle d'adaptateur d'impédance.
+
+\subsection{Capteur dynamo tachymétrique}
+
+La dynamo tachymétrique est un capteur analogique qui convertit directement la vitesse de rotation en une tension proportionnelle. Ce composant nécessite un conditionnement de signal pour adapter sa sortie aux niveaux requis par notre système d'asservissement.
+
+\subsubsection{Caractéristiques du capteur}
+
+Le capteur dynamo tachymétrique utilisé possède une constante de conversion $K_{\text{tachy}} = 6 \times 10^{-3}$ V/(rad/s). Cette valeur indique la tension générée par le capteur pour une vitesse de rotation donnée.
+
+\subsubsection{Conditionnement du signal}
+
+Sur PSIM, nous modélisons le capteur en appliquant le facteur $6/1000$ à la vitesse mesurée pour représenter la dynamo tachymétrique réelle. Pour adapter la tension de sortie aux niveaux requis par le système, nous ajoutons un pont diviseur de tension qui divise par deux la tension de sortie.
+
+[Espace pour schéma du pont diviseur de tension]
+
+\subsection{Codeur incrémental}
+
+Le codeur incrémental est un capteur numérique qui fournit des impulsions proportionnelles à la vitesse de rotation. Son implémentation dans un système d'asservissement analogique nécessite un circuit de traitement des signaux pour convertir les impulsions en une tension analogique exploitable.
+
+\subsubsection{Caractéristiques du codeur}
+
+[Espace pour les caractéristiques techniques du codeur : nombre d'impulsions par tour, résolution, etc.]
+
+\subsubsection{Circuit de conversion impulsions/tension}
+
+Pour utiliser le codeur incrémental dans notre système d'asservissement analogique, il est nécessaire de convertir les impulsions numériques en une tension analogique proportionnelle à la vitesse. Cette conversion peut être réalisée par un circuit fréquence-tension (convertisseur F/V).
+
+[Espace pour schéma du circuit de conversion]
