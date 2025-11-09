@@ -1,8 +1,39 @@
 \chapter{Dimensionnement des asservissements}
 
-\section{Dimensionnement des correcteurs réels pour l'asservissement en courant}
+Après avoir validé la structure de contrôle avec des régulateurs PI idéaux en simulation, il est nécessaire de passer à l'étape de réalisation pratique. Cette phase consiste à traduire les fonctions de transfert théoriques en circuits électroniques réels à base d'amplificateurs opérationnels (AOP). 
 
-Après avoir validé la structure de contrôle avec des régulateurs PI idéaux en simulation, il est nécessaire de dimensionner les circuits électroniques réels permettant d'implémenter ces correcteurs. Cette étape consiste à traduire les fonctions de transfert théoriques en circuits à amplificateurs opérationnels (AOP).
+Le dimensionnement des asservissements constitue une étape cruciale du projet, car elle établit le lien entre la théorie et la mise en œuvre physique. Chaque bloc de la chaîne de commande doit être soigneusement dimensionné afin de garantir que les performances obtenues en simulation soient effectivement reproduites sur le système réel. Dans ce chapitre, nous détaillons le dimensionnement de chacun des éléments constitutifs de la boucle d'asservissement, en commençant par les circuits soustracteurs, puis en abordant les correcteurs PI pour les boucles de courant et de vitesse.
+
+\section{Réalisation des soustracteurs}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{0pt}
+Pour commencer nous réalisons un montage soustracteur permettant de comparer la sortie du montage a la commande. 
+
+On utilise alors ce montage a AOP qui permet, en choisissant les mêmes valeurs de résistances, d'obtenir un soustracteur simple:
+
+\begin{equation*}
+    V_{S} = V_2 - V_1
+\end{equation*}
+
+\vspace{0.5cm}
+On choisit des résistances de $10k\Omega$ pour la réalisation pratique.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\vspace{-60pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Choix_des_composants/Soustracteur.png}
+    \caption{Montage soustracteur à AOP}
+    \label{fig:soustracteur_aop}
+\end{figure}
+\end{minipage}
+
+
+\section{Dimensionnement des correcteurs réels}
+
 \subsection{Structure du correcteur PI}
 La structure du correcteur PI à implémenter est représentée à la figure \ref{fig:schema_pi_aop}.
 
@@ -58,64 +89,143 @@ La structure du correcteur PI à implémenter est représentée à la figure \re
 
 \subsection{Calcul de la fonction de transfert globale}
 
-La fonction de transfert globale du système s'exprime comme suit :
-\begin{equation}
-    \frac{V_e(s)}{V_r(s)} = \frac{V_e(s)}{V_a(s)} \cdot \frac{V_a(s)}{V_r(s)} = H_1(s) \cdot H_2(s)
-\end{equation}
+La fonction de transfert globale du système s'exprime comme suit : 
+\begin{equation*} 
+    H(s) = \frac{V_s(s)}{V_e(s)} = \frac{V_a(s)}{V_e(s)} \cdot \frac{V_s(s)}{V_a(s)} = H_1(s) \cdot H_2(s) 
+\end{equation*}
 
 Dans cette configuration, on suppose que les amplificateurs opérationnels sont idéaux, ce qui implique $\varepsilon = 0 \Longrightarrow V^+ = V^-$. Le dimensionnement des correcteurs s'effectue en séparant les deux fonctions de transfert.
 
 \subsection{Dimensionnement du correcteur $H_1(s)$}
 
-Pour le premier étage du correcteur, on introduit une résistance équivalente :
-\begin{equation}
-    R_{eq} = R + \frac{1}{sC}
-\end{equation}
+Pour le premier étage du correcteur, on introduit une impédance équivalente :
+\begin{equation*}
+    Z_{eq}(s) = R + \frac{1}{C \cdot s} = \frac{RC \cdot s + 1}{sC}
+\end{equation*}
 
-En appliquant le théorème de Millman au point A, on obtient :
-\begin{equation}
-    V^- = \frac{V_e \cdot R1 + V_a \cdot Z_{eq}}{R1 \cdot Z_{eq}}
-\end{equation}
+En appliquant le théorème de Millman à l'entrée négative du premier AOP, on obtient :
+\begin{equation*}
+    V^- = \frac{\frac{V_e}{R} + \frac{V_a}{Z_{eq}(s)}}{\frac{1}{R} + \frac{1}{Z_{eq}(s)}}
+\end{equation*}
 
-Puisque $V_a \cdot R = -V_e \cdot (R + \frac{1}{sC}) = -V_e \cdot \frac{s[RC] + 1}{sC}$, la fonction de transfert du premier étage s'écrit :
-\begin{equation}
-    \frac{V_a(s)}{V_e(s)} = \frac{RC + 1}{sC}
-\end{equation}
+Puisque $V^- = 0V$, le numérateur doit être nul. On a donc :
+
+\begin{equation*}
+    \frac{V_e}{R} + \frac{V_a}{Z_{eq}(s)} = 0
+\end{equation*}
+En réarrangeant, on obtient :
+$$\frac{V_a}{Z_{eq}(s)} = - \frac{V_e}{R}$$
+$$V_a = - \frac{Z_{eq}(s)}{R} V_e$$
+Et donc :
+$$H_1(s) = \frac{V_a(s)}{V_e(s)} = - \frac{Z_{eq}(s)}{R} = - \frac{\frac{RC \cdot s+1}{C \cdot s}}{R} = - \frac{RC \cdot s +1}{RC \cdot s}$$
 
 \subsection{Dimensionnement du correcteur $H_2(s)$}
 
-Pour le second étage, on applique le théorème de Millman au point B :
-\begin{equation}
-    V^- = \frac{\frac{1}{R1} + \frac{1}{R2}}{\frac{1}{R1} + \frac{1}{R2}} \Longrightarrow \frac{V_r \cdot R1 + V_a \cdot R2}{R1 + R2}
-\end{equation}
-
+On applique le théorème de Millman au nœud $V^-$ du second AOP :
+\begin{equation*}
+    V^- = \frac{\frac{V_a(s)}{R_1} + \frac{V_s(s)}{R_2}}{\frac{1}{R_1} + \frac{1}{R_2}}
+\end{equation*}
+Puisque $V^- = 0V$ (masse virtuelle), le numérateur doit être nul :
+\begin{equation*}
+    \frac{V_a(s)}{R_1} + \frac{V_s(s)}{R_2} = 0
+\end{equation*}
+On isole $V_s(s)$ pour trouver la fonction de transfert :
+\begin{equation*}
+    \frac{V_s(s)}{R_2} = - \frac{V_a(s)}{R_1} \Longrightarrow V_s(s) = - V_a(s) \cdot \frac{R_2}{R_1}
+\end{equation*}
 La fonction de transfert du second étage s'exprime alors par :
-\begin{equation}
-    H_2(s) = \frac{V_r}{V_a} = -\frac{R2}{R1}
-\end{equation}
+\begin{equation*}
+    H_2(s) = \frac{V_s(s)}{V_a(s)} = - \frac{R_2}{R_1}
+\end{equation*}
+
+\subsection{Fonction de transfert globale et identification}
+On calcule la fonction de transfert globale $H(s)$ en multipliant $H_1(s)$ et $H_2(s)$ :
+\begin{equation*}
+    H(s) = H_1(s) \cdot H_2(s) = \left( - \frac{RC \cdot s + 1}{RC \cdot s} \right) \cdot \left( - \frac{R_2}{R_1} \right)
+\end{equation*}
+Les deux signes négatifs s'annulent. On réarrange les termes :
+\begin{equation*}
+    H(s) = \frac{R_2}{R_1} \cdot \left( \frac{RC \cdot s + 1}{RC \cdot s} \right)
+\end{equation*}
+On sépare la fraction pour faire apparaître la forme canonique :
+\begin{equation*}
+    H(s) = \frac{R_2}{R_1} \cdot \left( \frac{RC \cdot s}{RC \cdot s} + \frac{1}{RC \cdot s} \right) = \frac{R_2}{R_1} \left( 1 + \frac{1}{RC \cdot s} \right)
+\end{equation*}
+La forme de Laplace standard (ou canonique) pour un correcteur PI est :
+\begin{equation*}
+    H_{PI}(s) = K_p \left( 1 + \frac{1}{T_i s} \right)
+\end{equation*}
 
 \subsection{Identification des paramètres}
 
-Par identification avec la structure PI souhaitée, on obtient les relations suivantes :
-\begin{align}
-    K_{posm} &= -\frac{R2}{R1} \\
-    \tau &= RC
-\end{align}
+Par identification directe avec la structure PI souhaitée, on obtient les relations suivantes :
+\begin{align*}
+    K_{p} &= \frac{R_2}{R_1} \\
+    T_i &= RC
+\end{align*}
+
 
 \subsection{Choix des composants}
 
-Les valeurs des composants retenues pour l'implémentation physique sont les suivantes :
+Nous prenons alors les valeurs de nos correcteurs et tentons d'identifier les composants normalisés permettant d'arriver le plus proche possible de ces valeurs. On trouve alors :
+
+\vspace{0.5cm}
+
+\textbf{Correcteur PI pour l'asservissement en courant :}
+
+Les paramètres du correcteur sont : $K_p = 6{,}8$ et $T_i = K_p / K_i = 0{,}0128$ s.
+
+Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obtenons :
+\begin{equation*}
+    R \cdot C = 3{,}3 \times 10^3 \times 3{,}9 \times 10^{-6} = 0{,}0128 \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{6{,}8 \times 10^3}{1 \times 10^3} = 6{,}8 \approx K_p
+\end{equation*}
 
 \begin{center}
 \begin{tabular}{ll}
     \toprule
     Composant & Valeur \\
     \midrule
-    $R = R_a = R1$ & $10\,\text{k}\Omega$ \\
-    $R2$ & $82\,\text{k}\Omega$ \\
-    $C$ & $58\,\text{nF}$ \\
+    $R$ & $3{,}3\,\text{k}\Omega$ \\
+    $C$ & $3{,}9\,\mu\text{F}$ \\
+    $R_1$ & $1\,\text{k}\Omega$ \\
+    $R_2$ & $6{,}8\,\text{k}\Omega$ \\
     \bottomrule
 \end{tabular}
 \end{center}
 
-Ces valeurs permettent d'obtenir les caractéristiques dynamiques du correcteur PI avec les performances souhaitées en termes de temps de réponse et de stabilité du système asservi.
+\vspace{0.5cm}
+
+\textbf{Correcteur PI pour l'asservissement en vitesse :}
+
+Les paramètres du correcteur sont : $K_p = 5{,}47$ et $T_i = K_p / K_i = 1 \times 10^{-4}$ s.
+
+Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obtenons :
+\begin{equation*}
+    R \cdot C = 10 \times 10 \times 10^{-6} = 1 \times 10^{-4} \approx T_i \quad \text{et} \quad \frac{R_2}{R_1} = \frac{8{,}2 \times 10^3}{1{,}5 \times 10^3} = 5{,}47 \approx K_p
+\end{equation*}
+
+\begin{center}
+\begin{tabular}{ll}
+    \toprule
+    Composant & Valeur \\
+    \midrule
+    $R$ & $10\,\Omega$ \\
+    $C$ & $10\,\mu\text{F}$ \\
+    $R_1$ & $1{,}5\,\text{k}\Omega$ \\
+    $R_2$ & $8{,}2\,\text{k}\Omega$ \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+Ces valeurs de composants normalisés permettent d'obtenir les caractéristiques dynamiques des correcteurs PI avec les performances souhaitées en termes de temps de réponse et de stabilité du système asservi.
+
+
+% Nous devons ensuite réaliser un limiteur pour la commande de la boucle de courant. Le montage a diodes suivant nous permet de réaliser ceci :
+% IMAGE MONTAGE LIMITEUR
+
+% Expliquer comme on choisit les tensions de référence (sommes de la tension au bout de la diode+ tension de conduction de la diode)
+
+% Enfin sur PSIM nous pouvons affecté le facteur 6/1000 au capteur de vitesse pour représenter la Dynamo tachymètrique réelle.  Nous rajoutons également un pont diviseur de tension en sortie du capteur pour diviser par deux c'est tension :
+% IMAGE PONT DIVISEUR DE TENSION
