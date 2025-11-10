@@ -8,7 +8,7 @@ L'asservissement en courant du moteur constitue la boucle interne de notre syst�
 
 L'asservissement en courant doit appliquer la consigne déterminée par l'asservissement en vitesse. Pour cela, nous mettons en œuvre un correcteur Proportionnel-Intégral (PI). Le cahier des charges impose un temps de réponse égal à 10 fois la période de la modulation de largeur d'impulsion (MLI), soit \SI{0,45}{ms}, avec un dépassement maximal de \SI{20}{\percent}.
 
-À l'aide de l'outil PID Tuner de Simulink, nous obtenons les paramètres optimaux suivants pour le correcteur PI :
+À l'aide de l'outil PID Tuner de Simulink, nous obtenons un jeu de paramètres qui répondent au cahier des charges pour le correcteur PI :
 \begin{tcolorbox}[colback=conclusioncolor!5!white, colframe=conclusioncolor!75!black, boxrule=0.5pt, arc=2mm]
     \begin{itemize}
         \item Gain proportionnel : $K_p = 5{,}053$
@@ -22,7 +22,7 @@ Il est important de souligner que la notation du correcteur PI diffère entre Si
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/BF_Courant/Schéma_Simulink_Asservissement_Courant.png}
-    \caption{Schéma de l'asservissement en courant du moteur dans Simulink}
+    \caption{Schéma complet de l'asservissement en courant du moteur dans Simulink}
     \label{fig:asservissement_courant_simulink}
 \end{figure}
 \figref{Figure \ref{fig:asservissement_courant_simulink}}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.slx}
@@ -32,16 +32,19 @@ Il est important de souligner que la notation du correcteur PI diffère entre Si
 Pour adapter le correcteur PI de Simulink à PSIM, il faut convertir les paramètres en utilisant les relations suivantes :
 
 Dans Simulink : 
-\[ G(s) = K_p + \dfrac{K_i}{s} = K_p \dfrac{s + \tfrac{K_i}{K_p}}{s} \]
+\[ G(s) = K_p + \dfrac{K_i}{s} = K_p \dfrac{s + \tfrac{K_i}{K_p}}{s} = K_p \dfrac{1 + \tfrac{K_p}{K_i} \cdot s}{\tfrac{K_p}{K_i} \cdot s} \]
 
 Dans PSIM : 
-\[ G(s) = k \dfrac{1 + sT}{sT} \Rightarrow k = K_p \text{ et } T = \dfrac{K_p}{K_i} \]
+\[ G(s) = k \dfrac{1 + T \cdot s}{T \cdot s} \]
+
+D'où la correspondance : 
+\[ k = K_p \quad \text{et} \quad T = \dfrac{K_p}{K_i} \]
 
 % image de l'asservissement en courant PSIM
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/BF_Courant/Schéma_PSIM_Asservissement_Courant.png}
-    \caption{Schéma de l'asservissement en courant du moteur dans PSIM}
+    \caption{Schéma complet de l'asservissement en courant du moteur dans PSIM}
     \label{fig:asservissement_courant_psim}
 \end{figure}
 \figref{Figure \ref{fig:asservissement_courant_psim}}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.psimsch}
@@ -62,7 +65,7 @@ Dans cette section, nous allons comparer les résultats obtenus avec les deux ou
 
 La figure \ref{fig:comparaison_reponse_indicielle_courant} illustre la comparaison des réponses indicielle de l'asservissement en courant du moteur entre Simulink et PSIM. Les deux courbes sont quasiment superposées, ce qui confirme la cohérence des modélisations réalisées dans les deux environnements.
 
-On constate que la réponse indicielle de l'asservissement en courant du moteur présente un dépassement d'environ 19\% et un temps de réponse de 0,35 ms. Ce qui respecte les spécifications du cahier des charges qui exige un dépassement maximal de 20\% et un temps de réponse maximal de 10 fois la prériode de la MLI soit 0,45 ms.
+On constate que la réponse indicielle de l'asservissement en courant du moteur présente un dépassement d'environ 19\% et un temps de réponse de 0,35 ms. Ce qui respecte les spécifications du cahier des charges qui exige un dépassement maximal de 20\% et un temps de réponse maximal de 10 fois la période de la MLI soit 0,45 ms.
 
 \newpage
 \section{Asservissement en vitesse avec dynamo tachymétrique}
@@ -77,9 +80,9 @@ Dans cette section, nous utilisons une dynamo tachymétrique comme capteur de vi
 
 La dynamo tachymétrique est une petite génératrice à courant continu couplée mécaniquement au moteur. Elle génère une tension proportionnelle à sa vitesse de rotation selon la relation :
 \begin{equation*}
-    V_{\text{tachy}} = K_{\text{tachy}} \cdot \omega
+    V_{\text{tachy}} = K_{\text{tachy}} \cdot \Omega
 \end{equation*}
-où $K_{\text{tachy}}$ est la constante de la dynamo tachymétrique (en V/(rad/s)) et $\omega$ la vitesse angulaire du moteur.
+où $K_{\text{tachy}}$ est la constante de la dynamo tachymétrique (en V/(rad/s)) et $\Omega$ la vitesse angulaire du moteur.
 
 Cette caractéristique linéaire en fait un capteur particulièrement adapté pour les asservissements analogiques, car la tension de sortie peut être directement utilisée comme signal de rétroaction sans nécessiter de conversion numérique-analogique.
 
@@ -98,7 +101,7 @@ Nous commençons par la simulation de la vitesse du moteur en boucle ouverte sur
 La simulation en boucle ouverte nous permet d'observer la réponse naturelle du système sans rétroaction. Cette étape est essentielle pour comprendre les limites intrinsèques du système et établir les objectifs d'amélioration pour l'asservissement. Pour effectuer cette caractérisation, nous attendons d'abord que le système atteigne son régime permanent, puis nous appliquons une consigne en échelon pour observer la dynamique de réponse.
 \vspace{0.5cm}
 
-L'analyse de la réponse indicielle révèle un temps de réponse à \SI{5}{\percent} en boucle ouverte de \SI{124,1}{ms}. Cette valeur relativement élevée indique une dynamique lente qui ne serait pas acceptable pour de nombreuses applications industrielles nécessitant des temps de réaction rapides.
+L'analyse de la réponse indicielle révèle un temps de réponse à \SI{95}{\percent} en boucle ouverte de \SI{124,1}{ms}. Cette valeur relativement élevée indique une dynamique lente qu'il faudra améliorer.
 
 \begin{figure}[H]
     \centering
@@ -189,13 +192,13 @@ Le codeur incrémental fourni est composé de deux pistes de fentes décalées d
 
 Pour mesurer la vitesse de rotation du moteur, il suffit de compter le nombre d'impulsions générées par le codeur sur une période de temps donnée. La vitesse angulaire peut être calculée en utilisant la formule suivante :
 \begin{equation*}
-    \omega = \frac{N \cdot 2\pi}{P \cdot T}
+    \Omega = \frac{N \cdot 2\pi}{N_T \cdot T}
 \end{equation*}
 où :
 \begin{itemize}
-    \item $\omega$ est la vitesse angulaire en radians par seconde (rad/s)
+    \item $\Omega$ est la vitesse angulaire en radians par seconde (rad/s)
     \item $N$ est le nombre d'impulsions comptées
-    \item $P$ est le nombre d'impulsions par tour du codeur
+    \item $N_T$ est le nombre d'impulsions par tour du codeur
     \item $T$ est la période de temps pendant laquelle les impulsions sont comptées en secondes (s)
     \item $2\pi$ est une constante pour convertir les tours en radians
 \end{itemize}
@@ -299,7 +302,7 @@ A présent, nous implémentons l'asservissement en vitesse avec le codeur incré
 \newpage
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Schéma_PSIM_Codeur_Incrementale.png}
+    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Schéma_PSIM_Codeur_Incremental.png}
     \caption{Schéma de la partie codeur incrémental dans PSIM}
     \label{fig:schéma_codeur_incremental_psim}
 \end{figure}
@@ -309,7 +312,7 @@ Le schéma complet de l'asservissement en vitesse avec codeur incrémental devie
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Schéma_PSIM_BF_Vitesse_Plus_Codeur_Incrementale.png}
+    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Schéma_PSIM_BF_Vitesse_Plus_Codeur_Incremental.png}
     \caption{Schéma de l'asservissement en vitesse avec codeur incrémental}
     \label{fig:schéma_asservissement_vitesse_codeur_incremental}
 \end{figure}
@@ -321,8 +324,8 @@ Nous comparons ici les résultats obtenus avec Simulink sans le codeur incrémen
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Graphe_Comparaison_BF_Vitesse_Codeur_Incrementale.png}
-    \caption{Comparaison des résultats entre Simulink et PSIM avec codeur incrémental}
+    \includegraphics[width=1\textwidth]{images/Codeur Incremental/Graphe_Comparaison_BF_Vitesse_Codeur_Incremental.png}
+    \caption{Comparaison des résultats de simulation entre Simulink et PSIM avec codeur incrémental}
     \label{fig:comparaison_simulink_psim}
 \end{figure}
 \figref{Figure \ref{fig:comparaison_simulink_psim}}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/Comparaison\_Vitesse\_Codeur\_Incremental\_VALIDE\_08\_11\_2025.m}

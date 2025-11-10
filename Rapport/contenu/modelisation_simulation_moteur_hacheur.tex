@@ -16,20 +16,20 @@ u(t) = R \cdot i(t) + L \frac{di(t)}{dt} + e(t)
 \end{equation*}
 
 \begin{equation*}
-C_m(t) = K_c \cdot i(t)
+C_{em}(t) = K_c \cdot i(t)
 \end{equation*}
 
 \begin{equation*}
-e(t) = K_e \cdot \omega(t)
+e(t) = K_e \cdot \Omega(t)
 \end{equation*}
 
 \begin{equation*}
-J \frac{d\omega}{dt} = C_m(t)
+J \frac{d\Omega}{dt} = C_{em}(t)
 \end{equation*}
 
 \vspace{0.2cm}
 \centering
-On note ici : $K_c = K_e = K_\Phi$
+On remplacera ici $K_c$ et  $K_e$  par $K_\Phi$.
 \end{tcolorbox}
 
 \subsubsection{Transformée de Laplace}
@@ -38,11 +38,11 @@ Les équations précédentes peuvent être exprimées dans le domaine de Laplace
 
 \begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Équations dans le domaine de Laplace]
 \begin{equation*}
-I(s) = \frac{U(s) - K_\Phi \Omega}{R + Ls}
+I(s) = \frac{U(s) - K_\Phi \Omega}{R + L \cdot s}
 \end{equation*}
 
 \begin{equation*}
-C_m(s) = K_\Phi \cdot I(s)
+C_{em}(s) = K_\Phi \cdot I(s)
 \end{equation*}
 
 \begin{equation*}
@@ -50,7 +50,7 @@ E(s) = K_\Phi \cdot \Omega(s)
 \end{equation*}
 
 \begin{equation*}
-\Omega(s) = \frac{K_\Phi \cdot I(s)}{Js}
+\Omega(s) = \frac{K_\Phi \cdot I(s)}{J \cdot s}
 \end{equation*}
 \end{tcolorbox}
 
@@ -100,7 +100,7 @@ On remarque que le schéma Simulink présenté en Figure \ref{fig:schema_moteur_
         \centering
         \includegraphics[width=\textwidth]{images/Moteur_a_vide/Données vitesse moteur à vide Simulink.png}
     \end{minipage}
-    \caption{Courbes de réponse du moteur à courant continu}
+    \caption{Résultats de simulation des réponses en courant (gauche) et en vitesse (droite) du moteur à vide}
     \label{fig:reponse_moteur}
 \end{figure}
 \figref{Figure \ref{fig:reponse_moteur}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
@@ -124,12 +124,12 @@ Le principe de modélisation sous PSIM repose sur l'assemblage de composants don
 
 \subsection{Comparaison des résultats}
 Nous comparons les résultats avec un programme \textit{MATLAB}. Pour cela, nous avons besoin de
-récupérer les valeurs de notre modélisation sous forme de tableau : $X = \begin{bmatrix} t & i(t) & \omega(t) \end{bmatrix}$.
+récupérer les valeurs de notre modélisation sous forme de tableau : $X = \begin{bmatrix} t & i(t) & \Omega(t) \end{bmatrix}$.
 
 \vspace{0.5cm}
 On retrouve bien les valeurs attendues, notamment en vitesse où on a la relation suivante à l'état stable :
 \begin{equation*}
-\omega = \frac{U}{K_\Phi} = \frac{48}{0{,}127} = 377{,}95 \text{ rad/s} \quad \text{ou} \quad \omega = \frac{U}{K_e} = \frac{48}{13,3} = 3609 \text{ tr/min}
+\Omega = \frac{U}{K_\Phi} = \frac{48}{0{,}127} = 377{,}95 \text{ rad/s} \quad \text{ou} \quad N = \frac{U}{K_e} = \frac{48}{13,3} = 3609 \text{ tr/min}
 \end{equation*}
 
 Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_vide} montrent une excellente concordance entre les résultats obtenus avec Simulink et PSIM, validant ainsi notre modélisation du moteur à courant continu à vide. Nous pouvons donc passer aux simulations suivantes : le moteur avec des pertes et sa charge.
@@ -154,7 +154,7 @@ Dans cette partie, nous allons effectuer la même logique qu'avec le moteur à v
 On note :
 
 \begin{equation*}
-f = C_f \cdot \Omega = \frac{30}{\pi} \cdot \frac{1}{1\,000} \cdot 0{,}53 \cdot 10^{-2} = 5{,}06 \cdot 10^{-5} \, N.m/rad.s
+f = \frac{30}{\pi} \cdot \frac{1}{1\,000} \cdot 0{,}53 \cdot 10^{-2} = 5{,}06 \cdot 10^{-5} \, N.m/rad.s
 \end{equation*}
 
 \begin{equation*}
@@ -165,21 +165,21 @@ C_r = 2 \cdot C_0 = 0{,}024 \, N.m
 
 Les équations de notre système vont donc changer. En effet en ajoutant les frottements, le système devient :
 
-\begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Formules d'une MCC avec pertes]
+\begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Formules du moteur avec pertes]
 \begin{equation*}
 u(t) = R \cdot i(t) + L \frac{di(t)}{dt} + e(t)
 \end{equation*}
 
 \begin{equation*}
-C_m(t) = K_c \cdot i(t)
+C_{em}(t) = K_c \cdot i(t)
 \end{equation*}
 
 \begin{equation*}
-e(t) = K_e \cdot \omega(t)
+e(t) = K_e \cdot \Omega(t)
 \end{equation*}
 
 \begin{equation*}
-J \frac{d\omega}{dt} = C_m(t) - f \cdot \omega(t) - C_r(t)
+J \frac{d\Omega}{dt} = C_{em}(t) - 2f \cdot \Omega(t) - C_r(t)
 \end{equation*}
 \end{tcolorbox}
 
@@ -187,11 +187,11 @@ Ce qui donne dans le domaine de Laplace :
 
 \begin{tcolorbox}[colback=remindercolor!5!white, colframe=remindercolor!75!black, title=Équations dans le domaine de Laplace]
 \begin{equation*}
-I(s) = \frac{U(s) - K_\Phi \Omega}{R + Ls}
+I(s) = \frac{U(s) - K_\Phi \Omega}{R + L \cdot s}
 \end{equation*}
 
 \begin{equation*}
-C_m(s) = K_\Phi \cdot I(s)
+C_{em}(s) = K_\Phi \cdot I(s)
 \end{equation*}
 
 \begin{equation*}
@@ -199,11 +199,11 @@ E(s) = K_\Phi \cdot \Omega(s)
 \end{equation*}
 
 \begin{equation*}
-\Omega(s) = \frac{C_m + C_r}{Js + f}
+\Omega(s) = \frac{C_{em} - C_r}{J \cdot s + f}
 \end{equation*}
 \end{tcolorbox}
 
-Une fois les équations trouvées, nous allons pouvoir déterminer le schéma bloc et effectuer les mesures.
+Une fois les équations trouvées, nous allons pouvoir déterminer le schéma bloc et effectuer les simulations.
 
 \newpage
 \subsection{Simulation Simulink}
@@ -249,7 +249,7 @@ De manière analogue à la simulation du moteur à vide, nous utilisons PSIM pou
 \end{figure}
 \figref{Figure \ref{fig:comparaison_resultats_moteur_charge}}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Comparaison\_Courant\_Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.m}
 
-Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_charge} confirment la validité de notre modélisation avec charge et frottements. On observe une superposition quasi-parfaite des résultats Simulink (marqueurs) et PSIM (ligne continue) sur l'ensemble des grandeurs mesurées. La vitesse atteint un régime permanent à environ $3100$ tr/min, valeur inférieure à celle du moteur à vide ($3609$ tr/min) en raison de la présence de la charge de $10$ $\Omega$, du couple résistant $C_r$ et des frottements visqueux. Le courant d'induit présente un pic initial caractéristique du démarrage, puis se stabilise à une valeur permanente correspondant à l'équilibre entre le couple moteur et les couples résistifs. Cette concordance valide l'implémentation des pertes mécaniques dans les deux environnements de simulation.
+Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_charge} confirment la validité de notre modélisation avec charge et frottements. On observe une superposition quasi-parfaite des résultats Simulink (marqueurs) et PSIM (ligne continue) sur l'ensemble des grandeurs mesurées. La vitesse atteint un régime permanent à environ $3100$ tr/min, valeur inférieure à celle du moteur à vide ($3609$ tr/min) en raison de la présence de la charge de $10$ $\Omega$, du couple résistant $C_r$ et des frottements visqueux. Le courant d'induit du moteur présente un pic initial caractéristique du démarrage, puis se stabilise à une valeur permanente correspondant à l'équilibre entre le couple moteur et les couples résistifs. Cette concordance valide l'implémentation des pertes mécaniques dans les deux environnements de simulation.
 
 
 \section{Modélisation de la MCC avec charge et hacheur}
@@ -272,11 +272,11 @@ Le hacheur fournit une tension de sortie moyenne qui peut être positive ou nég
 
 La commutation des transistors s'effectue par paires (par exemple 1 et 4 d'une part, 2 et 3 d'autre part) de façon complémentaire afin de piloter le pont en H. Le rapport cyclique $\alpha$ correspond à la proportion de la période pendant laquelle l'interrupteur est fermé. Pour $\alpha=0$ la tension de sortie vaut $V_s=-48$\,V, pour $\alpha=1$ on obtient $V_s=+48$\,V, et pour des valeurs intermédiaires de $\alpha$ la tension de sortie varie de manière (approximativement) linéaire entre ces extrêmes. Ainsi, une augmentation de $\alpha$ entraîne une augmentation de $V_s$.
 
-La commande PWM est générée en comparant, au moyen d'un comparateur (ou d'un AOP configuré), une tension continue de référence $V_e = V_{\text{commande}}$ avec un signal triangulaire $V_{\text{triangle}}$ qui varie typiquement de 0 à 15\,V. Le comparateur produit alors le signal $V_{\text{pwm}}$ dont le rapport cyclique est proportionnel à $V_{\text{commande}}$. En sortie du comparateur, des suiveurs (buffers) sont placés pour assurer une adaptation d'impédance et piloter correctement les étages de commande des MOSFET.
+La commande PWM est générée en comparant, au moyen d'un comparateur (ou d'un AOP configuré), une tension continue de référence $V_e = V_{\text{commande}}$ avec un signal triangulaire $V_{\text{triangle}}$ qui varie typiquement de 0 à 15\,V. Le comparateur produit alors le signal $V_{\text{pwm}}$ dont le rapport cyclique est proportionnel à $V_{\text{commande}}$. En sortie du comparateur, des buffers (bootstrappers) sont placés pour assurer une adaptation d'impédance et piloter correctement les étages de commande des MOSFET.
 
 \subsection{Caractéristique du hacheur}
 
-Le hacheur utilisé possède une caractéristique de transfert non-linéaire avec une zone morte. 
+Le hacheur utilisé possède une caractéristique de transfert linéaire. 
 La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de commande $u_{\text{commande}}$ selon la relation suivante :
 
 \vspace{0.3cm}
@@ -296,7 +296,6 @@ La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de co
 \vspace{0.3cm}
 \textbf{Caractéristiques principales :}
 \begin{itemize}
-    \item Zone morte : $0 \leq u_{\text{commande}} < 7{,}5$ V
     \item Pente : $6{,}4$ V/V
     \item Tension maximale : $48$ V à $15$ V de commande
     \item Point de fonctionnement intermédiaire (en rouge) : $(11{,}25\text{ V} ; 24\text{ V})$
@@ -349,7 +348,7 @@ La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de co
 
 \vspace{0.5cm}
 
-Cette caractéristique montre que le hacheur présente une zone morte pour les faibles tensions de commande (inférieures à $7{,}5$ V), puis un comportement linéaire avec un gain de $6{,}4$. La tension de sortie est limitée à $\pm 48$ V. 
+Cette caractéristique montre que le hacheur présente un comportement linéaire avec un gain de $6{,}4$. La tension de sortie est limitée à $\pm 48$ V. 
 
 \subsection{Simulation sur Simulink}
 

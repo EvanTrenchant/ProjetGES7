@@ -37,15 +37,7 @@ s = \frac{\textcolor{red}{A}\cdot e}{1+\textcolor{red}{A} \cdot \left( \textcolo
         % Nœuds - Entrée et premier sommateur
         \node [input, name=input] (input) {};
         \node [gain, right of=input, node distance=1.5cm] (commande) {$6.4$};
-        \node [sum, right of=commande, node distance=1.5cm] (sum1) {};
-        \node [sum, right of=sum1, node distance=1.2cm] (sum2) {};
-        \node [block, below of=sum1, node distance=1.5cm] (const48) {$48$};
-        
-        % Ajout des signes + et - dans les sommateurs
-        \draw (sum1.north east) -- (sum1.south west);
-        \draw (sum1.south east) -- (sum1.north west);
-        \node [above left, inner sep=6pt] at (sum1.center) {\tiny $+$};
-        \node [below right, inner sep=6pt] at (sum1.center) {\tiny $-$};
+        \node [sum, right of=commande, node distance=1.5cm] (sum2) {};
         
         \draw (sum2.north east) -- (sum2.south west);
         \draw (sum2.south east) -- (sum2.north west);
@@ -106,9 +98,7 @@ s = \frac{\textcolor{red}{A}\cdot e}{1+\textcolor{red}{A} \cdot \left( \textcolo
         
         % Connexions principales
         \draw [->] (input) -- node[above, pos=- 0.2] {$\delta u_{commande}$} (commande);
-        \draw [->] (commande) -- (sum1);
-        \draw [->] (const48) -- (sum1);
-        \draw [->] (sum1) -- (sum2);
+        \draw [->] (commande) -- (sum2);
         \draw [->] (sum2) -- (corrV);
         \draw [-] (corrV) -- (point_iM);
         \draw [->] (point_iM) -- (kphi);
@@ -119,7 +109,7 @@ s = \frac{\textcolor{red}{A}\cdot e}{1+\textcolor{red}{A} \cdot \left( \textcolo
         \draw [->] (kphi) -- node[above] {$e$} (sum3);
         \draw [->] (sum3) -- node[above] {$\varepsilon$} (integ);
         \draw [-] (integ) -- (omega);
-        \draw [->] (omega) -- node[above] {$\Omega$} (output);
+        \draw [->] (omega) -- node[above] {$\delta \Omega$} (output);
         
         % Boucle de retour 1 : 2f part de Omega et va dans sum4
         \draw [->] (omega) |- (gain2f);
@@ -146,7 +136,7 @@ s = \frac{\textcolor{red}{A}\cdot e}{1+\textcolor{red}{A} \cdot \left( \textcolo
         
         % Rectangle coloré autour du bloc Kphi²
         \draw [green!60!black, thick, rounded corners] ([xshift=-0.2cm, yshift=0.2cm]retourA.north west) rectangle ([xshift=0.2cm, yshift=-0.2cm]retourA.south east);
-        \node [green!60!black, font=\Large\bfseries, left of=retourA, node distance=2.2cm, yshift=0.5cm] {C};
+        \node [green!60!black, font=\Large\bfseries, left of=retourA, node distance=2.2cm, xshift=-0.05cm, yshift=0.5cm] {C};
         
     \end{tikzpicture}
     \caption{Schéma bloc de l'asservissement en courant avec boucle de courant imbriquée}
@@ -168,17 +158,7 @@ Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans 
         % Nœuds - Entrée et premier sommateur
         \node [input, name=input] (input) {};
         \node [gain, right of=input, node distance=1.5cm] (commande) {$6.4$};
-        \node [sum, right of=commande, node distance=1.5cm] (sum1) {};
-        \node [sum, right of=sum1, node distance=1.5cm] (sum2) {};
-        
-        % Bloc constante 48 sous le sommateur sum1
-        \node [block, below of=sum1, node distance=1.5cm] (const48) {$48$};
-        
-        % Ajout des signes + et - dans les sommateurs
-        \draw (sum1.north east) -- (sum1.south west);
-        \draw (sum1.south east) -- (sum1.north west);
-        \node [above left, inner sep=6pt] at (sum1.center) {\tiny $+$};
-        \node [below right, inner sep=6pt] at (sum1.center) {\tiny $-$};
+        \node [sum, right of=commande, node distance=1.5cm] (sum2) {};
 
         \draw (sum2.north east) -- (sum2.south west);
         \draw (sum2.south east) -- (sum2.north west);
@@ -212,9 +192,7 @@ Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans 
         
         % Connexions principales
         \draw [->] (input) -- node[above, pos=- 0.2] {$\delta u_{commande}$} (commande);
-        \draw [->] (commande) -- (sum1);
-        \draw [->] (const48) -- (sum1);
-        \draw[->] (sum1) -- (sum2);
+        \draw [->] (commande) -- (sum2);
         \draw [->] (sum2) -- (corrV);
         \draw [-] (corrV) -- (point_iM);
         \draw [->] (point_iM) -- (kphih);
@@ -223,9 +201,9 @@ Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans 
         \draw [->] (point_iM) |- (delta_iM);
 
         \draw [-] (kphih) -- (omega);
-        \draw [->] (omega) -- node[above] {$\Omega$} (output);
+        \draw [->] (omega) -- node[above] {$\delta \Omega$} (output);
         
-        % Boucle de retour 3 : Kphi part de Omega et revient à sum1
+        % Boucle de retour 3 : Kphi part de Omega et revient à sum2
         \draw [->] (omega) |- (kphiret);
         \draw [->] (kphiret) -| (sum2);
     \end{tikzpicture}
@@ -235,7 +213,7 @@ Le diagramme bloc simplifié de l'asservissement en vitesse est présenté dans 
 
 On peut alors écrire la fonction de transfert en boucle ouverte du système simplifié :
 \[
-\delta_{i_{M}} (s) = \dfrac{\dfrac{1}{R+L\cdot s}}{1+\dfrac{\left(K_\phi\right)^2\cdot H}{R+L\cdot s}} \cdot \delta u_{commande} (s) = FTBO (s) \cdot \delta u_{commande} (s)
+\delta_{i_{M}} (s) = \dfrac{\dfrac{1}{R+L\cdot s}}{1+\dfrac{\left(K_\phi\right)^2\cdot H}{R+L\cdot s}} \cdot 6{,}4 \cdot \delta u_{commande} (s) = FTBO (s) \cdot 6{,}4 \cdot \delta u_{commande} (s)
 \]
 
 Pour s'assurer que notre fonction de transfert est correcte, il faudrait la valider par des simulations numériques en comparant les résultats obtenus. Il serait alors possible de poursuivre l'analyse en utilisant cette fonction de transfert simplifiée pour concevoir et optimiser le contrôleur de l'asservissement en vitesse du moteur.
