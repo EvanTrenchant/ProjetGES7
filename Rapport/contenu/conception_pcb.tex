@@ -1,2 +1,30 @@
 \chapter{Conception des PCB}
 
+Afin de réaliser le circuit imprimé de notre projet, nous avons utilisé le logiciel de conception de PCB \textit{Proteus}, dans lequel nous avons reproduit le schéma électrique complet vu précédemment.
+Cependant, pour faciliter la réalisation du PCB, nous avons dû apporter quelques modifications au schéma initial pour bien préparer la carte à la fabrication et à l'assemblage. Pour cela, nous avons créer les différents empreintes des composants utilisés, en veillant à respecter les dimensions réelles de chaque composant, données par les fiches techniques des fabricants. Nous avons également pensé à définir les zones de cuivre pour l'alimentation et la masse (plan de masse), afin de faciliter le routage et d'améliorer les performances électriques de la carte. Enfin, nous avons ajouté des perçages pour les fixations mécaniques de la carte dans son boîtier.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Image PCB/Carte_PCB.pdf}
+    \caption{Schéma de la conception du PCB}
+    \label{fig:pcb_design}
+\end{figure}
+
+En ce qui concerne le connecteur VGA, nous avons également conçu son PCB et son schéma électrique dans \textit{Proteus}, en respectant le standard de câblage VGA prescrit sur Moodle pour assurer une bonne compatibilité avec l'équipement que nous utilisons.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Image PCB/VGA_PCB.pdf}
+        \caption{PCB du connecteur VGA}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Image PCB/VGA_SCHEMA.pdf}
+        \caption{Schéma du connecteur VGA}
+    \end{subfigure}
+    \caption{Conception du connecteur VGA}
+    \label{fig:vga_design}
+\end{figure}
