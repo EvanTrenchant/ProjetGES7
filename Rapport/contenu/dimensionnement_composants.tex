@@ -226,27 +226,25 @@ Après avoir dimensionné les correcteurs PI et les soustracteurs, il est néces
 
 \subsection{Limiteur de courant}
 
-%mot en jaune surligné pour dire de faire des modifications ici
-\textcolor{red}{Attention faut modifier}
+Afin de garantir le respect des contraintes fixées par le cahier des charges, il est impératif de limiter le courant circulant dans le système à une valeur maximale de $5\ \text{A}$. Cette protection est assurée par un circuit écrêteur de tension, réalisé à l'aide de diodes et de ponts diviseurs de tension résistifs.
 
 \noindent
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.58\textwidth}
 \vspace{0pt}
-Pour réaliser le limiteur de courant que nous avions mis en place en simulation, nous utilisons un montage écrêteur à diodes et ponts diviseurs de tension.
 
 \subsubsection{Principe de fonctionnement}
 
-Si on étudie uniquement la partie supérieure de ce montage, on remarque qu'il se comporte comme un redresseur à simple alternance. En effet, si la tension d'entrée du signal dépasse la somme de la tension de conduction de la diode et de la tension en sortie du pont diviseur de tension, alors la diode conduit. Soit :
-\begin{equation*}
-\begin{aligned}
-V_e &> V_{s+} = V_D + V_P \\
-    &= 0{,}6 + 15 \times \frac{18\text{k}}{1\text{k}+18\text{k}} \\
-    &\approx 14{,}8\ \text{V}
-\end{aligned}
-\end{equation*}
+Le montage proposé repose sur une architecture de redressement simple alternance permettant d'effectuer un écrêtage asymétrique du signal.
+
+Durant l'alternance positive du signal d'entrée, la diode D se trouve polarisée en direct et devient conductrice. Le courant traverse alors le diviseur résistif constitué des résistances en série ($20\,\text{k}\Omega + 10\,\text{k}\Omega$), générant une chute de tension aux bornes de cet ensemble. Cette tension présente une forme identique à celle de l'alternance positive du signal d'entrée.
+
+Lors de l'alternance négative, la diode D se trouve polarisée en inverse, ce qui se traduit par une impédance interne très élevée. Dans cette configuration, le courant traversant le diviseur résistif devient quasi nul, entraînant une chute de tension négligeable à ses bornes. Le signal de sortie est ainsi écrêté pour les valeurs négatives.
+
+L'amplificateur opérationnel monté en configuration suiveur, placé en sortie du circuit, assure une fonction d'adaptation d'impédance. Il permet de découpler les étages tout en préservant l'intégrité du signal écrêté sans charge supplémentaire sur le montage à diode.
+
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.38\textwidth}
 \vspace{-60pt}
 \begin{figure}[H]
     \centering
@@ -258,15 +256,6 @@ V_e &> V_{s+} = V_D + V_P \\
 
 \vspace{0.5cm}
 
-Dans ces conditions, la diode conduit et limite la tension de sortie du montage à 14,8 V. C'est donc en changeant les valeurs des résistances du pont diviseur de tension que l'on obtient notre tension de seuil positive.
-La partie basse du montage effectue la même fonction mais en créant une limite basse que l'on fixe également avec le pont diviseur de tension. Dans notre cas, cette tension de seuil est de :
-\begin{equation*}
-V_{s-} = -0{,}6 + 15 \times \frac{1\text{k}}{1\text{k}+18\text{k}} \approx 0{,}19 \text{ V}
-\end{equation*}
-
-Pour respecter le limiteur que l'on avait mis en simulation qui limitait la tension entre 0,2 V et 14,8 V.
-
-L'amplificateur opérationnel en sortie du montage est simplement un suiveur qui joue le rôle d'adaptateur d'impédance.
 
 \subsection{Capteur dynamo tachymétrique}
 
