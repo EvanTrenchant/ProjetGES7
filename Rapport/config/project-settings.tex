@@ -29,23 +29,101 @@
 \newcommand{\tpprofesseur}{Damien Flieller}
 \newcommand{\tpdate}{\today} % Ou une date fixe: {30/09/2025}
 
+\newcommand{\placeimageatpos}[5]{%
+    \node[anchor=north west, inner sep=0pt] 
+        at ([xshift=#3, yshift=#4]current page.north west) {
+            \rotatebox{#5}{\includegraphics[width=#2]{#1}}
+        };
+}
+
 % --- Page de garde personnalisée ---
 \newcommand{\maketitlepage}{
     \begin{titlepage}
-        \centering
-        \includegraphics[width=0.5\textwidth]{images/logo_insa.jpg}\par\vspace{1cm}
-        {\huge\bfseries \tptitre\par}
-		\vspace{0.5cm}
-		{\LARGE \tpsoustitre\par}
-        \vspace{2cm}
-        {\Large\itshape \tpauteurs\par}
-        {\Large\itshape \tpgroupe, groupe 2\par}
-        \vspace{2cm}
-        % insérer ici une image
-        \includegraphics[width=0.95\textwidth]{images/Projet GES7 Illustration Sujet.jpg}
+        % --- 1. Image de fond ---
+        % Placez votre fichier PDF de fond nommé 'background.pdf' dans le dossier 'images/'
+        % Si le fichier n'existe pas, cela affichera juste le texte.
+        \IfFileExists{images/background.pdf}{
+            \AddToShipoutPictureBG*{%
+                \AtPageLowerLeft{%
+                    \includegraphics[width=\paperwidth,height=\paperheight]{images/background.pdf}%
+                }%
+            }
+        }{
+            % Fallback si pas de background.pdf : on garde l'ancien logo pour ne pas casser la compil
+            \begin{tikzpicture}[remember picture, overlay]
+                \node[anchor=north east] at ([xshift=-1cm, yshift=-1cm]current page.north east) {
+                    \includegraphics[width=5cm]{images/logo_insa.jpg}
+                };
+            \end{tikzpicture}
+        }
+
+        % --- 2. Éléments de texte (Positionnement absolu) ---
+        \begin{tikzpicture}[remember picture, overlay]
+            % Note : (0,0) est le centre de la page par défaut dans tikzpicture sans options, 
+            % mais avec 'current page.north west', on se repère par rapport aux coins.
+            
+            % --- TITRE PRINCIPAL ---
+            % Position : 2cm du bord gauche, 5cm du bord haut
+            \node[anchor=north west, text width=16cm, align=flush left] 
+                at ([xshift=2cm, yshift=-5cm]current page.north west) {
+                % Police : Sans Serif (\sffamily), Gras (\bfseries), Taille Huge
+                \fontsize{35}{42}\selectfont \sffamily \bfseries \color{INSArouge} \documentTitle
+            };
+            
+            \placeimageatpos{images/Projet GES7 Illustration Sujet.png}{0.8\textwidth}{4cm}{-16cm}{0}
+
+            % Position : 2cm du bord gauche, 5cm du bord haut
+            \node[anchor=north west, text width=16cm, align=flush left] 
+                at ([xshift=8cm, yshift=-14.2cm]current page.north west) {
+                % Police : Sans Serif (\sffamily), Gras (\bfseries), Taille Huge
+                \fontsize{40}{48}\selectfont \sffamily \bfseries \color{INSArouge} \MakeUppercase{Rapport Final}
+            };
+                
+                % --- SOUS-TITRE ---
+            % Position : 2cm du bord gauche, 7cm du bord haut
+            \node[anchor=north west, text width=16cm, align=flush left] 
+                at ([xshift=2cm, yshift=-7cm]current page.north west) {
+                \fontsize{20}{24}\selectfont \sffamily \color{black} \documentSubtitle
+            };
+
+            % --- MATIÈRE / SUJET ---
+            \node[anchor=north west, text width=16cm, align=flush left] 
+                at ([xshift=2cm, yshift=-8cm]current page.north west) {
+                \Large \sffamily \color{gray} \documentSubject
+            };
+
+            % --- LOGO INSA ---
+            % Position : 1cm du bord droit, 1cm du bord haut
+            \placeimageatpos{images/logo_insa.png}{0.4\textwidth}{12.5cm}{-24cm}{0}
+
+            % --- AUTEURS ---
+            % Position : 2cm du bord gauche, 14cm du bord haut
+            \node[anchor=north west, text width=10cm, align=flush left] 
+                at ([xshift=2cm, yshift=-11cm]current page.north west) {
+                \Large \sffamily \bfseries
+                \authorA \\[0.1cm]
+                \authorB \\[0.3cm]
+                \authorC
+            };
+            
+            % --- GROUPE ---
+            \node[anchor=north west] 
+                at ([xshift=2cm, yshift=-14cm]current page.north west) {
+                \large \sffamily \itshape \tpgroupe, groupe 2
+            };
+
+            % --- BAS DE PAGE (Professeur & Date) ---
+            % Position : 2cm du bord gauche, 3cm du bord bas
+            \node[anchor=south west, text width=10cm, align=flush left] 
+                at ([xshift=2cm, yshift=1.5cm]current page.south west) {
+                \large \sffamily 
+                \textbf{Professeur :} \tpprofesseur \\[0.5cm]
+                \tpdate
+            };
+
+        \end{tikzpicture}
+        
+        \null
         \vfill
-        {\large Professeur : \tpprofesseur\par}
-        \vspace{0.8cm}
-        {\large \tpdate\par}
     \end{titlepage}
 }
