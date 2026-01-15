@@ -101,7 +101,7 @@ Nous commençons par la simulation de la vitesse du moteur en boucle ouverte sur
 La simulation en boucle ouverte nous permet d'observer la réponse naturelle du système sans rétroaction. Cette étape est essentielle pour comprendre les limites intrinsèques du système et établir les objectifs d'amélioration pour l'asservissement. Pour effectuer cette caractérisation, nous attendons d'abord que le système atteigne son régime permanent, puis nous appliquons une consigne en échelon pour observer la dynamique de réponse.
 \vspace{0.5cm}
 
-L'analyse de la réponse indicielle révèle un temps de réponse à \SI{95}{\percent} en boucle ouverte de \SI{124,1}{ms}. Cette valeur relativement élevée indique une dynamique lente qu'il faudra améliorer.
+L'analyse de la réponse indicielle révèle un temps de réponse à \SI{95}{\percent} en boucle ouverte de \SI{322,1}{ms}. Cette valeur relativement élevée indique une dynamique lente qu'il faudra améliorer.
 
 \begin{figure}[H]
     \centering
@@ -113,7 +113,7 @@ L'analyse de la réponse indicielle révèle un temps de réponse à \SI{95}{\pe
 
 \subsection{Conception du correcteur PI}
 
-Face aux limitations observées en boucle ouverte, nous mettons en œuvre un asservissement en boucle fermée avec un correcteur PI. L'objectif de cet asservissement est d'améliorer drastiquement les performances dynamiques du système. Nous visons un temps de réponse à \SI{5}{\percent} trois fois plus rapide qu'en boucle ouverte, soit \SI{41,37}{ms}, tout en maintenant un dépassement maximal de \SI{20}{\percent} pour limiter les contraintes mécaniques.
+Face aux limitations observées en boucle ouverte, nous mettons en œuvre un asservissement en boucle fermée avec un correcteur PI. L'objectif de cet asservissement est d'améliorer drastiquement les performances dynamiques du système. Nous visons un temps de réponse à \SI{5}{\percent} trois fois plus rapide qu'en boucle ouverte, soit \SI{107,37}{ms}, tout en maintenant un dépassement maximal de \SI{20}{\percent} pour limiter les contraintes mécaniques.
 
 \begin{figure}[H]
     \centering
@@ -128,8 +128,8 @@ Le schéma présente l'architecture complète du système de régulation en casc
 À l'aide de l'outil PID Tuner de Simulink, nous déterminons les paramètres optimaux du correcteur PI permettant de satisfaire les spécifications temporelles imposées :
 \begin{tcolorbox}[colback=conclusioncolor!5!white, colframe=conclusioncolor!75!black, boxrule=0.5pt, arc=2mm]
 \begin{itemize}
-    \item Gain proportionnel : $K_p = 6{,}68$
-    \item Gain intégral : $K_i = 496{,}43$
+    \item Gain proportionnel : $K_p = 2{,}00$
+    \item Gain intégral : $K_i = 78{,}86$
 \end{itemize}
 \end{tcolorbox}
 
@@ -169,8 +169,8 @@ La figure \ref{fig:comparaison_reponses_vitesse} illustre une superposition quas
 
 L'analyse des performances révèle que l'asservissement en vitesse respecte pleinement les spécifications du cahier des charges :
 \begin{itemize}
-    \item Le temps de réponse à \SI{5}{\percent} est d'environ \SI{39,8}{ms}, soit plus de trois fois plus rapide que la réponse en boucle ouverte (\SI{124,1}{ms})
-    \item Le dépassement observé reste inférieur à \SI{20}{\percent} ( \SI{18,5}{\percent}), ce qui limite les contraintes mécaniques sur le système d'entraînement
+    \item Le temps de réponse à \SI{5}{\percent} est d'environ \SI{106}{ms}, soit plus de trois fois plus rapide que la réponse en boucle ouverte (\SI{107,37}{ms})
+    \item Le dépassement observé reste inférieur à \SI{20}{\percent} ( \SI{17,8}{\percent}), ce qui limite les contraintes mécaniques sur le système d'entraînement
     \item Le régime permanent est atteint sans erreur statique grâce à l'action intégrale du correcteur PI
 \end{itemize}
 
@@ -340,6 +340,6 @@ On observe toutefois une différence notable dans l'allure des signaux : la rép
     \item \textbf{Codeur incrémental} : capteur numérique générant des impulsions discrètes. La vitesse est calculée en comptant les impulsions sur une fenêtre temporelle, introduisant une quantification qui crée un effet d'escalier entre deux impulsions successives.
 \end{itemize}
 
-Ces oscillations sont intrinsèques à la mesure numérique et leur amplitude dépend de la résolution du codeur (1000 impulsions/tour, soit \SI{0,36}{\degree}) et de la période d'échantillonnage.
+Ces oscillations sont intrinsèques à la mesure numérique et leur amplitude dépend de la résolution du codeur (1800 impulsions/tour, soit \SI{0,36}{\degree}) et de la période d'échantillonnage.
 
-Malgré ces oscillations, les performances dynamiques moyennes restent conformes au cahier des charges : temps de réponse à \SI{5}{\percent} d'environ \SI{40}{ms}, dépassement inférieur à \SI{20}{\percent}, et absence d'erreur statique. Le codeur incrémental constitue donc une alternative viable à la dynamo tachymétrique, offrant une meilleure immunité au bruit et une précision accrue. Les oscillations peuvent être atténuées par filtrage numérique si nécessaire.
+Malgré ces oscillations, les performances dynamiques moyennes restent conformes au cahier des charges : temps de réponse à \SI{5}{\percent} d'environ \SI{106}{ms}, dépassement inférieur à \SI{20}{\percent}, et absence d'erreur statique. Le codeur incrémental constitue donc une alternative viable à la dynamo tachymétrique, offrant une meilleure immunité au bruit et une précision accrue. Les oscillations peuvent être atténuées par filtrage numérique si nécessaire.
