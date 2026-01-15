@@ -25,7 +25,7 @@ Il est important de souligner que la notation du correcteur PI diffère entre Si
     \caption{Schéma complet de l'asservissement en courant du moteur dans Simulink}
     \label{fig:asservissement_courant_simulink}
 \end{figure}
-\figref{Figure \ref{fig:asservissement_courant_simulink}}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.slx}
+\figref{Figure \ref{fig:asservissement_courant_simulink}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.slx}
 
 \subsection{Modélisation sur PSIM}
 
@@ -47,7 +47,7 @@ D'où la correspondance :
     \caption{Schéma complet de l'asservissement en courant du moteur dans PSIM}
     \label{fig:asservissement_courant_psim}
 \end{figure}
-\figref{Figure \ref{fig:asservissement_courant_psim}}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.psimsch}
+\figref{Figure \ref{fig:asservissement_courant_psim}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.psimsch}
 
 
 \subsection{Comparaison des résultats}
@@ -61,7 +61,7 @@ Dans cette section, nous allons comparer les résultats obtenus avec les deux ou
     \caption{Comparaison des réponses indicielle de l'asservissement en courant du moteur entre Simulink et PSIM}
     \label{fig:comparaison_reponse_indicielle_courant}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_reponse_indicielle_courant}}{Modélisation\_Intermédiaire\_VALIDE/03\_BF\_Courant/Comparaison\_Asservissement\_Courant\_VALIDE\_06\_11\_2025.m}
+\figref{Figure \ref{fig:comparaison_reponse_indicielle_courant}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/03\_BF\_Courant/Comparaison\_Asservissement\_Courant\_VALIDE\_06\_11\_2025.m}
 
 La figure \ref{fig:comparaison_reponse_indicielle_courant} illustre la comparaison des réponses indicielle de l'asservissement en courant du moteur entre Simulink et PSIM. Les deux courbes sont quasiment superposées, ce qui confirme la cohérence des modélisations réalisées dans les deux environnements.
 
@@ -96,7 +96,7 @@ Nous commençons par la simulation de la vitesse du moteur en boucle ouverte sur
     \caption{Schéma de la simulation en boucle ouverte de la vitesse du moteur dans Simulink}
     \label{fig:schéma_BO_vitesse_simulink}
 \end{figure}
-\figref{Figure \ref{fig:schéma_BO_vitesse_simulink}}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
+\figref{Figure \ref{fig:schéma_BO_vitesse_simulink}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
 
 La simulation en boucle ouverte nous permet d'observer la réponse naturelle du système sans rétroaction. Cette étape est essentielle pour comprendre les limites intrinsèques du système et établir les objectifs d'amélioration pour l'asservissement. Pour effectuer cette caractérisation, nous attendons d'abord que le système atteigne son régime permanent, puis nous appliquons une consigne en échelon pour observer la dynamique de réponse.
 \vspace{0.5cm}
@@ -109,7 +109,7 @@ L'analyse de la réponse indicielle révèle un temps de réponse à \SI{95}{\pe
     \caption{Réponse de la vitesse du moteur en boucle ouverte dans Simulink}
     \label{fig:asservissement_vitesse_simulink}
 \end{figure}
-\figref{Figure \ref{fig:asservissement_vitesse_simulink}}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
+\figref{Figure \ref{fig:asservissement_vitesse_simulink}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/04\_BF\_Courant\_Vitesse/BO\_Vitesse/BO\_Vitesse\_VALIDE\_06\_11\_2025.slx}
 
 \subsection{Conception du correcteur PI}
 
@@ -121,7 +121,7 @@ Face aux limitations observées en boucle ouverte, nous mettons en œuvre un ass
     \caption{Schéma de l'asservissement en vitesse du moteur dans Simulink}
     \label{fig:asservissement_vitesse_simulink_schema}
 \end{figure}
-\figref{Figure \ref{fig:asservissement_vitesse_simulink_schema}}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.slx}
+\figref{Figure \ref{fig:asservissement_vitesse_simulink_schema}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.slx}
 
 Le schéma présente l'architecture complète du système de régulation en cascade : la boucle externe d'asservissement en vitesse génère une consigne de courant qui est ensuite régulée par la boucle interne d'asservissement en courant. Cette structure en cascade permet de bénéficier d'une meilleure robustesse et d'une dynamique optimisée.
 
@@ -148,7 +148,7 @@ Comme pour l'asservissement en courant, il est nécessaire d'adapter les paramè
     \caption{Schéma de l'asservissement en vitesse du moteur dans PSIM}
     \label{fig:asservissement_vitesse_psim_schema}
 \end{figure}
-\figref{Figure \ref{fig:asservissement_vitesse_psim_schema}}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.psimsch}
+\figref{Figure \ref{fig:asservissement_vitesse_psim_schema}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/04\_BF\_Courant\_Vitesse/BF\_Vitesse/BF\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.psimsch}
 
 Le schéma PSIM intègre l'ensemble de la chaîne de régulation en cascade : l'asservissement en vitesse commande l'asservissement en courant, qui lui-même pilote le hacheur quatre quadrants alimentant le moteur à courant continu. Cette modélisation complète permet de simuler le comportement réel du système dans des conditions proches de l'implémentation finale.
 
@@ -163,7 +163,7 @@ La validation de notre approche de modélisation nécessite une comparaison rigo
     \caption{Comparaison des réponses en vitesse entre Simulink et PSIM}
     \label{fig:comparaison_reponses_vitesse}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_reponses_vitesse}}{Modélisation\_Intermédiaire\_VALIDE/04\_BF\_Courant\_Vitesse/Comparaison\_BF\_Vitesse/Comparaison\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.m}
+\figref{Figure \ref{fig:comparaison_reponses_vitesse}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/04\_BF\_Courant\_Vitesse/Comparaison\_BF\_Vitesse/Comparaison\_Asservissement\_Courant\_Vitesse\_VALIDE\_06\_11\_2025.m}
 
 La figure \ref{fig:comparaison_reponses_vitesse} illustre une superposition quasi-parfaite des réponses temporelles obtenues dans les deux environnements. Cette concordance remarquable valide la cohérence de nos modélisations et confirme que les paramètres du correcteur PI ont été correctement adaptés entre Simulink et PSIM. Pour faciliter la visualisation des deux courbes, un facteur de \num{0,99} a été appliqué aux valeurs de vitesse issues de Simulink.
 
@@ -306,7 +306,7 @@ A présent, nous implémentons l'asservissement en vitesse avec le codeur incré
     \caption{Schéma de la partie codeur incrémental dans PSIM}
     \label{fig:schéma_codeur_incremental_psim}
 \end{figure}
-\figref{Figure \ref{fig:schéma_codeur_incremental_psim}}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
+\figref{Figure \ref{fig:schéma_codeur_incremental_psim}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
 
 Le schéma complet de l'asservissement en vitesse avec codeur incrémental devient ainsi :
 
@@ -316,7 +316,7 @@ Le schéma complet de l'asservissement en vitesse avec codeur incrémental devie
     \caption{Schéma de l'asservissement en vitesse avec codeur incrémental}
     \label{fig:schéma_asservissement_vitesse_codeur_incremental}
 \end{figure}
-\figref{Figure \ref{fig:schéma_asservissement_vitesse_codeur_incremental}}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
+\figref{Figure \ref{fig:schéma_asservissement_vitesse_codeur_incremental}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/05\_Codeur\_Incrémentale/BF\_Vitesse\_Codeur\_Incrementale\_VALIDE\_08\_11\_25.psimsch}
 
 \subsection{Comparaison des résultats avec codeur incrémental}
 
@@ -328,7 +328,7 @@ Nous comparons ici les résultats obtenus avec Simulink sans le codeur incrémen
     \caption{Comparaison des résultats de simulation entre Simulink et PSIM avec codeur incrémental}
     \label{fig:comparaison_simulink_psim}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_simulink_psim}}{Modélisation\_Intermédiaire\_VALIDE/05\_Codeur\_Incrémentale/Comparaison\_Vitesse\_Codeur\_Incremental\_VALIDE\_08\_11\_2025.m}
+\figref{Figure \ref{fig:comparaison_simulink_psim}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/05\_Codeur\_Incrémentale/Comparaison\_Vitesse\_Codeur\_Incremental\_VALIDE\_08\_11\_2025.m}
 
 La figure \ref{fig:comparaison_simulink_psim} présente une superposition des réponses en vitesse obtenues avec l'asservissement utilisant la dynamo tachymétrique sur Simulink et celui utilisant le codeur incrémental sur PSIM. Les deux courbes présentent une concordance satisfaisante, validant ainsi la cohérence entre les deux approches de mesure de vitesse.
 
