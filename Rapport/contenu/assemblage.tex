@@ -82,26 +82,79 @@ Ce qui fait que nous devons réaliser la soudure de fils reliant la carte à ces
     \item 1 connecteur VGA
 \end{itemize}
 
-Pour faire cela proprement, nous avons coupé les fils pour qu'ils soient le plus courts possible pour éviter leur encombrement. Nous avons également rajouté des gaines thermo rétractables à chaque soudure pour éviter tout faux contact ou court-circuit.
-
-Voici le PCB relié à tous les organes de connexions :
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/Image PCB/image1.jpg}
-    \caption{PCB relié à toutes les connectiques}
-    \label{fig:pcb_connectique}
-\end{figure}
 
 \section{Réalisation du boitier}
 
 Pour maintenir le PCB et les connectiques en place, nous avons réalisé une boîte imprimée en 3D pour y fixer tous les composants.
-
+\\
 Cette boîte a été pensée pour être la plus pratique possible si des modifications doivent être réalisées. C'est pourquoi nous avons décidé de fixer la totalité des composants sous le couvercle de cette boîte pour que, si nous voulons l'ouvrir, nous ayons facilement accès à tous les composants. Le but était vraiment d'éviter que des fils relient le couvercle et la boîte, ce qui est embêtant quand on veut l'ouvrir.
+\\
+Nous avons aussi fait en sorte d'indiquer sur le couvercle l'utilité de chaque connectique en imprimant le texte d'une autre couleur.
 
-Nous avons aussi fait en sorte d'indiquer sur le couvercle l'utilité de chaque connectique en imprimant le texte d'une autre couleur. Nous utilisons aussi des vis en plastique pour maintenir fermée la boîte car ce matériau n'est pas conducteur.
+\noindent
+\begin{minipage}[t]{0.40\textwidth}
+\vspace{0pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Modelisation3d/Vue3D.png}
+    \caption{Vue 3D du boitier}
+    \label{fig:boitier_3d}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.55\textwidth}
+\vspace{0pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Modelisation3d/Vue3DOuvert.png}
+    \caption{Vue 3D du boitier ouvert}
+    \label{fig:boitier_3d_ouvert}
+\end{figure}
+\end{minipage}
 
-Pour ce qui est du reste de la boîte, nous avons simplement réalisé un boîtier le plus petit possible et capable d'accueillir tous les composants. Voici le résultat du projet entièrement assemblé :
+Nous avons mis en place plusieurs éléments visant à rendre notre boîte plus fonctionnelle :
+\begin{itemize}
+    \item Des empreintes à double meplat pour fixer les fiche BNC, évitant ainsi qu'elles ne tournent lors des connexions/déconnexions. Cela permet également d'alligner parfaitement les fiches BNC.
+    \item Un epaulement sur le pourtour du couvercle pour qu'il s'emboîte parfaitement dans la boîte meme sans être vissé et éviter ainsi toute entrée de poussière.
+    \item Des pieds en caoutchouc pour éviter que la boîte ne glisse sur le poste de travail
+\end{itemize}
+
+\noindent
+\begin{minipage}[t]{0.30\textwidth}
+\vspace{0pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Modelisation3d/Meplat.png}
+    \caption{Empreintes à double meplat}
+    \label{fig:meplat}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\vspace{0pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Modelisation3d/epaulement.png}
+    \caption{Épaulement du couvercle}
+    \label{fig:epaulement}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\vspace{0pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/Modelisation3d/Patin.png}
+    \caption{Pieds en caoutchouc}
+    \label{fig:patin}
+\end{figure}
+\end{minipage}
+
+\vspace{10pt}
+
+Cette modelisation 3Dcomplète de notre système nous a permis de vérifier que tous les composants rentraient correctement dans la boîte avant de lancer l'impression 3D.
+
+Voici le résultat du projet entièrement assemblé :
 
 \noindent
 \begin{minipage}[t]{0.45\textwidth}
@@ -123,3 +176,18 @@ Pour ce qui est du reste de la boîte, nous avons simplement réalisé un boîti
     \label{fig:boitier_complet}
 \end{figure}
 \end{minipage}
+
+\vspace{10pt}
+
+Pour réaliser les connexions entre le PCB et les différentes connectiques, nous avons utilisé des câbles que nous avons soudé aux fiches BNC, puis vissé aux borniers du PCB. Les fiches bananes ont été connecté au PCB via des câbles avec des cosses pour effectuer les connexions.
+\\\\
+Pour faire cela proprement, nous avons coupé les fils pour qu'ils soient le plus courts possible pour éviter leur encombrement. Nous avons également rajouté des gaines thermo rétractables à chaque soudure pour éviter tout faux contact ou court-circuit.
+\\\\
+Voici le PCB relié à tous les organes de connexions :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Image PCB/image1.jpg}
+    \caption{PCB relié à toutes les connectiques}
+    \label{fig:pcb_connectique}
+\end{figure}

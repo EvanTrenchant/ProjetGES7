@@ -80,11 +80,11 @@ Dans l'environnement Simulink, notre démarche consiste à traduire le système 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/Moteur_a_vide/Schéma moteur à vide Simulink.png}
+    \includegraphics[width=1\textwidth]{images/moteur_a_vide/Schéma moteur à vide Simulink.png}
     \caption{Schéma Simulink du moteur à courant continu à vide}
     \label{fig:schema_moteur_vide_simulink}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_vide_simulink}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
+\figref{Figure \ref{fig:schema_moteur_vide_simulink}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
 
 On remarque que le schéma Simulink présenté en Figure \ref{fig:schema_moteur_vide_simulink} intègre les équations de la MCC sans charge. Les simulations effectuées avec ce modèle permettent d'obtenir les réponses temporelles du courant et de la vitesse du moteur à vide, illustrées dans la Figure \ref{fig:reponse_moteur}.
 
@@ -93,17 +93,17 @@ On remarque que le schéma Simulink présenté en Figure \ref{fig:schema_moteur_
     \centering
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Moteur_a_vide/Données courant moteur à vide Simulink.png}
+        \includegraphics[width=\textwidth]{images/moteur_a_vide/Données courant moteur à vide Simulink.png}
     \end{minipage}
     \hfill
     \begin{minipage}{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Moteur_a_vide/Données vitesse moteur à vide Simulink.png}
+        \includegraphics[width=\textwidth]{images/moteur_a_vide/Données vitesse moteur à vide Simulink.png}
     \end{minipage}
     \caption{Résultats de simulation des réponses en courant (gauche) et en vitesse (droite) du moteur à vide}
     \label{fig:reponse_moteur}
 \end{figure}
-\figref{Figure \ref{fig:reponse_moteur}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
+\figref{Figure \ref{fig:reponse_moteur}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.slx}
 
 \subsection{Simulation sur PSIM}
 
@@ -116,11 +116,11 @@ Le principe de modélisation sous PSIM repose sur l'assemblage de composants don
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/Moteur_a_vide/Schéma moteur à vide Psim.png}
+    \includegraphics[width=0.7\textwidth]{images/moteur_a_vide/Schéma moteur à vide Psim.png}
     \caption{Modélisation du moteur à courant continu sur PSIM}
     \label{fig:schema_moteur_psim}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_psim}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.psimsch}
+\figref{Figure \ref{fig:schema_moteur_psim}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/00\_Moteur\_a\_Vide/Moteur\_Seul\_VALIDE\_12\_09\_2025.psimsch}
 
 \subsection{Comparaison des résultats}
 Nous comparons les résultats avec un programme \textit{MATLAB}. Pour cela, nous avons besoin de
@@ -136,15 +136,15 @@ Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_vide} montrent un
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{images/Moteur_a_vide/Comparaison courant induit moteur à vide.png}
+    \includegraphics[width=0.85\textwidth]{images/moteur_a_vide/Comparaison courant induit moteur à vide.png}
     
     \vspace{0.5cm}
     
-    \includegraphics[width=0.85\textwidth]{images/Moteur_a_vide/Comparaison vitesse moteur à vide.png}
+    \includegraphics[width=0.85\textwidth]{images/moteur_a_vide/Comparaison vitesse moteur à vide.png}
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur à vide}
     \label{fig:comparaison_resultats_moteur_vide}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_resultats_moteur_vide}}{Modélisation\_Intermédiaire\_VALIDE/00\_Moteur\_a\_Vide/Comparaison\_Moteur\_Seul\_VALIDE\_12\_09\_2025.m}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_vide}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/00\_Moteur\_a\_Vide/Comparaison\_Moteur\_Seul\_VALIDE\_12\_09\_2025.m}
 
 \newpage
 \section{Modélisation de la MCC avec charge}
@@ -216,7 +216,7 @@ Le schéma bloc n'est plus le même. En effet, celui-ci devient plus complexe, p
     \caption{Schéma Simulink du moteur à courant continu avec charge et frottements}
     \label{fig:schema_moteur_charge_simulink}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_charge_simulink}}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.slx}
+\figref{Figure \ref{fig:schema_moteur_charge_simulink}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.slx}
 
 \subsection{Simulation sur PSIM}
 
@@ -228,7 +228,7 @@ De manière analogue à la simulation du moteur à vide, nous utilisons PSIM pou
     \caption{Modélisation du moteur avec charge et frottements sur PSIM}
     \label{fig:schema_moteur_charge_psim}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_charge_psim}}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.psimsch}
+\figref{Figure \ref{fig:schema_moteur_charge_psim}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/01\_Moteur\_Charge\_Frottement/Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.psimsch}
 
 \newpage
 \subsection{Comparaison des résultats}
@@ -247,7 +247,7 @@ De manière analogue à la simulation du moteur à vide, nous utilisons PSIM pou
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur avec charge}
     \label{fig:comparaison_resultats_moteur_charge}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_resultats_moteur_charge}}{Modélisation\_Intermédiaire\_VALIDE/01\_Moteur\_Charge\_Frottement/Comparaison\_Courant\_Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.m}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_charge}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/01\_Moteur\_Charge\_Frottement/Comparaison\_Courant\_Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.m}
 
 Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_charge} confirment la validité de notre modélisation avec charge et frottements. On observe une superposition quasi-parfaite des résultats Simulink (marqueurs) et PSIM (ligne continue) sur l'ensemble des grandeurs mesurées. La vitesse atteint un régime permanent à environ $3100$ tr/min, valeur inférieure à celle du moteur à vide ($3609$ tr/min) en raison de la présence de la charge de $10$ $\Omega$, du couple résistant $C_r$ et des frottements visqueux. Le courant d'induit du moteur présente un pic initial caractéristique du démarrage, puis se stabilise à une valeur permanente correspondant à l'équilibre entre le couple moteur et les couples résistifs. Cette concordance valide l'implémentation des pertes mécaniques dans les deux environnements de simulation.
 
@@ -266,7 +266,7 @@ Sur PSIM, le hacheur est modélisé par un pont en H composé de quatre transist
     \caption{Modélisation du hacheur sur PSIM}
     \label{fig:hacheur_psim}
 \end{figure}
-\figref{Figure \ref{fig:hacheur_psim}}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.psimsch}
+\figref{Figure \ref{fig:hacheur_psim}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.psimsch}
 
 Le hacheur fournit une tension de sortie moyenne qui peut être positive ou négative (mode bipolaire). La valeur moyenne de la tension de sortie Vs dépend de trois grandeurs : la tension d'alimentation (ici 48\,V), la tension de commande continue (notée $V_{\text{commande}}$) et le rapport cyclique $\alpha$ du signal de commande (duty cycle) appliqué aux interrupteurs.
 
@@ -361,7 +361,7 @@ Cette caractéristique montre que le hacheur présente un comportement linéaire
     \caption{Modélisation du moteur avec hacheur sur Simulink}
     \label{fig:schema_moteur_hacheur_simulink}
 \end{figure}
-\figref{Figure \ref{fig:schema_moteur_hacheur_simulink}}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.slx}
+\figref{Figure \ref{fig:schema_moteur_hacheur_simulink}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/02\_Moteur\_Hacheur/Moteur\_Hacheur\_VALIDE\_03\_11\_2025.slx}
 
 \newpage
 \subsection{Comparaison des résultats}
@@ -376,6 +376,6 @@ Cette caractéristique montre que le hacheur présente un comportement linéaire
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur avec hacheur}
     \label{fig:comparaison_resultats_moteur_hacheur}
 \end{figure}
-\figref{Figure \ref{fig:comparaison_resultats_moteur_hacheur}}{Modélisation\_Intermédiaire\_VALIDE/02\_Moteur\_Hacheur/Comparaison\_Courant\_Moteur\_Hacheur\_VALIDE\_03\_11\_2025.m}
+\figref{Figure \ref{fig:comparaison_resultats_moteur_hacheur}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/02\_Moteur\_Hacheur/Comparaison\_Courant\_Moteur\_Hacheur\_VALIDE\_03\_11\_2025.m}
 
 Les résultats présentés dans la Figure \ref{fig:comparaison_resultats_moteur_hacheur} démontrent la cohérence entre les modélisations Simulink et PSIM du système complet moteur-hacheur. Les trois grandeurs observées (courant générateur, courant moteur et vitesse) montrent une excellente superposition des courbes issues des deux simulateurs. On constate notamment que l'introduction du hacheur impose une dynamique légèrement différente par rapport à l'alimentation directe, avec des ondulations caractéristiques de la modulation PWM. La vitesse converge vers une valeur de régime permanent proche de $3100$ tr/min, cohérente avec le point de fonctionnement imposé par la tension de commande du hacheur. Cette validation croisée confirme la justesse de notre modélisation du convertisseur statique et de son interaction avec la charge mécanique.
