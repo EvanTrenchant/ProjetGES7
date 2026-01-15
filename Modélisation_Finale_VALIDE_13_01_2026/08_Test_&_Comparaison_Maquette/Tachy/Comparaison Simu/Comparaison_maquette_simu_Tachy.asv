@@ -1,0 +1,68 @@
+%Lecture des fichiers de points
+data_maquette = readmatrix(['Scope_Tachy_Charge.csv'], 'NumHeaderLines', 2);
+data_psim = readmatrix('Essai_PSIM.txt');
+
+% Extraction des colonnes de temps
+t = data_maquette(:, 1); 
+t = t+1;
+t_psim = data_psim(:, 1);
+
+% Extraction des grandeurs mesurées ou simuli
+V1 = data_maquette(:, 2);
+V2 = data_maquette(:, 3);
+V3 = data_maquette(:, 4);
+consigne_psim = data_psim(:, 2);
+vitesse_psim = data_psim(:, 3);
+courant_psim = data_psim(:, 4);
+
+%Synchronisation des signaux
+offset = 0.88; 
+t_synchro = t + offset;
+
+%Mise a la bonne échelle
+vitesse_psim = vitesse_psim*0.006;
+
+filtre = t_synchro <= 3;
+t_maquette_coupe = t_synchro(filtre);
+V1_coupe = V1(filtre);
+V2_coupe = V2(filtre);
+V3_coupe = V3(filtre);
+
+close all;
+
+% 3. Tracé des courbes
+%Tracé de la consigne
+figure;
+plot(t_maquette_coupe, V1_coupe, 'r', 'LineWidth', 1.5); hold on;
+plot(time, consigne_psim, 'b', 'LineWidth', 1.5);
+plot(out.consigne, 'g');
+
+grid on;
+xlabel('Temps (s)');
+ylabel('Tension (V)');
+title('Mesures Oscilloscope');
+legend('Maquette', 'PSIM', 'Matlab');
+
+%Tracer de la vitesse
+figure;
+plot(t_maquette_coupe, V2_coupe, 'r', 'LineWidth', 1.5); hold on;
+plot(time, vitesse_psim, 'b', 'LineWidth', 1.5);
+plot(out.vitesse, 'g');
+
+grid on;
+xlabel('Temps (s)');
+ylabel('Vitesse(rad/s)');
+title('Mesures Oscilloscope');
+legend('Maquette', 'PSIM', 'Matlab');
+
+%Tracer du courant moteur
+figure;
+plot(t_maquette_coupe, V3_coupe, 'r', 'LineWidth', 1.5); hold on;
+plot(time, courant_psim, 'b', 'LineWidth', 1.5);
+plot(out.courant_moteur, 'g');
+
+grid on;
+xlabel('Temps (s)');
+ylabel('Courant Moteur(A)');
+title('Mesures Oscilloscope');
+legend('Maquette', 'PSIM', 'Matlab');
