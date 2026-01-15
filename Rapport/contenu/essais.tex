@@ -1,8 +1,149 @@
-\chapter{Tests et essais sur la MCC}
+\chapter{Essais et Rectifications}
 \label{chap:essais}
 
-\section{Introduction}
+Une fois que notre PCB est assemblé et que les connexions avec les connectiques sont réalisées, nous pouvons passer aux tests du projet. Cela nous permettra également de résoudre les problèmes de conception si nous en rencontrons. Les tests se sont déroulés en deux parties principales qui sont l’asservissement à l’aide de la dynamo tachymétrique puis l’asservissement à l’aide du codeur incrémental.
 
-\section{Résolution des problèmes}
+\section{Protocole d’essais}
 
-\section{Tests et essais finaux}
+Pour réaliser ces tests, nous avons respecté le même protocole pour les deux parties.
+Premièrement, nous avons uniquement testé le PCB sur plaquette. Cela consiste à injecter des signaux continus aux différentes entrées de la chaîne d’asservissement ou de traitement du signal du codeur incrémental et d’observer les sorties de chaque étage. Une fois ces sorties mesurées, nous pouvons les comparer aux valeurs trouvées en simulation pour les mêmes tests et valider ou non le fonctionnement de notre carte. Pour ces tests, nous avons veillé à court-circuiter les capacités du correcteur proportionnel intégral pour qu’elles ne gênent pas les tests réalisés avec des signaux continus.
+
+Une fois la validation du fonctionnement du PCB effectuée, nous pouvons passer aux tests sur la maquette réelle. Pour ce faire, nous alimentons notre boîtier en -15V/+15V et le hacheur qui alimentera la machine à courant continu en 48V. Nous utilisons un GBF pour appliquer une consigne, et avons choisi un signal carré variant entre -2V et +2V de fréquence 400mHz pour observer un changement de sens de rotation de l’axe de la MCC. En parallèle, nous utilisons un oscilloscope pour observer toutes les mesures qui nous intéressent, dont la consigne envoyée à la carte, la vitesse de rotation du moteur donnée par la dynamo tachymétrique ou le codeur incrémental ainsi que le courant dans le moteur. Ces tests sur la maquette seront validés si la réponse de notre système est stable et si le courant dans le moteur est bien écrêté à une valeur maximale de 5A pour protéger la machine. Si ces critères sont remplis, nous pouvons faire les mesures de l’évolution dans le temps de la vitesse de rotation du moteur ainsi que le courant absorbé par celui-ci.
+
+Finalement, la dernière partie des tests consistera à comparer les valeurs mesurées sur la maquette réelle aux valeurs trouvées en simulation. Cela permettra de comparer les performances voulues en simulation aux performances que nous avons atteintes en réalité. Nous portons une attention particulière au dépassement et au temps de réponse du système. Nous ferons une comparaison entre les valeurs réelles, les valeurs de simulation de Matlab ainsi qu’avec les valeurs données par PSIM.
+
+\section{Essais avec la dynamo tachymétrique}
+
+Pour ces premiers tests, nous réalisons uniquement les tests pour asservir la machine à courant continu à l’aide du retour de vitesse fourni par la dynamo tachymétrique de la maquette.
+
+\subsection{Problèmes rencontrés}
+
+Nous avons commencé par les tests sur plaquette de la carte et nous n’avons pas rencontré de problèmes majeurs, ce qui nous a permis de passer à la deuxième étape de test : tester notre carte sur la maquette. Nous avons donc réalisé ces tests sur maquette qui nous ont montré que notre système d’asservissement est fonctionnel car il répond de manière stable. En revanche, nous avons observé deux problèmes qui sont :
+\begin{itemize}
+    \item Le limiteur de courant était inefficace.
+    \item Le signal de courant n’était pas stable.
+\end{itemize}
+
+Après avoir analysé notre montage et avoir refait des simulations, nous nous sommes rendu compte que pour le premier problème, nous avions placé l’étage limiteur de courant au mauvais endroit dans la chaîne d’asservissement. Ce limiteur avait été placé après l’étage qui compare la consigne de courant au retour de courant venant de la maquette, alors que ce limiteur aurait dû être avant ce comparateur. Nous avons alors modifié notre PCB pour faire en sorte de replacer ce limiteur au bon endroit, comme montré sur la figure ci-dessous, et cela a fonctionné : nous avions bien un courant écrêté à 5A comme demandé pour protéger la machine.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Essais/Limteur courant 15_01.png}
+    \caption{Modification du placement du limiteur de courant sur le PCB.}
+    \label{fig:modif_limiteur}
+\end{figure}
+
+Pour ce qui est de la stabilité du signal de courant, nous avons remarqué que nous avions soudé la mauvaise valeur de capacité dans l’étage du correcteur intégral de la boucle de courant. Nous avons donc remplacé cette capacité par la valeur prévue lors du dimensionnement des composants et cela a réglé ce souci de stabilité.
+
+\subsection{Performances obtenues}
+
+Une fois ces problèmes réglés, nous avons pu réaliser des tests complets sur la maquette. Grâce à l’oscilloscope, nous avons relevé les courbes de vitesse et de courant réelles afin de pouvoir les comparer aux simulations. Nous avons réalisé les comparaisons en utilisant Matlab pour superposer les courbes données par Simulink, les valeurs renvoyées par PSIM et les valeurs réelles mesurées. Cela nous donne la comparaison suivante pour le courant :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Courant_Tachy.png}
+    \caption{Comparaison des réponses en courant.}
+    \label{fig:comp_courant}
+\end{figure}
+
+Pour la simulation faite avec Matlab, nous avons volontairement laissé le pic de courant pour pouvoir observer facilement que notre projet écrête bien le courant à 5A, ce qui est également le cas pour la simulation PSIM avec laquelle nous avons dimensionné les composants. On observe que la courbe réelle du courant est très proche des courbes trouvées en simulation, ce qui permet de valider le fonctionnement de notre projet sur l’asservissement en courant. À noter que l’on peut observer une légère différence de valeur de courant en régime permanent entre les valeurs réelles et les valeurs simulées. Cela est dû au réglage de la charge que nous avons mis sur la maquette qui ne devait pas être exactement à une valeur de 10 $\Omega$ alors que les simulations ont été réalisées pour une valeur exacte de 10 $\Omega$.
+
+Pour ce qui est de l’asservissement en vitesse, nous obtenons cette comparaison :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Vitesse_Tachy.png}
+    \caption{Comparaison des réponses en vitesse.}
+    \label{fig:comp_vitesse}
+\end{figure}
+
+On remarque encore que les trois courbes sont très proches les unes des autres, ce qui confirme que notre dimensionnement répond bien aux exigences que nous voulions. Nous avons également réalisé les mesures du temps de réponse et de dépassement à l’oscilloscope pour récupérer les performances de notre carte :
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Essais/Dépassement_Tachy.png}
+        \caption{Dépassement}
+        \label{fig:perf_oscillo_depassement}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Essais/Temps de réponse_Tachy.png}
+        \caption{Temps de réponse}
+        \label{fig:perf_oscillo_temps}
+    \end{subfigure}
+    \caption{Mesures des performances à l'oscilloscope (Dynamo).}
+    \label{fig:perf_oscillo}
+\end{figure}
+
+Nous avons obtenu les performances suivantes :
+\begin{itemize}
+    \item Dépassement : 16,2\%
+    \item Temps de réponse : 102 ms
+    \item Limitation du courant : 4,97 A
+\end{itemize}
+Ces performances remplissent le cahier des charges que nous avions.
+
+\section{Essais avec le codeur incrémental}
+
+Pour cette partie des tests, nous réalisons uniquement les tests pour asservir la machine à courant continu à l’aide du retour de vitesse fourni par le codeur incrémental de la maquette. Pour vérifier le bon fonctionnement de notre chaîne de traitement du signal venant du codeur incrémental, nous avons fait attention à vérifier que le signal en sortie de cette chaîne de traitement renvoie la même valeur de vitesse que la dynamo tachymétrique. Pour ce faire, nous avons mis en place l’asservissement avec la dynamo tachymétrique et avons branché le codeur incrémental à notre chaîne de traitement puis nous avons observé les retours de vitesse venant des deux capteurs. Cela nous a permis de régler le gain de la chaîne de traitement du codeur incrémental pour obtenir le même retour de vitesse. Ce test est représenté ci-dessous :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Essais/Comparaison Codeur Tachy.png}
+    \caption{Comparaison des mesures de vitesse entre dynamo et codeur.}
+    \label{fig:test_codeur}
+\end{figure}
+
+\subsection{Problèmes rencontrés}
+
+Aucun problème n’a été rencontré lors des tests de la chaîne de traitement du codeur incrémental sur plaquette ni sur la maquette.
+
+\subsection{Performances obtenues}
+
+N’ayant pas rencontré de problème lors des tests, nous avons pu réaliser les mesures de performance rapidement. Ces mesures nous donnent les comparaisons suivantes pour les courbes de vitesse et de courant. Nous obtenons à nouveau des courbes très similaires, ce qui nous a permis de valider le fonctionnement de la chaîne d’asservissement en utilisant le codeur incrémental.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Courant_Codeur.png}
+    \caption{Comparaison des performances avec le codeur incrémental.}
+    \label{fig:perf_codeur}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Vitesse_Codeur.png}
+    \caption{Comparaison des performances avec le codeur incrémental.}
+    \label{fig:perf_codeur}
+\end{figure}
+
+Nous avons également réalisé les mesures du temps de réponse et de dépassement à l’oscilloscope pour récupérer les performances de notre carte :
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Essais/Dépassement_Codeur.png}
+        \caption{Dépassement}
+        \label{fig:perf_oscillo_codeur_depassement}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Essais/Temps de réponse_Codeur.png}
+        \caption{Temps de réponse}
+        \label{fig:perf_oscillo_codeur_temps}
+    \end{subfigure}
+    \caption{Mesures des performances à l'oscilloscope (Codeur).}
+    \label{fig:perf_oscillo_codeur}
+\end{figure}
+
+Nous avons obtenu les performances suivantes :
+\begin{itemize}
+    \item Dépassement : 15,8\%
+    \item Temps de réponse : 101 ms
+    \item Limitation du courant : 4,97 A
+\end{itemize}
+Ces performances remplissent le cahier des charges que nous avions.
