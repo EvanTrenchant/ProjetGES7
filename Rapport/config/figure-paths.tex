@@ -1,27 +1,67 @@
 % Configuration pour la gestion automatique des chemins de figures
 % Auteur: Assistant LaTeX
-% Date: 2025-11-08
+% Date: 2026-01-15
 
-% Packages requis
 \usepackage{etoolbox}
+\usepackage{xstring}
 
-% Création d'une séquence pour stocker les labels des figures
+\makeatletter % Activation des @ pour les commandes internes
+
+% Liste globale pour stocker les paires {Label/Texte}{Chemin}
 \newcommand{\figurepathlist}{}
 
-% Commande pour associer un chemin à une figure
-% Usage: \figpath{label}{chemin}
-% Exemple: \figpath{fig:mon_schema}{Modelisation/01_12_09_2025/schema.slx}
+% --- 1. Ajout à la liste ---
+\newcommand{\addtofigpathlist}[2]{%
+    \listgadd{\figurepathlist}{{#1}{#2}}%
+}
+
+% --- 2. Rétrocompatibilité \figpath ---
 \newcommand{\figpath}[2]{%
+    \addtofigpathlist{Figure \ref{#1}}{#2}%
     \expandafter\gdef\csname figpath@#1\endcsname{#2}%
-    \ifdefempty{\figurepathlist}{%
-        \gdef\figurepathlist{#1}%
+}
+
+% --- 3. Redéfinition de \figref ---
+% Cette commande est utilisée dans le texte.
+% Elle affiche le label, met à jour le footer, et écrit dans le .aux
+\renewcommand{\figref}[2]{%
+    % Ne rien afficher inline — enregistrer uniquement pour le footer et le .aux
+    \ifdefempty{\figfooter}{%
+        \gdef\figfooter{\tiny $\blacktriangleright$ \textbf{#1:} \texttt{#2}}%
     }{%
-        \xappto\figurepathlist{,#1}%
+        \gappto\figfooter{\\[2pt]\tiny $\blacktriangleright$ \textbf{#1:} \texttt{#2}}%
+    }%
+    % Enregistrement dans le fichier .aux (pour apparition dans la liste finale)
+    \protected@write\@auxout{}{%
+        \string\registerfigpathfromaux{\unexpanded{#1}}{\unexpanded{#2}}%
     }%
 }
 
-% Commande pour afficher le chemin d'une figure
-% Usage: \getfigpath{label}
+% Commande exécutée lors de la lecture du .aux
+\newcommand{\registerfigpathfromaux}[2]{%
+    \addtofigpathlist{#1}{#2}%
+}
+
+% --- 4. Affichage de la liste finale ---
+\newcommand{\processfigpathItem}[1]{\processfigpathItemSplit#1}
+
+\newcommand{\processfigpathItemSplit}[2]{%
+    % Protection supplémentaire pour l'affichage dans la liste
+    % Si l'utilisateur a mis des '_' non échappés par erreur, on les corrige
+    \noexpandarg%
+    \StrSubstitute{#2}{_}{\_}[\safePathDisplay]%
+    \item[] \textbf{#1:} \texttt{\safePathDisplay}%
+}
+
+\newcommand{\printfigurelist}{%
+    \ifdefempty{\figurepathlist}{%
+        \item[] \textit{Aucune figure avec chemin défini.}%
+    }{%
+        \forlistloop{\processfigpathItem}{\figurepathlist}%
+    }%
+}
+
+% --- 5. Helper pour récupérer un chemin ---
 \newcommand{\getfigpath}[1]{%
     \ifcsdef{figpath@#1}{%
         \csuse{figpath@#1}%
@@ -30,17 +70,4 @@
     }%
 }
 
-% Commande auxiliaire pour traiter chaque élément de la liste
-\newcommand{\processfigureitem}[1]{%
-    \item[] \textbf{Figure \ref{#1}:} \texttt{\getfigpath{#1}}
-    
-}
-
-% Commande pour imprimer toute la liste des figures avec leurs chemins
-\newcommand{\printfigurelist}{%
-    \ifdefempty{\figurepathlist}{%
-        \item[] \textit{Aucune figure avec chemin défini.}%
-    }{%
-        \expandafter\forcsvlist\expandafter\processfigureitem\expandafter{\figurepathlist}%
-    }%
-}
+\makeatother

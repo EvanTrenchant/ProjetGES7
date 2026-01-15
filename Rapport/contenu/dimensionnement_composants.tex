@@ -7,7 +7,7 @@ Le dimensionnement des asservissements constitue une étape cruciale du projet, 
 \section{Réalisation des soustracteurs}
 
 \noindent
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.56\textwidth}
 \vspace{0pt}
 Pour commencer nous réalisons un montage soustracteur permettant de comparer la sortie du montage a la commande. 
 
@@ -18,15 +18,15 @@ On utilise alors ce montage a AOP qui permet, en choisissant les mêmes valeurs 
 \end{equation*}
 
 \vspace{0.5cm}
-On choisit des résistances de $10k\Omega$ pour la réalisation pratique.
+En  pratique, on choisit des résistances de $10k\Omega$.
 \end{minipage}
 \hfill
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.4\textwidth}
 \vspace{-80pt}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Choix_des_composants/Soustracteur.png}
-    \caption{Montage soustracteur à AOP}
+    \caption{\scriptsize{Montage soustracteur à AOP}}
     \label{fig:soustracteur_aop}
 \end{figure}
 \end{minipage}
@@ -162,7 +162,7 @@ Par identification directe avec la structure PI souhaitée, on obtient les relat
 
 \begin{tcolorbox}[colback=conclusioncolor!5!white, colframe=conclusioncolor!75!black, boxrule=0.5pt, arc=2mm]
 \begin{align*}
-    K_{p} &= \dfrac{R_2}{R_1} \\
+    K_{p} &= \frac{R_2}{R_1} \\
     T_i &= RC
 \end{align*}
 \end{tcolorbox}
@@ -184,15 +184,19 @@ Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obteno
 \end{equation*}
 
 \begin{center}
-\begin{tabular}{ll}
-    \toprule
-    Composant & Valeur \\
-    \midrule
-    $R$ & $10\,\Omega$ \\
-    $C$ & $10\,\mu\text{F}$ \\
-    $R_1$ & $1{,}5\,\text{k}\Omega$ \\
-    $R_2$ & $8{,}2\,\text{k}\Omega$ \\
-    \bottomrule
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|l|l|}
+\hline
+Composant & Valeur \\
+\hline
+$R$ & $10\,\Omega$ \\
+\hline
+$C$ & $10\,\mu\text{F}$ \\
+\hline
+$R_1$ & $1{,}5\,\text{k}\Omega$ \\
+\hline
+$R_2$ & $8{,}2\,\text{k}\Omega$ \\
+\hline
 \end{tabular}
 \end{center}
 
@@ -208,15 +212,19 @@ Par identification avec les relations $K_p = R_2/R_1$ et $T_i = RC$, nous obteno
 \end{equation*}
 
 \begin{center}
-\begin{tabular}{ll}
-    \toprule
-    Composant & Valeur \\
-    \midrule
-    $R$ & $3{,}3\,\text{k}\Omega$ \\
-    $C$ & $3{,}9\,\mu\text{F}$ \\
-    $R_1$ & $1\,\text{k}\Omega$ \\
-    $R_2$ & $6{,}8\,\text{k}\Omega$ \\
-    \bottomrule
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{|l|l|}
+\hline
+Composant & Valeur \\
+\hline
+$R$ & $3{,}3\,\text{k}\Omega$ \\
+\hline
+$C$ & $3{,}9\,\mu\text{F}$ \\
+\hline
+$R_1$ & $1\,\text{k}\Omega$ \\
+\hline
+$R_2$ & $6{,}8\,\text{k}\Omega$ \\
+\hline
 \end{tabular}
 \end{center}
 
@@ -236,16 +244,14 @@ Afin de garantir le respect des contraintes fixées par le cahier des charges, i
 
 Le montage proposé repose sur une architecture de redressement simple alternance permettant d'effectuer un écrêtage asymétrique du signal.
 
+\vspace{0.5cm}
+
 Durant l'alternance positive du signal d'entrée, la diode D se trouve polarisée en direct et devient conductrice. Le courant traverse alors le diviseur résistif constitué des résistances en série ($20\,\text{k}\Omega + 10\,\text{k}\Omega$), générant une chute de tension aux bornes de cet ensemble. Cette tension présente une forme identique à celle de l'alternance positive du signal d'entrée.
-
-Lors de l'alternance négative, la diode D se trouve polarisée en inverse, ce qui se traduit par une impédance interne très élevée. Dans cette configuration, le courant traversant le diviseur résistif devient quasi nul, entraînant une chute de tension négligeable à ses bornes. Le signal de sortie est ainsi écrêté pour les valeurs négatives.
-
-L'amplificateur opérationnel monté en configuration suiveur, placé en sortie du circuit, assure une fonction d'adaptation d'impédance. Il permet de découpler les étages tout en préservant l'intégrité du signal écrêté sans charge supplémentaire sur le montage à diode.
 
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.38\textwidth}
-\vspace{-60pt}
+\vspace{-30pt}
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/Choix_des_composants/Limiteur_Courant.png}
@@ -256,6 +262,11 @@ L'amplificateur opérationnel monté en configuration suiveur, placé en sortie 
 
 \vspace{0.5cm}
 
+Lors de l'alternance négative, la diode D se trouve polarisée en inverse, ce qui se traduit par une impédance interne très élevée. Dans cette configuration, le courant traversant le diviseur résistif devient quasi nul, entraînant une chute de tension négligeable à ses bornes. Le signal de sortie est ainsi écrêté pour les valeurs négatives.
+
+\vspace{0.5cm}
+
+L'amplificateur opérationnel monté en configuration suiveur, placé en sortie du circuit, assure une fonction d'adaptation d'impédance. Il permet de découpler les étages tout en préservant l'intégrité du signal écrêté sans charge supplémentaire sur le montage à diode.
 
 \subsection{Capteur dynamo tachymétrique}
 
@@ -287,7 +298,6 @@ Sur PSIM, nous modélisons le capteur en appliquant le facteur $6/1000$ à la vi
 
 La figure \ref{fig:comparaison_tachy} illustre la comparaison entre les modélisations Simulink avec correcteurs PI idéaux et PSIM avec composants réels (résistances et condensateurs). On observe une excellente concordance entre les deux courbes, sachant que nous avons à nouveau appliqué un facteur $0{,}99$ aux données Simulink. Le graphe confirme que les choix de composants permettent de reproduire les performances théoriques. Les performances dynamiques restent conformes aux spécifications, démontrant que le passage aux composants réels n'altère pas significativement le comportement de l'asservissement.
 
-\newpage
 \subsection{Codeur incrémental}
 
 Le codeur simulé sous PSIM délivre une tension comprise entre $0$ et $1$ V, alors que le codeur réel fournit un signal de $0$ à $15$ V. Pour corriger cette différence d'échelle et obtenir une simulation représentative, un gain de 15 a été ajouté à l'entrée du bloc de calcul de la vitesse de rotation.

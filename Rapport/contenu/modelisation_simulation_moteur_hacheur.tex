@@ -80,7 +80,7 @@ Dans l'environnement Simulink, notre démarche consiste à traduire le système 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/moteur_a_vide/Schéma moteur à vide Simulink.png}
+    \includegraphics[width=0.82\textwidth]{images/moteur_a_vide/Schéma moteur à vide Simulink.png}
     \caption{Schéma Simulink du moteur à courant continu à vide}
     \label{fig:schema_moteur_vide_simulink}
 \end{figure}
@@ -88,7 +88,6 @@ Dans l'environnement Simulink, notre démarche consiste à traduire le système 
 
 On remarque que le schéma Simulink présenté en Figure \ref{fig:schema_moteur_vide_simulink} intègre les équations de la MCC sans charge. Les simulations effectuées avec ce modèle permettent d'obtenir les réponses temporelles du courant et de la vitesse du moteur à vide, illustrées dans la Figure \ref{fig:reponse_moteur}.
 
-\newpage
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.48\textwidth}
@@ -134,13 +133,14 @@ On retrouve bien les valeurs attendues, notamment en vitesse où on a la relatio
 
 Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_vide} montrent une excellente concordance entre les résultats obtenus avec Simulink et PSIM, validant ainsi notre modélisation du moteur à courant continu à vide. Nous pouvons donc passer aux simulations suivantes : le moteur avec des pertes et sa charge.
 
+\newpage
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{images/moteur_a_vide/Comparaison courant induit moteur à vide.png}
+    \includegraphics[width=0.95\textwidth]{images/moteur_a_vide/Comparaison courant induit moteur à vide.png}
     
     \vspace{0.5cm}
     
-    \includegraphics[width=0.85\textwidth]{images/moteur_a_vide/Comparaison vitesse moteur à vide.png}
+    \includegraphics[width=0.95\textwidth]{images/moteur_a_vide/Comparaison vitesse moteur à vide.png}
     \caption{Comparaison des résultats Simulink et PSIM pour le moteur à vide}
     \label{fig:comparaison_resultats_moteur_vide}
 \end{figure}
@@ -249,7 +249,8 @@ De manière analogue à la simulation du moteur à vide, nous utilisons PSIM pou
 \end{figure}
 \figref{Figure \ref{fig:comparaison_resultats_moteur_charge}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/01\_Moteur\_Charge\_Frottement/Comparaison\_Courant\_Moteur\_Charge\_Frottement\_VALIDE\_03\_11\_2025.m}
 
-Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_charge} confirment la validité de notre modélisation avec charge et frottements. On observe une superposition quasi-parfaite des résultats Simulink (marqueurs) et PSIM (ligne continue) sur l'ensemble des grandeurs mesurées. La vitesse atteint un régime permanent à environ $3100$ tr/min, valeur inférieure à celle du moteur à vide ($3609$ tr/min) en raison de la présence de la charge de $10$ $\Omega$, du couple résistant $C_r$ et des frottements visqueux. Le courant d'induit du moteur présente un pic initial caractéristique du démarrage, puis se stabilise à une valeur permanente correspondant à l'équilibre entre le couple moteur et les couples résistifs. Cette concordance valide l'implémentation des pertes mécaniques dans les deux environnements de simulation.
+Les courbes de la Figure \ref{fig:comparaison_resultats_moteur_charge} confirment la validité de notre modélisation avec charge et frottements. On observe une superposition quasi-parfaite des résultats Simulink (marqueurs) et PSIM (ligne continue) sur l'ensemble des grandeurs mesurées. La vitesse atteint un régime permanent à environ $3100$ tr/min, valeur inférieure à celle du moteur à vide ($3609$ tr/min) en raison de la présence de la charge de $10$ $\Omega$, du couple résistant $C_r$ et des frottements visqueux. \\
+Le courant d'induit du moteur présente un pic initial caractéristique du démarrage, puis se stabilise à une valeur permanente correspondant à l'équilibre entre le couple moteur et les couples résistifs. Cette concordance valide l'implémentation des pertes mécaniques dans les deux environnements de simulation.
 
 
 \section{Modélisation de la MCC avec charge et hacheur}
@@ -341,13 +342,6 @@ La tension de sortie moyenne $\langle u_{AB}\rangle$ dépend de la tension de co
     \fill[black] (15,48) circle (3pt);
 \end{tikzpicture}
 \end{minipage}
-
-\vspace{0.3cm}
-\begin{figure}[H]
-\caption{Caractéristique de transfert du hacheur}
-\label{fig:caracteristique_commande}
-\end{figure}
-
 
 \vspace{0.5cm}
 

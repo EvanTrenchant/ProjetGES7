@@ -10,10 +10,8 @@ L'asservissement en courant doit appliquer la consigne déterminée par l'asserv
 
 À l'aide de l'outil PID Tuner de Simulink, nous obtenons un jeu de paramètres qui répondent au cahier des charges pour le correcteur PI :
 \begin{tcolorbox}[colback=conclusioncolor!5!white, colframe=conclusioncolor!75!black, boxrule=0.5pt, arc=2mm]
-    \begin{itemize}
-        \item Gain proportionnel : $K_p = 5{,}053$
-        \item Gain intégral : $K_i = 36 \, 349{,}6$
-    \end{itemize}
+    \centering
+    Gain proportionnel : $K_p = 5{,}053$ - Gain intégral : $K_i = 36 \, 349{,}6$
 \end{tcolorbox}
 
 Il est important de souligner que la notation du correcteur PI diffère entre Simulink et PSIM. Sur PSIM, la valeur du paramètre $\tau$ représente le rapport $\dfrac{K_p}{K_i}$, tandis que sur Simulink, les deux gains sont exprimés directement.
@@ -21,7 +19,7 @@ Il est important de souligner que la notation du correcteur PI diffère entre Si
 % image de l'asservissement en courant Simulink
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/BF_Courant/Schéma_Simulink_Asservissement_Courant.png}
+    \includegraphics[width=0.9\textwidth]{images/BF_Courant/Schéma_Simulink_Asservissement_Courant.png}
     \caption{Schéma complet de l'asservissement en courant du moteur dans Simulink}
     \label{fig:asservissement_courant_simulink}
 \end{figure}
@@ -48,7 +46,6 @@ D'où la correspondance :
     \label{fig:asservissement_courant_psim}
 \end{figure}
 \figref{Figure \ref{fig:asservissement_courant_psim}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/03\_BF\_Courant/BF\_Courant\_VALIDE\_06\_11\_2025.psimsch}
-
 
 \subsection{Comparaison des résultats}
 
