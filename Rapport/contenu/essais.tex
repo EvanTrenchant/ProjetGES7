@@ -6,9 +6,9 @@ Une fois que notre PCB est assemblé et que les connexions avec les connectiques
 \section{Protocole d'essais}
 
 Pour réaliser ces tests, nous avons respecté le même protocole pour les deux parties.
-Premièrement, nous avons uniquement testé le PCB sur plaquette. Cela consiste à injecter des signaux continus aux différentes entrées de la chaîne d'asservissement ou de traitement du signal du codeur incrémental et d'observer les sorties de chaque étage. Une fois ces sorties mesurées, nous pouvons les comparer aux valeurs trouvées en simulation pour les mêmes tests et valider ou non le fonctionnement de notre carte. Pour ces tests, nous avons veillé à court-circuiter les capacités du correcteur proportionnel intégral pour qu'elles ne gênent pas les tests réalisés avec des signaux continus. \\
+Premièrement, nous avons uniquement testé le PCB. Cela consiste à injecter des signaux continus aux différentes entrées de la chaîne d'asservissement ou de traitement du signal du codeur incrémental et d'observer les sorties de chaque étage. Une fois ces sorties mesurées, nous pouvons les comparer aux valeurs trouvées en simulation pour les mêmes tests et valider ou non le fonctionnement de notre carte. Pour ces tests, nous avons veillé à court-circuiter les capacités du correcteur proportionnel intégral pour qu'elles ne gênent pas les tests réalisés avec des signaux continus. \\
 
-Une fois la validation du fonctionnement du PCB effectuée, nous pouvons passer aux tests sur la maquette réelle. Pour ce faire, nous alimentons notre boîtier en -15V/+15V et le hacheur qui alimentera la machine à courant continu en 48V. Nous utilisons un GBF pour appliquer une consigne, et avons choisi un signal carré variant entre -2V et +2V de fréquence 400mHz pour observer un changement de sens de rotation de l'axe de la MCC. En parallèle, nous utilisons un oscilloscope pour observer toutes les mesures qui nous intéressent, dont la consigne envoyée à la carte, la vitesse de rotation du moteur donnée par la dynamo tachymétrique ou le codeur incrémental ainsi que le courant dans le moteur. Ces tests sur la maquette seront validés si la réponse de notre système est stable et si le courant dans le moteur est bien écrêté à une valeur maximale de 5A pour protéger la machine. Si ces critères sont remplis, nous pouvons faire les mesures de l'évolution dans le temps de la vitesse de rotation du moteur ainsi que le courant absorbé par celui-ci. \\
+Une fois la validation du fonctionnement du PCB effectuée, nous pouvons passer aux tests sur la maquette réelle. Pour ce faire, nous alimentons notre boîtier en -15V/+15V et le hacheur qui alimentera la machine à courant continu en 48V. Nous utilisons un GBF pour appliquer une consigne, et avons choisi un signal carré variant entre -2V et +2V de fréquence 400mHz pour observer un changement de sens de rotation de l'axe de la MCC. En parallèle, nous utilisons un oscilloscope pour observer toutes les grandeurs qui nous intéressent, dont la consigne envoyée à la carte, la vitesse de rotation du moteur donnée par la dynamo tachymétrique ou le codeur incrémental ainsi que le courant dans le moteur. Ces tests sur la maquette seront validés si la réponse de notre système est stable et si le courant dans le moteur est bien écrêté à une valeur maximale de 5A pour protéger la machine. Si ces critères sont remplis, nous pouvons faire les mesures de l'évolution dans le temps de la vitesse de rotation du moteur ainsi que le courant absorbé par celui-ci. \\
 
 Finalement, la dernière partie des tests consistera à comparer les valeurs mesurées sur la maquette réelle aux valeurs trouvées en simulation. Cela permettra de comparer les performances voulues en simulation aux performances que nous avons atteintes en réalité. Nous portons une attention particulière au dépassement et au temps de réponse du système. Nous ferons une comparaison entre les valeurs réelles, les valeurs de simulation de Matlab ainsi qu'avec les valeurs données par PSIM.
 
@@ -28,7 +28,7 @@ Après avoir analysé notre montage et avoir refait des simulations, nous nous s
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/Essais/Limteur courant 15_01.png}
+    \includegraphics[width=1\textwidth]{images/Essais/Limteur courant 15_01.png}
     \caption{Modification du placement du limiteur de courant sur le PCB.}
     \label{fig:modif_limiteur}
 \end{figure}
@@ -42,7 +42,7 @@ Une fois ces problèmes réglés, nous avons pu réaliser des tests complets sur
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Courant_Tachy.png}
+    \includegraphics[width=1\textwidth]{images/Essais/Graphe_Comparaison_Courant_Tachy.png}
     \caption{Comparaison des réponses en courant.}
     \label{fig:comp_courant}
 \end{figure}
@@ -55,13 +55,14 @@ Pour ce qui est de l'asservissement en vitesse, nous obtenons cette comparaison 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Vitesse_Tachy.png}
+    \includegraphics[width=1\textwidth]{images/Essais/Graphe_Comparaison_Vitesse_Tachy.png}
     \caption{Comparaison des réponses en vitesse.}
     \label{fig:comp_vitesse}
 \end{figure}
 \figref{Figure \ref{fig:comp_vitesse}}{Modélisation\_Finale\_VALIDE\_13\_01\_2026/08\_Test\_\&\_Comparaison\_Maquette/Tachy/Comparaison Simu/Comparaison\_maquette\_simu\_Tachy.m}
 
-On remarque encore que les trois courbes sont très proches les unes des autres, ce qui confirme que notre dimensionnement répond bien aux exigences que nous voulions. Nous avons également réalisé les mesures du temps de réponse et de dépassement à l'oscilloscope pour récupérer les performances de notre carte :
+On remarque encore que les trois courbes sont très proches les unes des autres, ce qui confirme que notre dimensionnement répond bien aux exigences que nous voulions. \\
+Nous avons également réalisé les mesures du temps de réponse et de dépassement à l'oscilloscope pour récupérer les performances de notre carte :
 
 \begin{figure}[H]
     \centering
@@ -111,7 +112,7 @@ N'ayant pas rencontré de problème lors des tests, nous avons pu réaliser les 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Courant_Codeur.png}
+    \includegraphics[width=1\textwidth]{images/Essais/Graphe_Comparaison_Courant_Codeur.png}
     \caption{Comparaison des réponses en courant avec le codeur incrémental.}
     \label{fig:perf_codeur_courant}
 \end{figure}
@@ -119,7 +120,7 @@ N'ayant pas rencontré de problème lors des tests, nous avons pu réaliser les 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/Essais/Graphe_Comparaison_Vitesse_Codeur.png}
+    \includegraphics[width=1\textwidth]{images/Essais/Graphe_Comparaison_Vitesse_Codeur.png}
     \caption{Comparaison des réponses en vitesse avec le codeur incrémental.}
     \label{fig:perf_codeur_vitesse}
 \end{figure}
